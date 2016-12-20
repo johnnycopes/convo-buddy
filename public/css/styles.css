@@ -37,17 +37,32 @@ header, main, footer {
   padding: 0 2.5rem; }
 
 main {
-  height: 80%; }
+  height: 80%;
+  position: relative; }
+
+a {
+  color: #CF5C36; }
+
+.logo h2 {
+  font-weight: 700;
+  padding: 0.4rem 1rem;
+  color: #CF5C36; }
 
 .convo-question {
   max-width: 600px;
   padding-bottom: 1rem; }
 
-.logo h3 {
-  font-weight: 500;
-  padding: 0.4rem 1rem;
-  border: 5px solid #CF5C36;
-  color: #CF5C36; }
+.buttons {
+  position: absolute;
+  padding-bottom: 3rem;
+  width: 60%; }
+  .buttons button {
+    padding: 1rem;
+    font-size: 3rem; }
+  .buttons .prev-btn {
+    float: left; }
+  .buttons .next-btn {
+    float: right; }
 
 .flex-center {
   display: flex;

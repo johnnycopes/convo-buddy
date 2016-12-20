@@ -7,6 +7,8 @@ const app = angular.module('convo-buddy', ['ui.router']);
 app.factory('api', function($http, $state) {
   let service = {};
 
+
+
   return service;
 });
 
@@ -20,7 +22,8 @@ app.config(($stateProvider, $urlRouterProvider) => {
     .state({
       name: 'main',
       url: '/',
-      templateUrl: '/templates/main.html'
+      templateUrl: '/templates/main.html',
+      controller: 'MainController'
     });
     $urlRouterProvider.otherwise('/');
 });

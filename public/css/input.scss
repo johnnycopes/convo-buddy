@@ -7,7 +7,8 @@
 
 $bg-color: #0F0F0F;
 $font-color: #FFF;
-$action-color: #9CCECC;
+$action-color: #CF5C36;
+$link-color: #EFC88B;
 
 
 // === TAGS ===
@@ -58,23 +59,52 @@ header, main, footer {
 
 main {
   height: 80%;
+  position: relative;
+}
+
+a {
+  color: $action-color;
 }
 
 
-
 // === SPECIFIC STYLES ===
+
+.logo h2 {
+  font-weight: 700;
+  padding: 0.4rem 1rem;
+  // border: 4px solid #CF5C36;
+  color: #CF5C36;
+}
 
 .convo-question {
   max-width: 600px;
   padding-bottom: 1rem;
 }
 
-.logo h3 {
-  font-weight: 500;
-  padding: 0.4rem 1rem;
-  border: 5px solid #CF5C36;
-  color: #CF5C36;
+.buttons {
+  position: absolute;
+  padding-bottom: 3rem;
+  width: 60%;
+
+  button {
+    padding: 1rem;
+    font-size: 3rem;
+  }
+
+  .prev-btn {
+    float: left;
+  }
+
+  .next-btn {
+    float: right;
+  }
+
 }
+
+
+
+
+
 
 
 
