@@ -1,50 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="convo-buddy">
 
 <head>
     <meta charset="utf-8">
     <title>Convo Buddy</title>
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
     <link rel="stylesheet" href="normalize.css/normalize.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-    <div class="container">
-        <header>
-            <div class="about">
-                <a href="#">What is this?</a>
-            </div>
-            <div class="logo">
-                <h4>Convo Buddy</h4>
-            </div>
-            <div class="lists">
-                <a href="#">Categories/Questions</a>
-            </div>
-        </header>
-        <main>
-            <div class="convo-question">
-                <p></p>
-            </div>
-        </main>
-        <footer>
-            <div class="user-access">
-                <a href="#">Log In</a>
-                <a href="#">Sign Up</a>
-            </div>
-            <div class="submit">
-                <button type="button" name="button">Submit a question</button>
-            </div>
-            <div class="credits">
-                <a href="#">made by johnnycopes</a>
-            </div>
-        </footer>
-    </div>
 
-
+    <!-- <main ui-view></main>-->
+    <ui-view></ui-view>
 
     <!-- JS -->
     <script src="angular/angular.min.js" charset="utf-8"></script>
-    <script src="angular-ui-router/angular-ui-router.min.js" charset="utf-8"></script>
+    <script src="angular-ui-router/release/angular-ui-router.min.js" charset="utf-8"></script>
     <script src="js/app.js" charset="utf-8"></script>
 </body>
 

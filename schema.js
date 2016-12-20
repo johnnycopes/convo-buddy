@@ -1,3 +1,7 @@
+// ========================
+// DATABASE SETUP
+// ========================
+
 const mongoose = require('mongoose');
 
 const ObjectId = mongoose.mongo.ObjectId;

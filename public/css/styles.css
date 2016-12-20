@@ -1,29 +1,58 @@
 * {
   box-sizing: border-box; }
 
+h1, h2, h3, h4 {
+  margin: 0;
+  font-weight: 300; }
+
+h1 {
+  font-size: 2.074rem; }
+
+h2 {
+  font-size: 1.728rem; }
+
+h3 {
+  font-size: 1.44rem; }
+
+h4 {
+  font-size: 1.2rem; }
+
+body {
+  background-image: url("../img/logo.svg");
+  background-size: 100vh;
+  background-repeat: no-repeat;
+  background-position: center top;
+  font-family: 'Rubik', sans-serif;
+  line-height: 1.5; }
+
 html, body, .container {
   height: 100%; }
 
 header, footer {
-  height: 15%;
+  height: 10%;
   display: flex;
   justify-content: space-between; }
 
-main {
-  height: 70%; }
+header, main, footer {
+  padding: 0 2.5rem; }
 
-.about,
-.logo,
-.lists,
-.user-access,
-.submit,
-.credits {
+main {
+  height: 80%; }
+
+.convo-question {
+  max-width: 600px;
+  padding-bottom: 1rem; }
+
+.logo h3 {
+  font-weight: 500;
+  padding: 0.4rem 1rem;
+  border: 5px solid #CF5C36;
+  color: #CF5C36; }
+
+.flex-center {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 0 3rem; }
-
-header, main, footer {
-  border: 1px solid #0F0F0F; }
+  align-items: center;
+  justify-content: center; }
 
 /*# sourceMappingURL=styles.css.map */
