@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box; }
+
+html, body, .container {
+  height: 100%; }
+
+header, footer {
+  height: 15%;
+  display: flex;
+  justify-content: space-between; }
+
+main {
+  height: 70%; }
+
+.about,
+.logo,
+.lists,
+.user-access,
+.submit,
+.credits {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 3rem; }
+
+header, main, footer {
+  border: 1px solid #0F0F0F; }
+
+/*# sourceMappingURL=styles.css.map */
