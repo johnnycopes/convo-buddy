@@ -1,21 +1,19 @@
 <div class="container">
     <header>
-        <div class="about flex-center">
+        <div class="about vert-center">
             <a href="#">what is this?</a>
         </div>
-        <div class="logo flex-center">
+        <div class="logo vert-center tac">
             <h2>convo buddy</h2>
         </div>
-        <div class="lists flex-center">
+        <div class="lists vert-center tar">
             <a href="#">categories/questions</a>
         </div>
     </header>
-    <main class="flex-center">
+    <main class="vert-center hor-center">
         <div class="convo-question">
             <h1>{{questions[index].text}}</h1>
-        </div>
-        <div class="categories">
-            <ul>
+            <ul class="categories cf">
                 <li class="category" ng-repeat="category in questions[index].categories">{{category.name}}</li>
             </ul>
         </div>
@@ -25,14 +23,14 @@
         </div>
     </main>
     <footer>
-        <div class="user-access flex-center">
+        <div class="user-access vert-center">
             <a href="#">log in</a>
             <a href="#">sign up</a>
         </div>
-        <div class="submit flex-center">
+        <div class="submit vert-center tac">
             <button type="button" name="button">submit a question</button>
         </div>
-        <div class="credits flex-center">
+        <div class="credits vert-center tar">
             <a href="#">made by johnnycopes</a>
         </div>
     </footer>
