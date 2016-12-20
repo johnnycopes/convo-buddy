@@ -12,14 +12,17 @@
     </header>
     <main class="flex-center">
         <div class="convo-question">
-            <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec lacus luctus, consectetur ipsum vitae, efficitur nulla. Donec rhoncus massa et tempus tincidunt.</h1>
-            <p>- category tag</p>
+            <h1>{{questions[index].text}}</h1>
+        </div>
+        <div class="categories">
+            <ul>
+                <li class="category" ng-repeat="category in questions[index].categories">{{category.name}}</li>
+            </ul>
         </div>
         <div class="buttons">
-            <button type="button" class="prev-btn">←</button>
-            <button type="button" class="next-btn">→</button>
+            <button type="button" class="prev-btn" ng-click="prevQuestion()">←</button>
+            <button type="button" class="next-btn" ng-click="nextQuestion()">→</button>
         </div>
-
     </main>
     <footer>
         <div class="user-access flex-center">

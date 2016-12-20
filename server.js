@@ -33,9 +33,17 @@ app.use(bodyParser.json());
 // ROUTES
 // ========================
 
-// app.state({
-//   name: ''
-// })
+app.get('/api/getQuestions', (req, res) => {
+  Question.find({})
+    .then((questions) => {
+      console.log('succeeded');
+      res.json({questions});
+    })
+    .catch((err) => {
+      console.log('failed');
+      res.status('401').json({error: err.message})
+    });
+});
 
 
 

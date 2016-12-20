@@ -40,6 +40,15 @@ main {
   height: 80%;
   position: relative; }
 
+ul {
+  padding: 0;
+  list-style: none;
+  text-align: right; }
+
+li {
+  float: right;
+  padding: 0 1rem; }
+
 a {
   color: #CF5C36; }
 
@@ -63,6 +72,10 @@ a {
     float: left; }
   .buttons .next-btn {
     float: right; }
+
+.categories {
+  max-width: 600px;
+  width: 100%; }
 
 .flex-center {
   display: flex;
