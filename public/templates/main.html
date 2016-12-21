@@ -9,11 +9,13 @@
             </a>
         </div>
         <div class="lists vert-center tar">
-            <a ui-sref="content">categories/questions</a>
+            <a ui-sref="questions">questions</a>
+            <a ui-sref="categories">categories</a>
         </div>
     </header>
     <main class="vert-center hor-center">
         <div class="convo-question">
+            <h4>{{index + 1}} / {{questions.length}}</h4>
             <h1>{{questions[index].text}}</h1>
             <ul class="tags cf">
                 <li class="category" ng-repeat="category in questions[index].categories">{{category.name}}</li>

@@ -105,6 +105,10 @@ ul.tags {
 .selected {
   background: #EFC88B; }
 
+.tabs .category {
+  margin: 1rem 0;
+  background: #EFC88B; }
+
 .tal {
   text-align: left; }
 

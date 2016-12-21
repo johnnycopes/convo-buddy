@@ -45,7 +45,7 @@ app.factory('api', function($cookies, $http, $state) {
 // CONTROLLERS
 // ========================
 
-app.controller('ContentController', function(api, $cookies, $scope, $state) {
+app.controller('CategoriesController', function(api, $cookies, $scope, $state) {
   api.getCategories()
     .then((results) => {
       $scope.categories = results.data.categories;
@@ -79,6 +79,7 @@ app.controller('ContentController', function(api, $cookies, $scope, $state) {
     $state.go('main');
   };
 });
+
 
 app.controller('MainController', function(api, $cookies, $scope, $state, $stateParams) {
   $scope.questions = [];
@@ -119,6 +120,44 @@ app.controller('MainController', function(api, $cookies, $scope, $state, $stateP
 });
 
 
+app.controller('QuestionsController', function(api, $cookies, $scope, $state) {
+  let data = { categories: [] };
+
+  $scope.content = {};
+
+  api.getCategories()
+    .then((results) => {
+      results.data.categories.forEach((category) => {
+        let categoryName = category.name
+        $scope.content[categoryName] = [];
+      });
+    })
+    .catch((err) => {
+      console.error('Error retreiving categories');
+      console.log(err.message);
+    });
+
+  api.getQuestions(data)
+    .then((results) => {
+      results.data.questions.forEach((question) => {
+        question.categories.forEach((category) => {
+          if ($scope.content[category.name]) {
+            $scope.content[category.name].push(question.text);
+          }
+        });
+      });
+      console.log($scope.content);
+    })
+    .catch((err) => {
+      console.error('Error retreiving questions');
+      console.log(err.message);
+    });
+
+
+
+
+});
+
 
 // ========================
 // STATES
@@ -127,16 +166,23 @@ app.controller('MainController', function(api, $cookies, $scope, $state, $stateP
 app.config(($stateProvider, $urlRouterProvider) => {
   $stateProvider
     .state({
+      name: 'categories',
+      url: '/categories',
+      templateUrl: '/templates/categories.html',
+      controller: 'CategoriesController'
+    })
+    .state({
       name: 'main',
       url: '/',
       templateUrl: '/templates/main.html',
       controller: 'MainController'
     })
     .state({
-      name: 'content',
-      url: '/content',
-      templateUrl: '/templates/content.html',
-      controller: 'ContentController'
-    });
+      name: 'questions',
+      url: '/questions',
+      templateUrl: '/templates/questions.html',
+      controller: 'QuestionsController'
+    })
+    ;
     $urlRouterProvider.otherwise('/');
 });

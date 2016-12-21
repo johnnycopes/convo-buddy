@@ -134,7 +134,7 @@ ul.tags {
 }
 
 
-// --- CONTENT PAGE ---
+// --- CATEGORIES PAGE ---
 
 .content {
   li {
@@ -153,9 +153,18 @@ ul.tags {
 }
 
 .selected {
-  background: #EFC88B;
+  background: $link-color;
 }
 
+
+// --- QUESTIONS PAGE ---
+
+.tabs {
+  .category {
+    margin: 1rem 0;
+    background: $link-color;
+  }
+}
 
 
 // === UTILITY CLASSES ===

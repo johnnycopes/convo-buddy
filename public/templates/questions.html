@@ -1,0 +1,25 @@
+<div class="container">
+    <header>
+        <div class="about vert-center">
+        </div>
+        <div class="logo vert-center tac">
+            <a ui-sref="main">
+                <h2>convo buddy</h2>
+            </a>
+        </div>
+        <div class="lists vert-center tar">
+        </div>
+    </header>
+    <div class="tabs">
+        <ul>
+            <li ng-repeat="(category, questions) in content">
+                <h4 class="category">{{category}}</h4>
+                <ul>
+                    <li class="question" ng-repeat="question in questions">
+                        <h4>{{question}}</h4>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
