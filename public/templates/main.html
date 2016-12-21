@@ -19,9 +19,9 @@
                 <li class="category" ng-repeat="category in questions[index].categories">{{category.name}}</li>
             </ul>
         </div>
-        <div class="buttons">
-            <button type="button" class="prev-btn" ng-click="prevQuestion()">←</button>
-            <button type="button" class="next-btn" ng-click="nextQuestion()">→</button>
+        <div class="question-btns">
+            <button class="prev-btn fl" ng-click="prevQuestion()">←</button>
+            <button class="next-btn fr" ng-click="nextQuestion()">→</button>
         </div>
     </main>
     <footer>

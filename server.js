@@ -37,7 +37,10 @@ app.get('/api/getQuestions', (req, res) => {
   let data = req.query;
   data.categories = JSON.parse(data.categories);
   // if searching for questions from specific categories
-  if (data.search === true) {
+  console.log(data);
+  console.log(data.search);
+  if (data.search) {
+    console.log('hit the "if" block (specific search)');
     let categories = [];
     let counter = 0;
     while (counter < data.categories.length) {
@@ -55,8 +58,9 @@ app.get('/api/getQuestions', (req, res) => {
         console.log(err.message);
       });
   }
-  // else, pull all questions from the db
+  // if searching for all questions
   else {
+    console.log('hit the "else" block (general search)');
     Question.find({})
       .then((questions) => {
         res.json({questions});

@@ -77,23 +77,21 @@ app.controller('ContentController', function(api, $scope, $state) {
     };
     api.getQuestions(data)
       .then((results) => {
-        $state.go('main', {sentData: results});
+        console.log(results.data);
       })
       .catch((err) => {
-        console.error('Error retreiving categories');
-        console.log(err);
+        console.error('Error retreiving questions');
+        console.log(err.errors);
       });
   };
 });
 
 app.controller('MainController', function(api, $scope, $state, $stateParams) {
-  console.log($stateParams.sentData);
   $scope.questions = [];
   $scope.index = 0;
   let data = {
-    categories: [],
-    search: false
-  }
+    categories: []
+  };
   api.getQuestions(data)
     .then((results) => {
       results.data.questions.forEach((question) => {
