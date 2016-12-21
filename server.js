@@ -35,10 +35,10 @@ app.use(bodyParser.json());
 // ========================
 
 app.get('/api/getQuestions', (req, res) => {
-  let data = req.query;
-  data.categories = JSON.parse(data.categories);
   let query = {};
-  if (data.isCustomSearch) {
+  let data = req.query;
+  if (data.categories) {
+    data.categories = JSON.parse(data.categories);
     console.log('hit the "if" block (specific search)');
     query = {
       'categories.name': {

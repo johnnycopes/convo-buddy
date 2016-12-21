@@ -38,6 +38,8 @@ h4 { font-size: 1.2rem}
 
 .container {
   padding: 0 2.5rem;
+  max-width: 2000px;
+  max-height: 1000px;
 }
 
 
@@ -83,7 +85,16 @@ a {
 
 .convo-question {
   width: 600px;
-  padding-bottom: 1rem;
+  height: 400px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  h1 {
+    margin-bottom: 2rem;
+
+  }
 }
 
 .categories {
@@ -105,19 +116,33 @@ a {
    background-position: center top;
 }
 
-.test{
-  fill: red !important;
+.showing {
+  h4, ul, li {
+    display: inline-block;
+  }
+
+  li {
+    display: inline-block;
+    padding: 0.3rem 1.5rem;
+    border: 1px solid $bg-color;
+    margin-right: 10px;
+    // font-style: italic;
+    font-weight: 300;
+    border-radius: 10px;
+  }
+
 }
 
 ul.tags {
-  margin: 3rem 0 0 0;
-  text-align: right;
+  margin: 0.5rem 0;
 
   li {
-    float: right;
-    margin-left: 10px;
-    padding: 0.3rem 1.5rem;
-    border: 1px solid $bg-color;
+    display: inline-block;
+    margin-left: 1rem;
+    // padding: 0.3rem 1.5rem;
+    // border: 1px solid $bg-color;
+    // font-style: italic;
+    font-weight: 300;
     border-radius: 10px;
   }
 }
@@ -125,7 +150,8 @@ ul.tags {
 .question-btns {
   position: absolute;
   padding-bottom: 3rem;
-  width: 60%;
+  min-width: 900px;
+  width: 65%;
 
   button {
     padding: 1rem;
@@ -173,9 +199,6 @@ ul.tags {
 .tac { text-align: center; }
 .tar { text-align: right; }
 
-.fl { float: left; }
-.fr { float: right; }
-
 .vert-center {
   display: flex;
   flex-direction: column;
@@ -185,6 +208,9 @@ ul.tags {
 .hor-center {
   align-items: center;
 }
+
+.fl { float: left; }
+.fr { float: right; }
 
 .cf::after {
   content: "";

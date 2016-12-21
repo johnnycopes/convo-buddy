@@ -27,12 +27,13 @@ app.factory('api', function($cookies, $http, $state) {
 
   service.getQuestions = function(data) {
     let url = '/api/getQuestions';
+    let params = {};
+    if (data) {
+      params.categories = JSON.stringify(data.categories);
+    }
     return $http({
       method: 'GET',
-      params: {
-        categories: JSON.stringify(data.categories),
-        isCustomSearch: data.isCustomSearch
-      },
+      params,
       url
     });
   };
@@ -72,8 +73,7 @@ app.controller('CategoriesController', function(api, $cookies, $scope, $state) {
       }
     });
     let data = {
-      categories,
-      isCustomSearch: true
+      categories
     };
     $cookies.putObject('customSearchData', data);
     $state.go('main');
@@ -82,18 +82,23 @@ app.controller('CategoriesController', function(api, $cookies, $scope, $state) {
 
 
 app.controller('MainController', function(api, $cookies, $scope, $state, $stateParams) {
-  $scope.questions = [];
-  $scope.index = 0;
-
   // If custom search has been called, pass that data into getQuestions(), otherwise pass nothing in to pull all questions from the db
   let cookie = $cookies.getObject('customSearchData');
   let data;
   if (cookie) {
     data = cookie;
+    $scope.searchCategories = cookie.categories;
   }
   else {
-    data = { categories: [] };
+    data = null;
+    $scope.searchCategories = null;
   }
+
+  $scope.questions = [];
+  $scope.index = 0;
+  // $scope.searchCategories = ['future tense', 'past tense', 'hypothetical'];
+  // $scope.searchCategories = "";
+  console.log(cookie);
 
   api.getQuestions(data)
     .then((results) => {
@@ -117,11 +122,15 @@ app.controller('MainController', function(api, $cookies, $scope, $state, $stateP
       $scope.index++;
     }
   };
+  $scope.resetSearch = function() {
+    $cookies.remove('customSearchData');
+    $state.go($state.current, {}, {reload: true});
+  };
 });
 
 
 app.controller('QuestionsController', function(api, $cookies, $scope, $state) {
-  let data = { categories: [] };
+  // let data = { categories: [] };
 
   $scope.content = {};
 
@@ -137,7 +146,7 @@ app.controller('QuestionsController', function(api, $cookies, $scope, $state) {
       console.log(err.message);
     });
 
-  api.getQuestions(data)
+  api.getQuestions()
     .then((results) => {
       results.data.questions.forEach((question) => {
         question.categories.forEach((category) => {
