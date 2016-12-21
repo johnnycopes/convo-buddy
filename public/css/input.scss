@@ -17,16 +17,6 @@ $link-color: #EFC88B;
   box-sizing: border-box;
 }
 
-// body::before {
-//   content: "";
-//   position: fixed;
-//   width: 100%;
-//   height: 100%;
-//   top: 0;
-//   left: 0;
-//
-// }
-
 h1, h2, h3, h4 { margin: 0; font-weight: 300; }
 h1 { font-size: 2.074rem}
 h2 { font-size: 1.728rem}
@@ -34,12 +24,15 @@ h3 { font-size: 1.44rem}
 h4 { font-size: 1.2rem}
 
 body {
+  font-family: 'Rubik', sans-serif;
+  line-height: 1.5;
+}
+
+.bg-img {
   background-image: url('../img/logo.svg');
   background-size: 100vh;
   background-repeat: no-repeat;
   background-position: center top;
-  font-family: 'Rubik', sans-serif;
-  line-height: 1.5;
 }
 
 html, body, .container {
@@ -68,19 +61,10 @@ main {
 }
 
 ul {
-  margin: 3rem 0 0 0;
   padding: 0;
   list-style: none;
-  text-align: right;
 }
 
-li {
-  float: right;
-  margin-left: 10px;
-  padding: 0.3rem 1.5rem;
-  border: 1px solid $bg-color;
-  border-radius: 10px;
-}
 
 a {
   color: $action-color;
@@ -121,18 +105,51 @@ a {
 
 }
 
+ul.tags {
+  margin: 3rem 0 0 0;
+  text-align: right;
+
+  li {
+    float: right;
+    margin-left: 10px;
+    padding: 0.3rem 1.5rem;
+    border: 1px solid $bg-color;
+    border-radius: 10px;
+  }
+}
+
 .categories {
   max-width: 600px;
   width: 100%;
 }
 
 
-.submit button {
+.btn {
   margin: 0 auto;
   width: 200px;
 }
 
+// --- CONTENT PAGE ---
 
+.content {
+  li {
+    width: 300px;
+    height: 300px;
+    display: inline-block;
+    position: relative;
+  }
+
+  h4 {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+  }
+}
+
+.selected {
+  background: #EFC88B;
+}
 
 
 

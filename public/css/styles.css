@@ -18,12 +18,14 @@ h4 {
   font-size: 1.2rem; }
 
 body {
+  font-family: 'Rubik', sans-serif;
+  line-height: 1.5; }
+
+.bg-img {
   background-image: url("../img/logo.svg");
   background-size: 100vh;
   background-repeat: no-repeat;
-  background-position: center top;
-  font-family: 'Rubik', sans-serif;
-  line-height: 1.5; }
+  background-position: center top; }
 
 html, body, .container {
   height: 100%; }
@@ -45,17 +47,8 @@ main {
   position: relative; }
 
 ul {
-  margin: 3rem 0 0 0;
   padding: 0;
-  list-style: none;
-  text-align: right; }
-
-li {
-  float: right;
-  margin-left: 10px;
-  padding: 0.3rem 1.5rem;
-  border: 1px solid #0F0F0F;
-  border-radius: 10px; }
+  list-style: none; }
 
 a {
   color: #CF5C36; }
@@ -81,13 +74,37 @@ a {
   .buttons .next-btn {
     float: right; }
 
+ul.tags {
+  margin: 3rem 0 0 0;
+  text-align: right; }
+  ul.tags li {
+    float: right;
+    margin-left: 10px;
+    padding: 0.3rem 1.5rem;
+    border: 1px solid #0F0F0F;
+    border-radius: 10px; }
+
 .categories {
   max-width: 600px;
   width: 100%; }
 
-.submit button {
+.btn {
   margin: 0 auto;
   width: 200px; }
+
+.content li {
+  width: 300px;
+  height: 300px;
+  display: inline-block;
+  position: relative; }
+.content h4 {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%; }
+
+.selected {
+  background: #EFC88B; }
 
 .tal {
   text-align: left; }

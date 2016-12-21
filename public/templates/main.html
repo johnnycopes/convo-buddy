@@ -1,19 +1,21 @@
-<div class="container">
+<div class="container bg-img">
     <header>
         <div class="about vert-center">
             <a href="#">what is this?</a>
         </div>
         <div class="logo vert-center tac">
-            <h2>convo buddy</h2>
+            <a ui-sref="main">
+                <h2>convo buddy</h2>
+            </a>
         </div>
         <div class="lists vert-center tar">
-            <a href="#">categories/questions</a>
+            <a ui-sref="content">categories/questions</a>
         </div>
     </header>
     <main class="vert-center hor-center">
         <div class="convo-question">
             <h1>{{questions[index].text}}</h1>
-            <ul class="categories cf">
+            <ul class="tags cf">
                 <li class="category" ng-repeat="category in questions[index].categories">{{category.name}}</li>
             </ul>
         </div>
@@ -28,7 +30,7 @@
             <a href="#">sign up</a>
         </div>
         <div class="submit vert-center tac">
-            <button type="button" name="button">submit a question</button>
+            <button type="button" class="btn">submit a question</button>
         </div>
         <div class="credits vert-center tar">
             <a href="#">made by johnnycopes</a>

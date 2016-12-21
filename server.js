@@ -34,17 +34,52 @@ app.use(bodyParser.json());
 // ========================
 
 app.get('/api/getQuestions', (req, res) => {
-  Question.find({})
-    .then((questions) => {
+  let data = req.query;
+  data.categories = JSON.parse(data.categories);
+  // if searching for questions from specific categories
+  if (data.search === true) {
+    let categories = [];
+    let counter = 0;
+    while (counter < data.categories.length) {
+      categories.push({ 'categories.name': data.categories[counter] });
+      counter++;
+    }
+    Question.find({
+        $and: categories
+    })
+      .then((questions) => {
+        res.json({questions});
+      })
+      .catch((err) => {
+        console.log('failed');
+        console.log(err.message);
+      });
+  }
+  // else, pull all questions from the db
+  else {
+    Question.find({})
+      .then((questions) => {
+        res.json({questions});
+      })
+      .catch((err) => {
+        console.log('failed');
+        res.status('401').json({error: err.message})
+      });
+  }
+});
+
+
+app.get('/api/getCategories', (req, res) => {
+  Category.find({})
+    .then((categories) => {
       console.log('succeeded');
-      res.json({questions});
+      res.json({categories});
     })
     .catch((err) => {
       console.log('failed');
       res.status('401').json({error: err.message})
     });
 });
-
 
 
 
