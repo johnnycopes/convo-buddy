@@ -22,8 +22,9 @@ const Token = schema.Token;
 mongoose.Promise = bluebird;
 mongoose.connect('mongodb://localhost/convo_buddy');
 
-// When true, prints out every command sent to db in MongoDB format
+// While true, prints out every command sent to db in MongoDB format
 mongoose.set('debug', true);
+
 app.use(express.static('public'));
 app.use(express.static('node_modules'));
 app.use(bodyParser.json());
@@ -36,40 +37,23 @@ app.use(bodyParser.json());
 app.get('/api/getQuestions', (req, res) => {
   let data = req.query;
   data.categories = JSON.parse(data.categories);
-  // if searching for questions from specific categories
-  console.log(data);
-  console.log(data.search);
-  if (data.search) {
+  let query = {};
+  if (data.isCustomSearch) {
     console.log('hit the "if" block (specific search)');
-    let categories = [];
-    let counter = 0;
-    while (counter < data.categories.length) {
-      categories.push({ 'categories.name': data.categories[counter] });
-      counter++;
-    }
-    Question.find({
-        $and: categories
+    query = {
+      'categories.name': {
+        $in: data.categories
+      }
+    };
+  }
+  Question.find(query)
+    .then((questions) => {
+      res.json({questions});
     })
-      .then((questions) => {
-        res.json({questions});
-      })
-      .catch((err) => {
-        console.log('failed');
-        console.log(err.message);
-      });
-  }
-  // if searching for all questions
-  else {
-    console.log('hit the "else" block (general search)');
-    Question.find({})
-      .then((questions) => {
-        res.json({questions});
-      })
-      .catch((err) => {
-        console.log('failed');
-        res.status('401').json({error: err.message})
-      });
-  }
+    .catch((err) => {
+      console.log('failed');
+      res.status('401').json({error: err.message})
+    });
 });
 
 

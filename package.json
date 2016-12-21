@@ -5,6 +5,7 @@
   "main": "server.js",
   "dependencies": {
     "angular": "^1.6.0",
+    "angular-cookies": "^1.6.0",
     "angular-ui-router": "^0.3.2",
     "bluebird": "^3.4.6",
     "body-parser": "^1.15.2",

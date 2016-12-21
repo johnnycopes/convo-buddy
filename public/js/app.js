@@ -1,4 +1,4 @@
-const app = angular.module('convo-buddy', ['ui.router']);
+const app = angular.module('convo-buddy', ['ngCookies', 'ui.router']);
 
 function shuffle(array) {
   for (var i = array.length - 1; i > 0; i--) {
@@ -14,7 +14,7 @@ function shuffle(array) {
 // FACTORY
 // ========================
 
-app.factory('api', function($http, $state) {
+app.factory('api', function($cookies, $http, $state) {
   let service = {};
 
   service.getCategories = function() {
@@ -31,7 +31,7 @@ app.factory('api', function($http, $state) {
       method: 'GET',
       params: {
         categories: JSON.stringify(data.categories),
-        search: data.search
+        isCustomSearch: data.isCustomSearch
       },
       url
     });
@@ -45,7 +45,7 @@ app.factory('api', function($http, $state) {
 // CONTROLLERS
 // ========================
 
-app.controller('ContentController', function(api, $scope, $state) {
+app.controller('ContentController', function(api, $cookies, $scope, $state) {
   api.getCategories()
     .then((results) => {
       $scope.categories = results.data.categories;
@@ -73,25 +73,27 @@ app.controller('ContentController', function(api, $scope, $state) {
     });
     let data = {
       categories,
-      search: true
+      isCustomSearch: true
     };
-    api.getQuestions(data)
-      .then((results) => {
-        console.log(results.data);
-      })
-      .catch((err) => {
-        console.error('Error retreiving questions');
-        console.log(err.errors);
-      });
+    $cookies.putObject('customSearchData', data);
+    $state.go('main');
   };
 });
 
-app.controller('MainController', function(api, $scope, $state, $stateParams) {
+app.controller('MainController', function(api, $cookies, $scope, $state, $stateParams) {
   $scope.questions = [];
   $scope.index = 0;
-  let data = {
-    categories: []
-  };
+
+  // If custom search has been called, pass that data into getQuestions(), otherwise pass nothing in to pull all questions from the db
+  let cookie = $cookies.getObject('customSearchData');
+  let data;
+  if (cookie) {
+    data = cookie;
+  }
+  else {
+    data = { categories: [] };
+  }
+
   api.getQuestions(data)
     .then((results) => {
       results.data.questions.forEach((question) => {
@@ -105,10 +107,14 @@ app.controller('MainController', function(api, $scope, $state, $stateParams) {
     });
 
   $scope.prevQuestion = function() {
-    $scope.index--;
+    if ($scope.index > 0) {
+      $scope.index--;
+    }
   };
   $scope.nextQuestion = function() {
-    $scope.index++;
+    if ($scope.index < $scope.questions.length - 1) {
+      $scope.index++;
+    }
   };
 });
 
