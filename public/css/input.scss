@@ -17,8 +17,9 @@ $link-color: #EFC88B;
   box-sizing: border-box;
 }
 
-html, body, .container {
+html, body, .ui, .container {
   height: 100%;
+  width: 100%;
 }
 
 body {
@@ -26,15 +27,15 @@ body {
   line-height: 1.5;
 }
 
-// .test {
-//   background: red !important;
-// }
-
 h1, h2, h3, h4 { margin: 0; font-weight: 300; }
 h1 { font-size: 2.074rem}
 h2 { font-size: 1.728rem}
 h3 { font-size: 1.44rem}
 h4 { font-size: 1.2rem}
+
+.ui {
+  position: absolute;
+}
 
 .container {
   padding: 0 2.5rem;
@@ -48,10 +49,6 @@ header, footer {
   height: 10%;
   display: flex;
   justify-content: space-between;
-}
-
-header, main, footer {
-  // padding: 0 2.5rem;
 }
 
 header div,
@@ -79,8 +76,6 @@ a {
 .logo h2 {
   font-weight: 700;
   padding: 0.4rem 1rem;
-  // border: 4px solid $action-color;
-  color: $action-color;
 }
 
 .convo-question {
@@ -116,22 +111,54 @@ a {
    background-position: center top;
 }
 
-.showing {
-  h4, ul, li {
-    display: inline-block;
-  }
+.question {
+  // position: relative;
+  height: 100%;
 
-  li {
-    display: inline-block;
-    padding: 0.3rem 1.5rem;
-    border: 1px solid $bg-color;
-    margin-right: 10px;
-    // font-style: italic;
-    font-weight: 300;
-    border-radius: 10px;
+  h1 {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
   }
-
 }
+
+
+
+.ui { transition: 250ms ease-in-out; }
+
+.ui.ng-enter { opacity: 0; }
+.ui.ng-enter-active {
+  opacity: 1;
+}
+.ui.ng-leave { opacity: 1;}
+.ui.ng-leave-active {
+  opacity: 0;
+}
+
+
+
+
+// Transition fade for questions
+.fade {
+  transition: 125ms ease-in-out;
+}
+
+.fade.ng-enter {
+  opacity: 0;
+}
+
+.fade.ng-enter-active {
+  opacity: 1;
+}
+
+.fade.ng-leave {
+  opacity: 1;
+}
+
+.fade.ng-leave-active {
+  opacity: 0;
+}
+
 
 ul.tags {
   margin: 0.5rem 0;

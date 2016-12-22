@@ -1,4 +1,4 @@
-const app = angular.module('convo-buddy', ['ngCookies', 'ui.router']);
+const app = angular.module('convo-buddy', ['ngAnimate', 'ngCookies', 'ui.router']);
 
 function shuffle(array) {
   for (var i = array.length - 1; i > 0; i--) {
@@ -47,6 +47,8 @@ app.factory('api', function($cookies, $http, $state) {
 // ========================
 
 app.controller('CategoriesController', function(api, $cookies, $scope, $state) {
+  $scope.pageClass = 'categories';
+
   api.getCategories()
     .then((results) => {
       $scope.categories = results.data.categories;
@@ -82,7 +84,9 @@ app.controller('CategoriesController', function(api, $cookies, $scope, $state) {
 
 
 app.controller('MainController', function(api, $cookies, $scope, $state, $stateParams) {
-  // If custom search has been called, pass that data into getQuestions(), otherwise pass nothing in to pull all questions from the db
+  $scope.pageClass = 'main';
+
+  // If custom search has been called, pass that data into getQuestions()
   let cookie = $cookies.getObject('customSearchData');
   let data;
   if (cookie) {
@@ -96,9 +100,7 @@ app.controller('MainController', function(api, $cookies, $scope, $state, $stateP
 
   $scope.questions = [];
   $scope.index = 0;
-  // $scope.searchCategories = ['future tense', 'past tense', 'hypothetical'];
-  // $scope.searchCategories = "";
-  console.log(cookie);
+  $scope.currentQuestion = [];
 
   api.getQuestions(data)
     .then((results) => {
@@ -106,20 +108,25 @@ app.controller('MainController', function(api, $cookies, $scope, $state, $stateP
         $scope.questions.push(question);
       });
       shuffle($scope.questions);
+      $scope.currentQuestion = [$scope.questions[$scope.index]];
     })
     .catch((err) => {
       console.error('Error retreiving questions');
       console.log(err.errors);
     });
 
+  $scope.slideRight = false;
+  $scope.slideLeft = false;
   $scope.prevQuestion = function() {
     if ($scope.index > 0) {
       $scope.index--;
+      $scope.currentQuestion = [$scope.questions[$scope.index]];
     }
   };
   $scope.nextQuestion = function() {
     if ($scope.index < $scope.questions.length - 1) {
       $scope.index++;
+      $scope.currentQuestion = [$scope.questions[$scope.index]];
     }
   };
   $scope.resetSearch = function() {
@@ -130,8 +137,7 @@ app.controller('MainController', function(api, $cookies, $scope, $state, $stateP
 
 
 app.controller('QuestionsController', function(api, $cookies, $scope, $state) {
-  // let data = { categories: [] };
-
+  $scope.pageClass = 'questions';
   $scope.content = {};
 
   api.getCategories()
@@ -155,16 +161,11 @@ app.controller('QuestionsController', function(api, $cookies, $scope, $state) {
           }
         });
       });
-      console.log($scope.content);
     })
     .catch((err) => {
       console.error('Error retreiving questions');
       console.log(err.message);
     });
-
-
-
-
 });
 
 

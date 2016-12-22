@@ -69,6 +69,36 @@ app.get('/api/getCategories', (req, res) => {
     });
 });
 
+// Category.create({
+//   name: 'would you rather',
+//   userId: null, // if the category is modified, attach this userId to this field
+//   parentId: null // if the category is modified, attach this category's objectId to this field
+// });
+
+// Question.create({
+//   text: 'Would you rather have a family of ten children or never be able to have children at all?',
+//   categories: [{
+//     name: 'would you rather',
+//     _id: ObjectId("585b28ef00a902ef1120dfbf")
+// },
+// {
+//   name: 'conditional tense',
+//   _id: ObjectId("585838ef82789b9e48ea6e15")
+// }],
+//   numLikes: 0,
+//   userId: null, // if the question is modified, attach this userId to this field
+//   parentId: null, // if the question is modified, attach this question's objectId to this field
+//   isLiked: false
+// })
+//   .then((results) => {
+//     console.log('success');
+//     console.log(results);
+//   })
+//   .catch((err) => {
+//     console.log('error');
+//     console.log(err.message);
+//     console.log(err.errors);
+//   });
 
 
 

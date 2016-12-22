@@ -47,16 +47,16 @@ exports.Token = mongoose.model('Token', tokenSchema);
 // =====================
 
 // Category.create({
-//   name: 'hypothetical',
+//   name: 'controversial',
 //   userId: null, // if the category is modified, attach this userId to this field
 //   parentId: null // if the category is modified, attach this category's objectId to this field
 // });
 
 // Question.create({
-//   text: 'What change do you want in your life within the next five years?',
+//   text: 'Animal testing in scientific research is necessary.',
 //   categories: [{
-//     name: 'future tense',
-//     _id: ObjectId("585837d0e247fe9e25b8180a")
+//     name: 'controversial',
+//     _id: ObjectId("585b259ae4177fee1ace63db")
 // }],
 //   numLikes: 0,
 //   userId: null, // if the question is modified, attach this userId to this field

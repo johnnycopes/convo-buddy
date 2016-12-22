@@ -16,9 +16,10 @@
     <main class="vert-center hor-center">
         <div class="convo-question">
             <h4 class="tar">{{index + 1}} / {{questions.length}}</h4>
-            <h1>{{questions[index].text}}</h1>
+            <div class="question">
+                <h1 ng-repeat="question in currentQuestion" class="fade">{{question.text}}</h1>
+            </div>
             <div class="tar">
-                <h4><em>Showing:</em></h4>
                 <ul class="tags">
                     <li ng-hide="searchCategories">all questions</li>
                     <li ng-show="searchCategories" ng-repeat="category in searchCategories">{{category}}</li>

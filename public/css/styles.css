@@ -1,8 +1,9 @@
 * {
   box-sizing: border-box; }
 
-html, body, .container {
-  height: 100%; }
+html, body, .ui, .container {
+  height: 100%;
+  width: 100%; }
 
 body {
   font-family: 'Rubik', sans-serif;
@@ -23,6 +24,9 @@ h3 {
 
 h4 {
   font-size: 1.2rem; }
+
+.ui {
+  position: absolute; }
 
 .container {
   padding: 0 2.5rem;
@@ -51,8 +55,7 @@ a {
 
 .logo h2 {
   font-weight: 700;
-  padding: 0.4rem 1rem;
-  color: #CF5C36; }
+  padding: 0.4rem 1rem; }
 
 .convo-question {
   width: 600px;
@@ -78,15 +81,42 @@ a {
   background-repeat: no-repeat;
   background-position: center top; }
 
-.showing h4, .showing ul, .showing li {
-  display: inline-block; }
-.showing li {
-  display: inline-block;
-  padding: 0.3rem 1.5rem;
-  border: 1px solid #0F0F0F;
-  margin-right: 10px;
-  font-weight: 300;
-  border-radius: 10px; }
+.question {
+  height: 100%; }
+  .question h1 {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%); }
+
+.ui {
+  transition: 250ms ease-in-out; }
+
+.ui.ng-enter {
+  opacity: 0; }
+
+.ui.ng-enter-active {
+  opacity: 1; }
+
+.ui.ng-leave {
+  opacity: 1; }
+
+.ui.ng-leave-active {
+  opacity: 0; }
+
+.fade {
+  transition: 125ms ease-in-out; }
+
+.fade.ng-enter {
+  opacity: 0; }
+
+.fade.ng-enter-active {
+  opacity: 1; }
+
+.fade.ng-leave {
+  opacity: 1; }
+
+.fade.ng-leave-active {
+  opacity: 0; }
 
 ul.tags {
   margin: 0.5rem 0; }
