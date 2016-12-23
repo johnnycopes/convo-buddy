@@ -12,10 +12,12 @@
         </div>
     </header> -->
     <main>
-        <ul class="content">
-            <li ng-class="{'selected': category.switch}" ng-repeat="category in categories track by $index" ng-click="toggleSelected($index)">
-                <h4>{{category.name}}</h4>
-            </li>
-        </ul>
+        <div class="wrapper">
+            <ul class="content">
+                <li ng-class="{'selected': category.switch}" ng-repeat="category in categories track by $index" ng-click="toggleSelected($index)">
+                    <h4>{{category.name}}</h4>
+                </li>
+            </ul>
+        </div>
     </main>
 <!-- </div> -->

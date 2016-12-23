@@ -30,7 +30,8 @@ h4 {
   position: relative;
   max-width: 2000px;
   max-height: 1000px;
-  background: #CF5C36; }
+  background: #CF5C36;
+  overflow: auto; }
 
 .container {
   width: 70%;
@@ -67,8 +68,14 @@ a {
   color: #FFF;
   text-decoration: none; }
 
+.wrapper {
+  margin: 0 auto;
+  max-width: 600px;
+  width: 90%; }
+
 .about {
-  z-index: 2; }
+  z-index: 2;
+  cursor: pointer; }
   .about .close-link {
     color: #CF5C36; }
 
@@ -81,10 +88,6 @@ a {
   background: rgba(255, 255, 255, 0.9);
   color: #2b2624;
   z-index: 1; }
-  .what-is-this .wrapper {
-    margin: 0 auto;
-    max-width: 600px;
-    width: 90%; }
 
 .logo h2 {
   font-weight: 700;
@@ -110,6 +113,7 @@ a {
   color: #2b2624;
   background: #f2d3a1;
   border: 1px solid #bd522e;
+  border-radius: 10px;
   cursor: pointer; }
 
 .home-container {
@@ -210,14 +214,11 @@ ul.tags {
   width: 65%; }
   .question-btns button {
     padding: 0.5rem 1rem;
-    font-size: 3rem;
-    background: #f2d3a1;
-    outline: 0;
-    border: 1px solid #bd522e; }
+    font-size: 3rem; }
 
 .content li {
-  width: 300px;
-  height: 300px;
+  width: 100%;
+  height: 100px;
   display: inline-block;
   position: relative; }
 .content h4 {
@@ -227,7 +228,7 @@ ul.tags {
   left: 50%; }
 
 .selected {
-  background: #FFF; }
+  background: #bd522e; }
 
 .tabs .category {
   margin: 1rem 0;

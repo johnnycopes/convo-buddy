@@ -11,7 +11,7 @@
 </head>
 
 <body class="page-fade" ng-class="{'modal-open': modal}">
-    <div class="page bg-img {{pageClass}}">
+    <div class="page {{pageClass}}" ng-class="{'bg-img': pageClass === 'main'}">
         <header>
             <div class="about vert-center">
                 <a class="wit-link" ng-click="modal = !modal" ng-hide="modal">what is this?</a>
