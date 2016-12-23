@@ -65,6 +65,13 @@ header, footer {
   height: 10%;
 }
 
+header {
+  // position: fixed;
+  // width: 100%;
+  // z-index: 1;
+  background: $primary-color;
+}
+
 header div,
 footer div {
   flex-basis: 33.33%;
@@ -105,8 +112,9 @@ a {
   z-index: 2;
   cursor: pointer;
 
-  .close-link {
-    color: $primary-color;
+  .close-link span {
+    background: $primary-color;
+    padding: 1rem 2rem;
   }
 }
 
@@ -308,6 +316,7 @@ ul.tags {
     height: 100px;
     display: inline-block;
     position: relative;
+    background: $secondary-color;
   }
 
   h4 {
@@ -316,20 +325,35 @@ ul.tags {
     top: 50%;
     left: 50%;
   }
+
+  .selected {
+    background: $action-color;
+    color: $dark-font-color;
+  }
 }
 
-.selected {
-  background: $secondary-color;
-}
+
 
 
 // --- QUESTIONS PAGE ---
 
 .tabs {
+    width: 100%;
+
   .category {
     margin: 1rem 0;
+    padding: 1rem 40px;
     background: $secondary-color;
   }
+
+  h4 {
+    padding: 0.3rem 0px;
+  }
+}
+
+.questions {
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
 }
 
 

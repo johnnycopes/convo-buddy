@@ -1,9 +1,9 @@
 <div class="container">
-    <main class="tabs">
-        <ul>
+    <main>
+        <ul class="tabs">
             <li class="tab" ng-repeat="(category, questions) in content">
                 <h4 class="category">{{category}}</h4>
-                <ol>
+                <ol class="questions">
                     <li class="question" ng-repeat="question in questions" ng-class="fade">
                         <h4>{{question}}</h4>
                     </li>
