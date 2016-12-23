@@ -6,8 +6,9 @@ html, body, .page {
   width: 100%; }
 
 body {
-  font-family: 'Rubik', sans-serif;
-  line-height: 1.5; }
+  font-family: "Rubik", sans-serif;
+  line-height: 1.5;
+  color: #FFF; }
 
 h1, h2, h3, h4 {
   margin: 0;
@@ -26,8 +27,10 @@ h4 {
   font-size: 1.2rem; }
 
 .page {
+  position: relative;
   max-width: 2000px;
-  max-height: 1000px; }
+  max-height: 1000px;
+  background: #CF5C36; }
 
 .container {
   width: 70%;
@@ -61,11 +64,22 @@ ul {
   list-style: none; }
 
 a {
-  color: #CF5C36; }
+  color: #FFF;
+  text-decoration: none; }
+
+.what-is-this {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.9);
+  z-index: 1; }
 
 .logo h2 {
   font-weight: 700;
-  padding: 0.4rem 1rem; }
+  padding: 0.4rem 1rem;
+  color: #f2d3a1; }
 
 .convo-question {
   width: 600px;
@@ -78,6 +92,15 @@ a {
 .btn {
   margin: 0 auto;
   width: 200px; }
+
+.btn-styles {
+  padding: 0.5rem 1rem;
+  outline: 0;
+  font-family: "Rubik", sans-serif;
+  color: #2b2624;
+  background: #f2d3a1;
+  border: 1px solid #bd522e;
+  cursor: pointer; }
 
 .home-container {
   position: absolute;
@@ -130,8 +153,11 @@ ul.tags {
   min-width: 900px;
   width: 65%; }
   .question-btns button {
-    padding: 1rem;
-    font-size: 3rem; }
+    padding: 0.5rem 1rem;
+    font-size: 3rem;
+    background: #f2d3a1;
+    outline: 0;
+    border: 1px solid #bd522e; }
 
 .content li {
   width: 300px;
@@ -145,11 +171,11 @@ ul.tags {
   left: 50%; }
 
 .selected {
-  background: #EFC88B; }
+  background: #FFF; }
 
 .tabs .category {
   margin: 1rem 0;
-  background: #EFC88B; }
+  background: #bd522e; }
 
 .tal {
   text-align: left; }

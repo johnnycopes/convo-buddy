@@ -1,46 +1,31 @@
-
-    <!-- <header>
-        <div class="about vert-center">
-            <a href="#">what is this?</a>
+<main class="vert-center hor-center">
+    <div class="convo-question">
+        <h4 class="tar">{{index + 1}} / {{questions.length}}</h4>
+        <div class="question" ng-swipe-right="prevQuestion()" ng-swipe-left="nextQuestion()">
+            <h1 ng-repeat="question in currentQuestion" class="card-fade">{{question.text}}</h1>
         </div>
-        <div class="logo vert-center tac">
-            <a ui-sref="main">
-                <h2>convo buddy</h2>
-            </a>
+        <div class="tar">
+            <ul class="tags">
+                <li ng-hide="searchCategories">all questions</li>
+                <li ng-show="searchCategories" ng-repeat="category in searchCategories">{{category}}</li>
+            </ul>
+            <button ng-click="resetSearch()" ng-show="searchCategories">Reset</button>
         </div>
-        <div class="lists vert-center tar">
-            <a ui-sref="questions">questions</a>
-            <a ui-sref="categories">categories</a>
-        </div>
-    </header> -->
-    <main class="vert-center hor-center">
-        <div class="convo-question">
-            <h4 class="tar">{{index + 1}} / {{questions.length}}</h4>
-            <div class="question">
-                <h1 ng-repeat="question in currentQuestion" class="fade">{{question.text}}</h1>
-            </div>
-            <div class="tar">
-                <ul class="tags">
-                    <li ng-hide="searchCategories">all questions</li>
-                    <li ng-show="searchCategories" ng-repeat="category in searchCategories">{{category}}</li>
-                </ul>
-                <button ng-click="resetSearch()" ng-show="searchCategories">Reset</button>
-            </div>
-        </div>
-        <div class="question-btns cf">
-            <button class="prev-btn fl" ng-click="prevQuestion()">←</button>
-            <button class="next-btn fr" ng-click="nextQuestion()">→</button>
-        </div>
-    </main>
-    <footer>
-        <div class="user-access vert-center">
-            <a href="#">log in</a>
-            <a href="#">sign up</a>
-        </div>
-        <div class="submit vert-center tac">
-            <button type="button" class="btn">submit a question</button>
-        </div>
-        <div class="vert-center tar">
-            <a href="https://johnnycopes.github.io/" target="_blank" class="credits">made by johnnycopes</a>
-        </div>
-    </footer>
+    </div>
+    <div class="question-btns cf">
+        <button class="prev-btn btn-styles fl" ng-click="prevQuestion()">←</button>
+        <button class="next-btn btn-styles fr" ng-click="nextQuestion()">→</button>
+    </div>
+</main>
+<footer>
+    <div class="user-access vert-center">
+        <a href="#">log in</a>
+        <a href="#">sign up</a>
+    </div>
+    <div class="submit vert-center tac">
+        <button type="button" class="btn btn-styles">submit a question</button>
+    </div>
+    <div class="vert-center tar">
+        <a href="https://johnnycopes.github.io/" target="_blank" class="credits">made by johnnycopes</a>
+    </div>
+</footer>

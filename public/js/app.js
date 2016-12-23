@@ -1,4 +1,4 @@
-const app = angular.module('convo-buddy', ['ngAnimate', 'ngCookies', 'ui.router']);
+const app = angular.module('convo-buddy', ['ngAnimate', 'ngCookies', 'ngTouch', 'ui.router']);
 
 function shuffle(array) {
   for (var i = array.length - 1; i > 0; i--) {
