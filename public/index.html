@@ -9,10 +9,25 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body>
-
-    <!-- <main ui-view></main>-->
-    <div class="ui page-{{pageClass}}" ui-view></ui-view>
+<body class="page-fade">
+    <div class="page bg-img {{pageClass}}">
+        <header>
+            <div class="about vert-center">
+                <a href="#">what is this?</a>
+            </div>
+            <div class="logo vert-center tac">
+                <a ui-sref="main">
+                    <h2>convo buddy</h2>
+                </a>
+            </div>
+            <div class="lists vert-center tar">
+                <a ui-sref="questions">questions</a>
+                <a ui-sref="categories">categories</a>
+            </div>
+        </header>
+        <div class="page-fade" ui-view></div>
+        <!-- <ui-view></ui-view> -->
+    </div>
 
     <!-- JS -->
     <script src="angular/angular.min.js" charset="utf-8"></script>

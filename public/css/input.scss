@@ -17,7 +17,7 @@ $link-color: #EFC88B;
   box-sizing: border-box;
 }
 
-html, body, .ui, .container {
+html, body, .page {
   height: 100%;
   width: 100%;
 }
@@ -33,22 +33,25 @@ h2 { font-size: 1.728rem}
 h3 { font-size: 1.44rem}
 h4 { font-size: 1.2rem}
 
-.ui {
-  position: absolute;
-}
-
-.container {
-  padding: 0 2.5rem;
+.page {
   max-width: 2000px;
   max-height: 1000px;
 }
 
+.container {
+  width: 70%;
+  margin: 0 auto;
+  position: relative;
+}
 
+header, main, footer {
+  display: flex;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
 
 header, footer {
   height: 10%;
-  display: flex;
-  justify-content: space-between;
 }
 
 header div,
@@ -58,7 +61,14 @@ footer div {
 
 main {
   height: 80%;
-  position: relative;
+  width: 100%;
+  position: absolute;
+}
+
+footer {
+  bottom: 0;
+  width: 100%;
+  position: absolute;
 }
 
 ul {
@@ -85,16 +95,6 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
-  h1 {
-    margin-bottom: 2rem;
-
-  }
-}
-
-.categories {
-  max-width: 600px;
-  width: 100%;
 }
 
 .btn {
@@ -103,6 +103,13 @@ a {
 }
 
 // --- MAIN PAGE ---
+
+.home-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 .bg-img {
    background-image: url('../img/logo.svg');
@@ -123,39 +130,23 @@ a {
 }
 
 
-
-.ui { transition: 250ms ease-in-out; }
-
-.ui.ng-enter { opacity: 0; }
-.ui.ng-enter-active {
-  opacity: 1;
+// Transition fade
+.page-fade {
+  transition: 300ms ease-in-out;
 }
-.ui.ng-leave { opacity: 1;}
-.ui.ng-leave-active {
-  opacity: 0;
-}
-
-
-
-
-// Transition fade for questions
-.fade {
+.card-fade {
   transition: 125ms ease-in-out;
 }
-
-.fade.ng-enter {
+.ng-enter {
   opacity: 0;
 }
-
-.fade.ng-enter-active {
+.ng-enter-active {
   opacity: 1;
 }
-
-.fade.ng-leave {
+.ng-leave {
   opacity: 1;
 }
-
-.fade.ng-leave-active {
+.ng-leave-active {
   opacity: 0;
 }
 

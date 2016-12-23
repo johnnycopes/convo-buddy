@@ -1,7 +1,7 @@
 * {
   box-sizing: border-box; }
 
-html, body, .ui, .container {
+html, body, .page {
   height: 100%;
   width: 100%; }
 
@@ -25,18 +25,22 @@ h3 {
 h4 {
   font-size: 1.2rem; }
 
-.ui {
-  position: absolute; }
-
-.container {
-  padding: 0 2.5rem;
+.page {
   max-width: 2000px;
   max-height: 1000px; }
 
-header, footer {
-  height: 10%;
+.container {
+  width: 70%;
+  margin: 0 auto;
+  position: relative; }
+
+header, main, footer {
   display: flex;
-  justify-content: space-between; }
+  padding-left: 3rem;
+  padding-right: 3rem; }
+
+header, footer {
+  height: 10%; }
 
 header div,
 footer div {
@@ -44,7 +48,13 @@ footer div {
 
 main {
   height: 80%;
-  position: relative; }
+  width: 100%;
+  position: absolute; }
+
+footer {
+  bottom: 0;
+  width: 100%;
+  position: absolute; }
 
 ul {
   padding: 0;
@@ -64,16 +74,16 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: space-between; }
-  .convo-question h1 {
-    margin-bottom: 2rem; }
-
-.categories {
-  max-width: 600px;
-  width: 100%; }
 
 .btn {
   margin: 0 auto;
   width: 200px; }
+
+.home-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
 
 .bg-img {
   background-image: url("../img/logo.svg");
@@ -88,34 +98,22 @@ a {
     top: 45%;
     transform: translateY(-50%); }
 
-.ui {
-  transition: 250ms ease-in-out; }
+.page-fade {
+  transition: 300ms ease-in-out; }
 
-.ui.ng-enter {
-  opacity: 0; }
-
-.ui.ng-enter-active {
-  opacity: 1; }
-
-.ui.ng-leave {
-  opacity: 1; }
-
-.ui.ng-leave-active {
-  opacity: 0; }
-
-.fade {
+.card-fade {
   transition: 125ms ease-in-out; }
 
-.fade.ng-enter {
+.ng-enter {
   opacity: 0; }
 
-.fade.ng-enter-active {
+.ng-enter-active {
   opacity: 1; }
 
-.fade.ng-leave {
+.ng-leave {
   opacity: 1; }
 
-.fade.ng-leave-active {
+.ng-leave-active {
   opacity: 0; }
 
 ul.tags {

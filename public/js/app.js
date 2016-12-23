@@ -46,8 +46,8 @@ app.factory('api', function($cookies, $http, $state) {
 // CONTROLLERS
 // ========================
 
-app.controller('CategoriesController', function(api, $cookies, $scope, $state) {
-  $scope.pageClass = 'categories';
+app.controller('CategoriesController', function(api, $cookies, $rootScope, $scope, $state) {
+  $rootScope.pageClass = 'categories';
 
   api.getCategories()
     .then((results) => {
@@ -83,8 +83,9 @@ app.controller('CategoriesController', function(api, $cookies, $scope, $state) {
 });
 
 
-app.controller('MainController', function(api, $cookies, $scope, $state, $stateParams) {
-  $scope.pageClass = 'main';
+app.controller('MainController', function(api, $cookies, $rootScope, $scope, $state, $stateParams) {
+  // $scope.pageClass = 'main';
+  $rootScope.pageClass = 'main';
 
   // If custom search has been called, pass that data into getQuestions()
   let cookie = $cookies.getObject('customSearchData');
@@ -136,8 +137,8 @@ app.controller('MainController', function(api, $cookies, $scope, $state, $stateP
 });
 
 
-app.controller('QuestionsController', function(api, $cookies, $scope, $state) {
-  $scope.pageClass = 'questions';
+app.controller('QuestionsController', function(api, $cookies, $rootScope, $scope, $state) {
+  $rootScope.pageClass = 'questions';
   $scope.content = {};
 
   api.getCategories()
