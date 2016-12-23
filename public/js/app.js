@@ -84,8 +84,8 @@ app.controller('CategoriesController', function(api, $cookies, $rootScope, $scop
 
 
 app.controller('MainController', function(api, $cookies, $rootScope, $scope, $state, $stateParams) {
-  // $scope.pageClass = 'main';
   $rootScope.pageClass = 'main';
+  $rootScope.modal = false;
 
   // If custom search has been called, pass that data into getQuestions()
   let cookie = $cookies.getObject('customSearchData');
@@ -130,6 +130,7 @@ app.controller('MainController', function(api, $cookies, $rootScope, $scope, $st
       $scope.currentQuestion = [$scope.questions[$scope.index]];
     }
   };
+
   $scope.resetSearch = function() {
     $cookies.remove('customSearchData');
     $state.go($state.current, {}, {reload: true});

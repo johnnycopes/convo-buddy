@@ -10,11 +10,12 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body class="page-fade">
+<body class="page-fade" ng-class="{'modal-open': modal}">
     <div class="page bg-img {{pageClass}}">
         <header>
             <div class="about vert-center">
-                <a href="#">what is this?</a>
+                <a class="wit-link" ng-click="modal = !modal" ng-hide="modal">what is this?</a>
+                <a class="close-link" ng-click="modal = !modal" ng-show="modal">close</a>
             </div>
             <div class="logo vert-center tac">
                 <a ui-sref="main">
@@ -27,13 +28,13 @@
             </div>
         </header>
 
-        <!-- <div class="what-is-this vert-center hor-center">
-            <div class="container">
+        <div class="what-is-this vert-center hor-center" ng-show="modal">
+            <div class="wrapper">
                 <h4>Convo Buddy is a tool intended to help ESL teachers spark conversation with their students.</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam facilisis nisi quis placerat feugiat. In massa tortor, laoreet vitae sodales ut, lobortis ac ante. Donec aliquam, ipsum eu facilisis tincidunt, lorem libero rhoncus mauris, eget tempor tellus mi non tortor. Etiam dignissim dictum libero quis egestas.</p>
                 <p>Donec ac urna ac ligula iaculis cursus. Suspendisse venenatis aliquam arcu, et pharetra urna cursus sit amet. Phasellus vel urna auctor, finibus nisi ut, ultricies magna. Praesent pretium volutpat volutpat.</p>
             </div>
-        </div> -->
+        </div>
 
         <div class="page-fade" ui-view></div>
         <!-- <ui-view></ui-view> -->
