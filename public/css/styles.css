@@ -140,10 +140,10 @@ a {
     transform: translateY(-50%); }
 
 .page-fade {
-  transition: 300ms ease-in-out; }
+  transition: 250ms all ease-in-out; }
 
-.card-fade {
-  transition: 125ms ease-in-out; }
+.fast-fade {
+  transition: 125ms all ease-in-out; }
 
 .ng-enter {
   opacity: 0; }
@@ -198,10 +198,10 @@ a {
   animation-name: slideInDown; }
 
 .what-is-this.ng-hide-add {
-  animation: 300ms slideOutUp ease-in-out; }
+  animation: 250ms slideOutUp ease-in-out; }
 
 .what-is-this.ng-hide-remove {
-  animation: 300ms slideInDown ease-in-out; }
+  animation: 250ms slideInDown ease-in-out; }
 
 ul.tags {
   margin: 0.5rem 0; }
@@ -218,7 +218,11 @@ ul.tags {
   width: 65%; }
   .question-btns button {
     padding: 0.5rem 1rem;
-    font-size: 3rem; }
+    font-size: 3rem;
+    color: #f2d3a1;
+    border: 8px solid #f2d3a1;
+    background: #CF5C36;
+    border-radius: 20px; }
 
 .content li {
   width: 100%;

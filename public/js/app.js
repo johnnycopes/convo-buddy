@@ -168,6 +168,11 @@ app.controller('QuestionsController', function(api, $cookies, $rootScope, $scope
       console.error('Error retreiving questions');
       console.log(err.message);
     });
+
+  $scope.toggleDrawer = function(questions) {
+    console.log('hey');
+    questions.toggle = !questions.toggle;
+  };
 });
 
 

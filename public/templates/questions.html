@@ -2,9 +2,9 @@
     <main>
         <ul class="tabs">
             <li class="tab" ng-repeat="(category, questions) in content">
-                <h4 class="category">{{category}}</h4>
-                <ol class="questions">
-                    <li class="question" ng-repeat="question in questions" ng-class="fade">
+                <h4 class="category" ng-click="toggleDrawer(questions)">{{category}}</h4>
+                <ol ng-show="questions.toggle" class="questions">
+                    <li class="question" ng-repeat="question in questions">
                         <h4>{{question}}</h4>
                     </li>
                 </ol>
