@@ -11,7 +11,7 @@ function shuffle(array) {
 }
 
 // ========================
-// FACTORY
+// SERVICES
 // ========================
 
 app.factory('api', function($cookies, $http, $state) {
@@ -39,6 +39,13 @@ app.factory('api', function($cookies, $http, $state) {
   };
 
   return service;
+});
+
+
+app.factory('questions', function() {
+  let service = {};
+
+  service.
 });
 
 
@@ -71,56 +78,65 @@ app.controller('MainController', function(api, $cookies, $rootScope, $scope, $st
   $rootScope.pageClass = 'main';
   $rootScope.witModal = false;
   $rootScope.catModal = false;
-  $scope.questions = [];
-  $scope.index = 0;
-  $scope.currentQuestion = [];
+  $rootScope.questions = [];
+  $rootScope.index = 0;
+  $rootScope.currentQuestion = [];
   let data = null;
 
-  api.getQuestions(data)
-    .then((results) => {
-      results.data.questions.forEach((question) => {
-        $scope.questions.push(question);
+  console.log($rootScope.questions.length);
+  if ($rootScope.questions.length === 0) {
+    api.getQuestions(data)
+      .then((results) => {
+        results.data.questions.forEach((question) => {
+          $rootScope.questions.push(question);
+        });
+        // shuffle($scope.questions);
+        $rootScope.currentQuestion = [$scope.questions[$scope.index]];
+      })
+      .catch((err) => {
+        console.error('Error retreiving questions');
+        console.log(err.errors);
       });
-      // shuffle($scope.questions);
-      $scope.currentQuestion = [$scope.questions[$scope.index]];
-    })
-    .catch((err) => {
-      console.error('Error retreiving questions');
-      console.log(err.errors);
-    });
+  }
 
   $scope.prevQuestion = function() {
-    if ($scope.index > 0) {
-      $scope.index--;
-      $scope.currentQuestion = [$scope.questions[$scope.index]];
+    if ($rootScope.index > 0) {
+      $rootScope.index--;
+      $rootScope.currentQuestion = [$rootScope.questions[$rootScope.index]];
     }
   };
   $scope.nextQuestion = function() {
-    if ($scope.index < $scope.questions.length - 1) {
-      $scope.index++;
-      $scope.currentQuestion = [$scope.questions[$scope.index]];
+    if ($rootScope.index < $rootScope.questions.length - 1) {
+      $rootScope.index++;
+      $rootScope.currentQuestion = [$rootScope.questions[$rootScope.index]];
     }
   };
 
   $rootScope.search = function() {
+    let allCategories = [];
     let selectedCategories = [];
+    let data = {};
     $rootScope.categories.forEach(function(category) {
+      allCategories.push(category.name);
       if (category.switch) {
         selectedCategories.push(category.name);
       }
     });
-    let data = {
-      categories: selectedCategories
-    };
-    $scope.questions = [];
-    $scope.index = 0;
-    $scope.currentQuestion = [];
+    if (selectedCategories.length) {
+      data.categories = selectedCategories;
+    }
+    else {
+      data.categories = allCategories;
+    }
+    $rootScope.questions = [];
+    $rootScope.index = 0;
+    $rootScope.currentQuestion = [];
     api.getQuestions(data)
       .then((results) => {
         results.data.questions.forEach((question) => {
-          $scope.questions.push(question);
+          $rootScope.questions.push(question);
         });
-        $scope.currentQuestion = [$scope.questions[$scope.index]];
+        $rootScope.currentQuestion = [$rootScope.questions[$rootScope.index]];
       })
       .catch((err) => {
         console.error('Error retreiving questions');
@@ -129,21 +145,9 @@ app.controller('MainController', function(api, $cookies, $rootScope, $scope, $st
   };
 
   $scope.shuffle = function() {
-    $scope.questions = [];
-    $scope.index = 0;
-    $scope.currentQuestion = [];
-    api.getQuestions(data)
-      .then((results) => {
-        results.data.questions.forEach((question) => {
-          $scope.questions.push(question);
-        });
-        shuffle($scope.questions);
-        $scope.currentQuestion = [$scope.questions[$scope.index]];
-      })
-      .catch((err) => {
-        console.error('Error retreiving questions');
-        console.log(err.errors);
-      });
+    shuffle($rootScope.questions);
+    $rootScope.index = 0;
+    $rootScope.currentQuestion = [$rootScope.questions[$rootScope.index]];
   };
 
 });
