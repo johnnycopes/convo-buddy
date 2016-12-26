@@ -45,7 +45,13 @@ app.factory('api', function($cookies, $http, $state) {
 app.factory('questions', function() {
   let service = {};
 
-  service.
+  service.storeQuestions = function(arr) {
+    service.questions = arr;
+  };
+  service.storeIndex = function(idx) {
+    service.index = idx;
+  };
+  return service;
 });
 
 
@@ -74,24 +80,30 @@ app.controller('CategoriesController', function(api, $cookies, $rootScope, $scop
 });
 
 
-app.controller('MainController', function(api, $cookies, $rootScope, $scope, $state, $stateParams) {
+app.controller('MainController', function(api, $cookies, questions, $rootScope, $scope, $state, $stateParams) {
   $rootScope.pageClass = 'main';
   $rootScope.witModal = false;
   $rootScope.catModal = false;
-  $rootScope.questions = [];
-  $rootScope.index = 0;
-  $rootScope.currentQuestion = [];
+  $scope.questions = [];
+  $scope.index = questions.index || 0;
+  $scope.currentQuestion = [];
   let data = null;
 
-  console.log($rootScope.questions.length);
-  if ($rootScope.questions.length === 0) {
+  // if there is no existing questions array in use, pull all questions from the db
+  console.log($scope.index);
+  if (questions.questions) {
+    questions.questions.forEach((question) => {
+      $scope.questions.push(question);
+    });
+    $scope.currentQuestion = [$scope.questions[$scope.index]];
+  }
+  else {
     api.getQuestions(data)
       .then((results) => {
         results.data.questions.forEach((question) => {
-          $rootScope.questions.push(question);
+          $scope.questions.push(question);
         });
-        // shuffle($scope.questions);
-        $rootScope.currentQuestion = [$scope.questions[$scope.index]];
+        $scope.currentQuestion = [$scope.questions[$scope.index]];
       })
       .catch((err) => {
         console.error('Error retreiving questions');
@@ -99,18 +111,18 @@ app.controller('MainController', function(api, $cookies, $rootScope, $scope, $st
       });
   }
 
-  $scope.prevQuestion = function() {
-    if ($rootScope.index > 0) {
-      $rootScope.index--;
-      $rootScope.currentQuestion = [$rootScope.questions[$rootScope.index]];
+
+  $scope.changeQuestion = function(direction) {
+    if (direction === 'prev' && $scope.index > 0) {
+      $scope.index--;
     }
-  };
-  $scope.nextQuestion = function() {
-    if ($rootScope.index < $rootScope.questions.length - 1) {
-      $rootScope.index++;
-      $rootScope.currentQuestion = [$rootScope.questions[$rootScope.index]];
+    else if (direction === 'next' && $scope.index < $scope.questions.length - 1) {
+      $scope.index++;
     }
+    $scope.currentQuestion = [$scope.questions[$scope.index]];
+    questions.storeIndex($scope.index);
   };
+
 
   $rootScope.search = function() {
     let allCategories = [];
@@ -128,15 +140,16 @@ app.controller('MainController', function(api, $cookies, $rootScope, $scope, $st
     else {
       data.categories = allCategories;
     }
-    $rootScope.questions = [];
-    $rootScope.index = 0;
-    $rootScope.currentQuestion = [];
+    $scope.questions = [];
+    $scope.index = 0;
+    $scope.currentQuestion = [];
     api.getQuestions(data)
       .then((results) => {
         results.data.questions.forEach((question) => {
-          $rootScope.questions.push(question);
+          $scope.questions.push(question);
         });
-        $rootScope.currentQuestion = [$rootScope.questions[$rootScope.index]];
+        $scope.currentQuestion = [$scope.questions[$scope.index]];
+        questions.storeQuestions($scope.questions);
       })
       .catch((err) => {
         console.error('Error retreiving questions');
@@ -145,9 +158,10 @@ app.controller('MainController', function(api, $cookies, $rootScope, $scope, $st
   };
 
   $scope.shuffle = function() {
-    shuffle($rootScope.questions);
-    $rootScope.index = 0;
-    $rootScope.currentQuestion = [$rootScope.questions[$rootScope.index]];
+    shuffle($scope.questions);
+    $scope.index = 0;
+    $scope.currentQuestion = [$scope.questions[$scope.index]];
+    questions.storeQuestions($scope.questions);
   };
 
 });
