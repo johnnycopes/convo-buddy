@@ -7,11 +7,12 @@
     <title>Convo Buddy</title>
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500" rel="stylesheet">
     <link rel="stylesheet" href="normalize.css/normalize.css">
+    <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body class="page-fade" ng-class="{'modal-open': modal}">
-    <div class="page {{pageClass}}" ng-class="{'bg-img': pageClass === 'main'}">
+    <div class="page" ng-class="{'bg-img': pageClass === 'main'}">
         <header>
             <div class="about vert-center">
                 <a class="wit-link" ng-click="witModal = !witModal" ng-hide="witModal">what is this?</a>
@@ -26,7 +27,7 @@
             </div>
             <div class="questions-categories vert-center tar">
                 <div class="links" ng-hide="catModal">
-                    <a ui-sref="questions">questions</a><br>
+                    <a ui-sref="questions">questions</a>
                     <a class="categories-link" ng-click="catModal = !catModal">categories</a>
                 </div>
                 <a class="close-link" ng-click="catModal = !catModal; search()" ng-show="catModal">
@@ -40,7 +41,7 @@
 
         <div class="what-is-this modal vert-center hor-center" ng-show="witModal">
             <div class="wrapper">
-                <h4>Convo Buddy is a tool to help ESL teachers get the conversation started.</h4>
+                <h4>Convo Buddy is a tool that helps ESL teachers get the conversation started.</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam facilisis nisi quis placerat feugiat. In massa tortor, laoreet vitae sodales ut, lobortis ac ante. Donec aliquam, ipsum eu facilisis tincidunt, lorem libero rhoncus mauris, eget tempor tellus mi non tortor. Etiam dignissim dictum libero quis egestas.</p>
                 <p>Donec ac urna ac ligula iaculis cursus. Suspendisse venenatis aliquam arcu, et pharetra urna cursus sit amet. Phasellus vel urna auctor, finibus nisi ut, ultricies magna. Praesent pretium volutpat volutpat.</p>
             </div>
@@ -55,7 +56,7 @@
                 </ul>
             </div>
         </div>
-    </div>
+    </div> <!-- .page -->
 
     <!-- JS -->
     <script src="angular/angular.min.js" charset="utf-8"></script>

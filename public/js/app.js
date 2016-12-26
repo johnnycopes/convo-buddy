@@ -168,7 +168,7 @@ app.controller('MainController', function(api, $cookies, questions, $rootScope, 
 
 
 app.controller('QuestionsController', function(api, $cookies, $rootScope, $scope, $state) {
-  $rootScope.pageClass = 'questions';
+  $rootScope.pageClass = 'question';
   $scope.content = {};
 
   // combine these two using bluebird
