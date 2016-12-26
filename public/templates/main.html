@@ -1,16 +1,7 @@
 <main class="vert-center hor-center">
     <div class="convo-question">
-        <!-- <h4 class="tac">{{index + 1}} / {{questions.length}}</h4>
-        <ul class="tags tac">
-            <li ng-hide="searchCategories">all questions</li>
-            <li ng-show="searchCategories" ng-repeat="category in searchCategories">{{category}}</li>
-        </ul> -->
         <div class="question" ng-swipe-right="prevQuestion()" ng-swipe-left="nextQuestion()">
-            <h1 ng-repeat="question in currentQuestion | filter: testFilter" class="fast-fade">{{question.text}}</h1>
-            <!-- <h1 ng-repeat="question in questions" class="fast-fade">{{question.text}}</h1> -->
-        </div>
-        <div class="tar">
-            <button ng-click="resetSearch()" ng-show="searchCategories">Reset</button>
+            <h1 ng-repeat="question in currentQuestion" class="fast-fade tac">{{question.text}}</h1>
         </div>
     </div>
     <div class="question-btns cf">
@@ -23,16 +14,12 @@
         <a href="#">log in</a>
         <a href="#">sign up</a>
     </div>
-    <div class="submit vert-center tac">
-        <!-- <button type="button" class="btn btn-styles">submit a question</button> -->
+    <div class="counter vert-center tac">
         <h4>{{index + 1}} / {{questions.length}}</h4>
-        <ul class="tags">
-            <li ng-hide="searchCategories">all questions</li>
-            <li ng-show="searchCategories" ng-repeat="category in searchCategories">{{category}}</li>
-        </ul>
+        <a ng-click="shuffle()">shuffle questions</a>
     </div>
-    <div class="vert-center tar">
+    <div class="credits vert-center tar">
         <a href="#">submit a question</a>
-        <a href="https://johnnycopes.github.io/" target="_blank" class="credits">made by johnnycopes</a>
+        <a href="https://johnnycopes.github.io/" target="_blank">made by johnnycopes</a>
     </div>
 </footer>

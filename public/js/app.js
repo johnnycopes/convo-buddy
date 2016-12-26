@@ -47,7 +47,6 @@ app.factory('api', function($cookies, $http, $state) {
 // ========================
 
 app.controller('CategoriesController', function(api, $cookies, $rootScope, $scope, $state) {
-
   api.getCategories()
     .then((results) => {
       $rootScope.categories = results.data.categories;
@@ -90,8 +89,6 @@ app.controller('MainController', function(api, $cookies, $rootScope, $scope, $st
       console.log(err.errors);
     });
 
-  // $scope.slideRight = false;
-  // $scope.slideLeft = false;
   $scope.prevQuestion = function() {
     if ($scope.index > 0) {
       $scope.index--;
@@ -105,14 +102,8 @@ app.controller('MainController', function(api, $cookies, $rootScope, $scope, $st
     }
   };
 
-  // $scope.resetSearch = function() {
-  //   $cookies.remove('customSearchData');
-  //   $state.go($state.current, {}, {reload: true});
-  // };
-
   $rootScope.search = function() {
     let selectedCategories = [];
-    console.log($rootScope.categories);
     $rootScope.categories.forEach(function(category) {
       if (category.switch) {
         selectedCategories.push(category.name);
@@ -129,7 +120,24 @@ app.controller('MainController', function(api, $cookies, $rootScope, $scope, $st
         results.data.questions.forEach((question) => {
           $scope.questions.push(question);
         });
-        // shuffle($scope.questions);
+        $scope.currentQuestion = [$scope.questions[$scope.index]];
+      })
+      .catch((err) => {
+        console.error('Error retreiving questions');
+        console.log(err.errors);
+      });
+  };
+
+  $scope.shuffle = function() {
+    $scope.questions = [];
+    $scope.index = 0;
+    $scope.currentQuestion = [];
+    api.getQuestions(data)
+      .then((results) => {
+        results.data.questions.forEach((question) => {
+          $scope.questions.push(question);
+        });
+        shuffle($scope.questions);
         $scope.currentQuestion = [$scope.questions[$scope.index]];
       })
       .catch((err) => {
@@ -145,6 +153,7 @@ app.controller('QuestionsController', function(api, $cookies, $rootScope, $scope
   $rootScope.pageClass = 'questions';
   $scope.content = {};
 
+  // combine these two using bluebird
   api.getCategories()
     .then((results) => {
       results.data.categories.forEach((category) => {
@@ -173,7 +182,6 @@ app.controller('QuestionsController', function(api, $cookies, $rootScope, $scope
     });
 
   $scope.toggleDrawer = function(questions) {
-    console.log('hey');
     questions.toggle = !questions.toggle;
   };
 });
@@ -185,12 +193,6 @@ app.controller('QuestionsController', function(api, $cookies, $rootScope, $scope
 
 app.config(($stateProvider, $urlRouterProvider) => {
   $stateProvider
-    // .state({
-    //   name: 'categories',
-    //   url: '/categories',
-    //   templateUrl: '/templates/categories.html',
-    //   controller: 'CategoriesController'
-    // })
     .state({
       name: 'main',
       url: '/',
