@@ -69,21 +69,23 @@ ul {
 
 a {
   color: #FFF;
-  text-decoration: none; }
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 300; }
 
 .wrapper {
   margin: 0 auto;
   max-width: 600px;
   width: 90%; }
 
-.about {
-  z-index: 2;
-  cursor: pointer; }
-  .about .close-link span {
+.close-link {
+  z-index: 2; }
+  .close-link span {
+    z-index: 2;
     background: #CF5C36;
     padding: 1rem 2rem; }
 
-.what-is-this {
+.modal {
   top: 0;
   left: 0;
   width: 100%;
@@ -143,7 +145,7 @@ a {
   transition: 250ms all ease-in-out; }
 
 .fast-fade {
-  transition: 125ms all ease-in-out; }
+  transition: 150ms all ease-in-out; }
 
 .ng-enter {
   opacity: 0; }
@@ -197,10 +199,10 @@ a {
   -webkit-animation-name: slideInDown;
   animation-name: slideInDown; }
 
-.what-is-this.ng-hide-add {
+.modal.ng-hide-add {
   animation: 250ms slideOutUp ease-in-out; }
 
-.what-is-this.ng-hide-remove {
+.modal.ng-hide-remove {
   animation: 250ms slideInDown ease-in-out; }
 
 ul.tags {
@@ -226,7 +228,7 @@ ul.tags {
 
 .content li {
   width: 100%;
-  height: 100px;
+  height: 40px;
   display: inline-block;
   position: relative;
   background: #bd522e; }

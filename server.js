@@ -48,6 +48,7 @@ app.get('/api/getQuestions', (req, res) => {
   }
   Question.find(query)
     .then((questions) => {
+      console.log(questions);
       res.json({questions});
     })
     .catch((err) => {

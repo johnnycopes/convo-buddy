@@ -6,7 +6,8 @@
             <li ng-show="searchCategories" ng-repeat="category in searchCategories">{{category}}</li>
         </ul> -->
         <div class="question" ng-swipe-right="prevQuestion()" ng-swipe-left="nextQuestion()">
-            <h1 ng-repeat="question in currentQuestion" class="fast-fade">{{question.text}}</h1>
+            <h1 ng-repeat="question in currentQuestion | filter: testFilter" class="fast-fade">{{question.text}}</h1>
+            <!-- <h1 ng-repeat="question in questions" class="fast-fade">{{question.text}}</h1> -->
         </div>
         <div class="tar">
             <button ng-click="resetSearch()" ng-show="searchCategories">Reset</button>

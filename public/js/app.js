@@ -47,11 +47,10 @@ app.factory('api', function($cookies, $http, $state) {
 // ========================
 
 app.controller('CategoriesController', function(api, $cookies, $rootScope, $scope, $state) {
-  $rootScope.pageClass = 'categories';
 
   api.getCategories()
     .then((results) => {
-      $scope.categories = results.data.categories;
+      $rootScope.categories = results.data.categories;
     })
     .catch((err) => {
       console.error('Error retreiving categories');
@@ -59,56 +58,31 @@ app.controller('CategoriesController', function(api, $cookies, $rootScope, $scop
     });
 
   $scope.toggleSelected = function(index) {
-    if (!$scope.categories[index].switch) {
-      $scope.categories[index].switch = true;
+    if (!$rootScope.categories[index].switch) {
+      $rootScope.categories[index].switch = true;
     }
     else {
-      $scope.categories[index].switch = false;
+      $rootScope.categories[index].switch = false;
     }
-  };
-
-  $scope.search = function() {
-    let categories = [];
-    $scope.categories.forEach(function(category) {
-      if (category.switch) {
-        categories.push(category.name);
-      }
-    });
-    let data = {
-      categories
-    };
-    $cookies.putObject('customSearchData', data);
-    $state.go('main');
   };
 });
 
 
 app.controller('MainController', function(api, $cookies, $rootScope, $scope, $state, $stateParams) {
   $rootScope.pageClass = 'main';
-  $rootScope.modal = false;
-
-  // If custom search has been called, pass that data into getQuestions()
-  let cookie = $cookies.getObject('customSearchData');
-  let data;
-  if (cookie) {
-    data = cookie;
-    $scope.searchCategories = cookie.categories;
-  }
-  else {
-    data = null;
-    $scope.searchCategories = null;
-  }
-
+  $rootScope.witModal = false;
+  $rootScope.catModal = false;
   $scope.questions = [];
   $scope.index = 0;
   $scope.currentQuestion = [];
+  let data = null;
 
   api.getQuestions(data)
     .then((results) => {
       results.data.questions.forEach((question) => {
         $scope.questions.push(question);
       });
-      shuffle($scope.questions);
+      // shuffle($scope.questions);
       $scope.currentQuestion = [$scope.questions[$scope.index]];
     })
     .catch((err) => {
@@ -116,8 +90,8 @@ app.controller('MainController', function(api, $cookies, $rootScope, $scope, $st
       console.log(err.errors);
     });
 
-  $scope.slideRight = false;
-  $scope.slideLeft = false;
+  // $scope.slideRight = false;
+  // $scope.slideLeft = false;
   $scope.prevQuestion = function() {
     if ($scope.index > 0) {
       $scope.index--;
@@ -131,10 +105,39 @@ app.controller('MainController', function(api, $cookies, $rootScope, $scope, $st
     }
   };
 
-  $scope.resetSearch = function() {
-    $cookies.remove('customSearchData');
-    $state.go($state.current, {}, {reload: true});
+  // $scope.resetSearch = function() {
+  //   $cookies.remove('customSearchData');
+  //   $state.go($state.current, {}, {reload: true});
+  // };
+
+  $rootScope.search = function() {
+    let selectedCategories = [];
+    console.log($rootScope.categories);
+    $rootScope.categories.forEach(function(category) {
+      if (category.switch) {
+        selectedCategories.push(category.name);
+      }
+    });
+    let data = {
+      categories: selectedCategories
+    };
+    $scope.questions = [];
+    $scope.index = 0;
+    $scope.currentQuestion = [];
+    api.getQuestions(data)
+      .then((results) => {
+        results.data.questions.forEach((question) => {
+          $scope.questions.push(question);
+        });
+        // shuffle($scope.questions);
+        $scope.currentQuestion = [$scope.questions[$scope.index]];
+      })
+      .catch((err) => {
+        console.error('Error retreiving questions');
+        console.log(err.errors);
+      });
   };
+
 });
 
 
@@ -182,12 +185,12 @@ app.controller('QuestionsController', function(api, $cookies, $rootScope, $scope
 
 app.config(($stateProvider, $urlRouterProvider) => {
   $stateProvider
-    .state({
-      name: 'categories',
-      url: '/categories',
-      templateUrl: '/templates/categories.html',
-      controller: 'CategoriesController'
-    })
+    // .state({
+    //   name: 'categories',
+    //   url: '/categories',
+    //   templateUrl: '/templates/categories.html',
+    //   controller: 'CategoriesController'
+    // })
     .state({
       name: 'main',
       url: '/',
