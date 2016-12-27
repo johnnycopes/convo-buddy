@@ -36,7 +36,7 @@
                 </div>
                 <div class="modal-links" ng-show="catModal">
                     <a class="btn-success" ng-click="catModal = !catModal; search()" ng-show="catModal">search</a>
-                    <a ng-click="catModal = !catModal" ng-show="catModal">close</a>
+                    <a ng-click="catModal = !catModal; closeCatModal()" ng-show="catModal">close</a>
                 </div>
             </div>
         </header>

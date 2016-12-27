@@ -41,16 +41,12 @@ app.factory('api', function($cookies, $http, $state) {
   return service;
 });
 
-
-app.factory('questions', function() {
+app.factory('storage', function() {
   let service = {};
 
-  service.storeQuestions = function(arr) {
-    service.questions = arr;
-  };
-  service.storeIndex = function(idx) {
-    service.index = idx;
-  };
+  service.questions;
+  service.index;
+
   return service;
 });
 
@@ -63,6 +59,11 @@ app.controller('CategoriesController', function(api, $cookies, $rootScope, $scop
   api.getCategories()
     .then((results) => {
       $rootScope.categories = results.data.categories;
+      $rootScope.categories.forEach((category) => {
+        category.switch = true;
+      });
+      // angular.copy makes deep copy of an object (useful for taking a snapshot of an object)
+      $rootScope.selectedCategories = angular.copy($rootScope.categories);
     })
     .catch((err) => {
       console.error('Error retreiving categories');
@@ -80,19 +81,18 @@ app.controller('CategoriesController', function(api, $cookies, $rootScope, $scop
 });
 
 
-app.controller('MainController', function(api, $cookies, questions, $rootScope, $scope, $state, $stateParams) {
+app.controller('MainController', function(api, $cookies, $rootScope, $scope, $state, $stateParams, storage) {
   $rootScope.pageClass = 'main';
   $rootScope.witModal = false;
   $rootScope.catModal = false;
   $scope.questions = [];
-  $scope.index = questions.index || 0;
+  $scope.index = storage.index || 0;
   $scope.currentQuestion = [];
   let data = null;
 
   // if there is no existing questions array in use, pull all questions from the db
-  console.log($scope.index);
-  if (questions.questions) {
-    questions.questions.forEach((question) => {
+  if (storage.questions) {
+    storage.questions.forEach((question) => {
       $scope.questions.push(question);
     });
     $scope.currentQuestion = [$scope.questions[$scope.index]];
@@ -120,19 +120,27 @@ app.controller('MainController', function(api, $cookies, questions, $rootScope, 
       $scope.index++;
     }
     $scope.currentQuestion = [$scope.questions[$scope.index]];
-    questions.storeIndex($scope.index);
+    storage.index = $scope.index;
+  };
+
+
+  $rootScope.closeCatModal = function() {
+    $rootScope.categories = angular.copy($rootScope.selectedCategories);
+    console.log('rootScope.selectedCategories:', $rootScope.selectedCategories);
+    console.log('rootScope.categories:', $rootScope.categories);
   };
 
 
   $rootScope.search = function() {
+    $rootScope.selectedCategories = angular.copy($rootScope.categories);
     let allCategories = [];
     let selectedCategories = [];
     let data = {};
-    $rootScope.categories.forEach(function(category) {
-      allCategories.push(category.name);
+    $rootScope.categories.forEach((category) => {
       if (category.switch) {
         selectedCategories.push(category.name);
       }
+      allCategories.push(category.name);
     });
     if (selectedCategories.length) {
       data.categories = selectedCategories;
@@ -149,7 +157,7 @@ app.controller('MainController', function(api, $cookies, questions, $rootScope, 
           $scope.questions.push(question);
         });
         $scope.currentQuestion = [$scope.questions[$scope.index]];
-        questions.storeQuestions($scope.questions);
+        storage.questions = $scope.questions;
       })
       .catch((err) => {
         console.error('Error retreiving questions');
@@ -161,7 +169,7 @@ app.controller('MainController', function(api, $cookies, questions, $rootScope, 
     shuffle($scope.questions);
     $scope.index = 0;
     $scope.currentQuestion = [$scope.questions[$scope.index]];
-    questions.storeQuestions($scope.questions);
+    storage.questions = $scope.questions;
   };
 
 });
