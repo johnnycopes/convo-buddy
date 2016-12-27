@@ -8,16 +8,22 @@
     </div>
 </main>
 <footer>
-    <div class="user-access vert-center">
-        <a href="#">log in</a>
-        <a href="#">sign up</a>
+    <div class="vert-center portion user-access">
+        <div>
+            <a href="#">log in</a><br>
+            <a href="#">sign up</a>
+        </div>
     </div>
-    <div class="vert-center tac">
-        <h4>{{index + 1}} / {{questions.length}}</h4>
-        <a ng-click="shuffle()">shuffle</a>
+    <div class="vert-center portion tac">
+        <div>
+            <h4>{{index + 1}} / {{questions.length}}</h4>
+            <a ng-click="shuffle()">shuffle</a>
+        </div>
     </div>
-    <div class="vert-center tar">
-        <a href="#">submit a question</a>
-        <a href="https://johnnycopes.github.io/" target="_blank">made by johnnycopes</a>
+    <div class="vert-center portion tar">
+        <div>
+            <a href="#">submit a question</a><br>
+            <a href="https://johnnycopes.github.io/" target="_blank">made by johnnycopes</a>
+        </div>
     </div>
 </footer>

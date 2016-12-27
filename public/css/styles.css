@@ -34,8 +34,8 @@ header, main, footer {
 header, footer {
   height: 10%; }
 
-header div,
-footer div {
+header .portion,
+footer .portion {
   flex-basis: 33.33%; }
 
 main {
@@ -57,7 +57,7 @@ a {
   text-decoration: none;
   cursor: pointer;
   font-weight: 300;
-  display: block; }
+  display: inline-block; }
 
 .page {
   position: relative;
@@ -84,12 +84,12 @@ a {
   color: #2b2624;
   z-index: 1; }
 
-.close-link {
+.modal-links {
   z-index: 2; }
-  .close-link span {
-    z-index: 2;
-    background: #CF5C36;
-    padding: 1rem 2rem; }
+  .modal-links a {
+    border: 4px solid #CF5C36;
+    color: #CF5C36;
+    padding: .5rem 2rem; }
 
 .logo h2 {
   font-weight: 700;
@@ -120,7 +120,7 @@ a {
   min-width: 900px;
   width: 65%; }
   .question-btns button {
-    padding: 10px 14px;
+    padding: 10px 13px;
     font-size: 48px;
     color: #f2d3a1;
     border: 5px solid #f2d3a1;
@@ -129,18 +129,19 @@ a {
     cursor: pointer;
     outline: none; }
 
-.content li {
+.categories li {
   width: 100%;
   height: 40px;
   display: inline-block;
   position: relative;
-  background: #bd522e; }
-.content h4 {
+  background: #CF5C36;
+  color: #FFF; }
+.categories h4 {
   position: absolute;
   transform: translate(-50%, -50%);
   top: 50%;
   left: 50%; }
-.content .selected {
+.categories .selected {
   background: #f2d3a1;
   color: #2b2624; }
 
@@ -208,6 +209,10 @@ a {
   content: "";
   display: block;
   clear: both; }
+
+a.btn-success {
+  background: #CF5C36;
+  color: #FFF; }
 
 .modal-open {
   overflow: hidden; }

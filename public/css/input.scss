@@ -52,8 +52,8 @@ header, footer {
   height: 10%;
 }
 
-header div,
-footer div {
+header .portion,
+footer .portion {
   flex-basis: 33.33%;
 }
 
@@ -79,7 +79,7 @@ a {
   text-decoration: none;
   cursor: pointer;
   font-weight: 300;
-  display: block;
+  display: inline-block;
 }
 
 
@@ -115,13 +115,13 @@ a {
   z-index: 1;
 }
 
-.close-link {
+.modal-links {
   z-index: 2;
 
-    span {
-    z-index: 2;
-    background: $primary-color;
-    padding: 1rem 2rem;
+  a {
+    border: 4px solid $primary-color;
+    color: $primary-color;
+    padding: .5rem 2rem;
   }
 }
 
@@ -163,11 +163,11 @@ a {
   width: 65%;
 
   button {
-    padding: 10px 14px;
+    padding: 10px 13px;
     font-size: 48px;
-    color: #f2d3a1;
-    border: 5px solid #f2d3a1;
-    background: #CF5C36;
+    color: $action-color;
+    border: 5px solid $action-color;
+    background: $primary-color;
     border-radius: 50px;
     cursor: pointer;
     outline: none;
@@ -177,13 +177,14 @@ a {
 
 // --- CATEGORIES MODAL ---
 
-.content {
+.categories {
   li {
     width: 100%;
     height: 40px;
     display: inline-block;
     position: relative;
-    background: $secondary-color;
+    background: $primary-color;
+    color: $font-color;
   }
 
   h4 {
@@ -284,6 +285,11 @@ a {
   content: "";
   display: block;
   clear: both;
+}
+
+a.btn-success {
+  background: $primary-color;
+  color: $font-color;
 }
 
 .modal-open {
