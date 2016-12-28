@@ -125,6 +125,19 @@ a {
   }
 }
 
+.split-btn {
+  width: 49%;
+  height: 40px;
+  display: inline-block;
+  position: relative;
+  outline: none;
+}
+
+a.btn-success {
+  background: $primary-color;
+  color: $font-color;
+}
+
 
 // --- MAIN PAGE ---
 
@@ -178,14 +191,9 @@ a {
 // --- CATEGORIES MODAL ---
 
 .cat-modal button {
-  width: 49%;
-  height: 40px;
-  display: inline-block;
-  position: relative;
   background: $font-color;
   color: $primary-color;
   border: 5px solid $primary-color;
-  outline: none;
 }
 
 .categories {
@@ -220,8 +228,18 @@ a {
 
 // --- QUESTIONS PAGE ---
 
-.tabs {
-    width: 100%;
+.questions-page {
+  position: absolute;
+  width: 100%;
+
+  .split-btn {
+    background: $primary-color;
+    color: $font-color;
+    border: 5px solid $secondary-color;
+  }
+}
+
+.drawers {
 
   .category {
     margin: 1rem 0;
@@ -232,11 +250,12 @@ a {
   h4 {
     padding: 0.3rem 0px;
   }
-}
 
-.questions {
-  padding-top: 0.3rem;
-  padding-bottom: 0.3rem;
+  .questions {
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+  }
+
 }
 
 
@@ -302,11 +321,6 @@ a {
   content: "";
   display: block;
   clear: both;
-}
-
-a.btn-success {
-  background: $primary-color;
-  color: $font-color;
 }
 
 .modal-open {

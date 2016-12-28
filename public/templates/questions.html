@@ -1,7 +1,10 @@
-<div class="container">
-    <main>
-        <ul class="tabs">
-            <li class="tab" ng-repeat="(category, questions) in content">
+<div class="questions-page">
+    <div class="container">
+        <div class="tac">
+            <a ng-click="toggleDrawers()">show / hide all</a>
+        </div>
+        <ul class="drawers">
+            <li class="drawer" ng-repeat="(category, questions) in content">
                 <h4 class="category" ng-click="toggleDrawer(questions)">{{category}}</h4>
                 <ol ng-show="questions.toggle" class="questions">
                     <li class="question" ng-repeat="question in questions">
@@ -10,5 +13,5 @@
                 </ol>
             </li>
         </ul>
-    </main>
+    </div>
 </div>

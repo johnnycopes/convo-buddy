@@ -91,6 +91,17 @@ a {
     color: #CF5C36;
     padding: .5rem 2rem; }
 
+.split-btn {
+  width: 49%;
+  height: 40px;
+  display: inline-block;
+  position: relative;
+  outline: none; }
+
+a.btn-success {
+  background: #CF5C36;
+  color: #FFF; }
+
 .logo h2 {
   font-weight: 700;
   padding: 0.4rem 1rem;
@@ -130,14 +141,9 @@ a {
     outline: none; }
 
 .cat-modal button {
-  width: 49%;
-  height: 40px;
-  display: inline-block;
-  position: relative;
   background: #FFF;
   color: #CF5C36;
-  border: 5px solid #CF5C36;
-  outline: none; }
+  border: 5px solid #CF5C36; }
 
 .categories li {
   width: 100%;
@@ -159,16 +165,21 @@ a {
   margin-right: 7px;
   font-size: 1.5rem; }
 
-.tabs {
+.questions-page {
+  position: absolute;
   width: 100%; }
-  .tabs .category {
-    margin: 1rem 0;
-    padding: 1rem 40px;
-    background: #bd522e; }
-  .tabs h4 {
-    padding: 0.3rem 0px; }
+  .questions-page .split-btn {
+    background: #CF5C36;
+    color: #FFF;
+    border: 5px solid #bd522e; }
 
-.questions {
+.drawers .category {
+  margin: 1rem 0;
+  padding: 1rem 40px;
+  background: #bd522e; }
+.drawers h4 {
+  padding: 0.3rem 0px; }
+.drawers .questions {
   padding-top: 0.3rem;
   padding-bottom: 0.3rem; }
 
@@ -223,10 +234,6 @@ a {
   content: "";
   display: block;
   clear: both; }
-
-a.btn-success {
-  background: #CF5C36;
-  color: #FFF; }
 
 .modal-open {
   overflow: hidden; }

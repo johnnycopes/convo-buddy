@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body class="page-fade" ng-class="{'modal-open': modal}">
+<body ng-class="{'modal-open': modal}">
     <div class="page" ng-class="{'bg-img': pageClass === 'main'}">
         <header>
             <div class="vert-center portion">
@@ -55,8 +55,8 @@
         <div ng-controller="CategoriesController" class="modal cat-modal vert-center hor-center" ng-show="catModal">
             <div class="wrapper">
                 <div class="cf">
-                    <button class="fl" ng-click="toggleAll('on')">select all</button>
-                    <button class="fr" ng-click="toggleAll('off')">clear all</button>
+                    <button class="fl split-btn" ng-click="toggleAll('on')">select all</button>
+                    <button class="fr split-btn" ng-click="toggleAll('off')">clear all</button>
                 </div>
                 <ul class="categories">
                     <li ng-class="{'selected': category.switch}" ng-repeat="category in categories track by $index" ng-click="toggleSelected($index)" class="cf">

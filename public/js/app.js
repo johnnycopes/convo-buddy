@@ -222,6 +222,12 @@ app.controller('QuestionsController', function(api, $cookies, $rootScope, $scope
   $scope.toggleDrawer = function(questions) {
     questions.toggle = !questions.toggle;
   };
+
+  $scope.toggleDrawers = function() {
+    for (key in $scope.content) {
+      $scope.content[key].toggle = !$scope.content[key].toggle; 
+    }
+  };
 });
 
 
