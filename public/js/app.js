@@ -153,12 +153,13 @@ app.controller('MainController', function(api, $cookies, $rootScope, $scope, $st
       }
       allCategories.push(category.name);
     });
-    if (selectedCategories.length) {
-      data.categories = selectedCategories;
+    if (!selectedCategories.length) {
+      $rootScope.categories.forEach((category) => {
+        category.switch = true;
+      });
+      selectedCategories = allCategories;
     }
-    else {
-      data.categories = allCategories;
-    }
+    data.categories = selectedCategories;
     $scope.questions = [];
     $scope.index = 0;
     $scope.currentQuestion = [];
