@@ -44,7 +44,7 @@
         <div class="page-fade" ui-view></div>
         <!-- <ui-view></ui-view> -->
 
-        <div class="modal vert-center hor-center" ng-show="witModal">
+        <div class="modal wit-modal vert-center hor-center" ng-show="witModal">
             <div class="wrapper">
                 <h4>Convo Buddy is a tool that helps ESL teachers get the conversation started.</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam facilisis nisi quis placerat feugiat. In massa tortor, laoreet vitae sodales ut, lobortis ac ante. Donec aliquam, ipsum eu facilisis tincidunt, lorem libero rhoncus mauris, eget tempor tellus mi non tortor. Etiam dignissim dictum libero quis egestas.</p>
@@ -52,11 +52,16 @@
             </div>
         </div>
 
-        <div ng-controller="CategoriesController" class="modal vert-center hor-center" ng-show="catModal">
+        <div ng-controller="CategoriesController" class="modal cat-modal vert-center hor-center" ng-show="catModal">
             <div class="wrapper">
+                <div class="cf">
+                    <button class="fl" ng-click="toggleAll('on')">select all</button>
+                    <button class="fr" ng-click="toggleAll('off')">clear all</button>
+                </div>
                 <ul class="categories">
-                    <li ng-class="{'selected': category.switch}" ng-repeat="category in categories track by $index" ng-click="toggleSelected($index)">
+                    <li ng-class="{'selected': category.switch}" ng-repeat="category in categories track by $index" ng-click="toggleSelected($index)" class="cf">
                         <h4>{{category.name}}</h4>
+                        <span ng-show="category.switch" class="fr checkmark">✔</span>
                     </li>
                 </ul>
             </div>

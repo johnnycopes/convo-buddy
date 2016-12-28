@@ -78,6 +78,17 @@ app.controller('CategoriesController', function(api, $cookies, $rootScope, $scop
       $rootScope.categories[index].switch = false;
     }
   };
+
+  $scope.toggleAll = function(state) {
+    $rootScope.categories.forEach((category) => {
+      if (state === 'on') {
+        category.switch = true;
+      }
+      else if (state === 'off') {
+        category.switch = false;
+      }
+    });
+  };
 });
 
 

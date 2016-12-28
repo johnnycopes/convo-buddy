@@ -177,6 +177,17 @@ a {
 
 // --- CATEGORIES MODAL ---
 
+.cat-modal button {
+  width: 49%;
+  height: 40px;
+  display: inline-block;
+  position: relative;
+  background: $font-color;
+  color: $primary-color;
+  border: 5px solid $primary-color;
+  outline: none;
+}
+
 .categories {
   li {
     width: 100%;
@@ -197,6 +208,12 @@ a {
   .selected {
     background: $action-color;
     color: $dark-font-color;
+  }
+
+  .checkmark {
+    margin-top: 2px;
+    margin-right: 7px;
+    font-size: 1.5rem;
   }
 }
 
