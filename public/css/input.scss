@@ -25,6 +25,10 @@ $font-stack: 'Rubik', sans-serif;
   box-sizing: border-box;
 }
 
+html {
+  font-size: 90%;
+}
+
 html, body, .page {
   height: 100%;
   width: 100%;
@@ -34,6 +38,7 @@ body {
   font-family: $font-stack;
   line-height: 1.5;
   color: $font-color;
+  font-size: 1rem;
 }
 
 h1, h2, h3, h4 { margin: 0; font-weight: 300; }
@@ -44,17 +49,20 @@ h4 { font-size: 1.2rem}
 
 header, main, footer {
   display: flex;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 header, footer {
   height: 10%;
 }
 
-header .portion,
-footer .portion {
+header .portion {
   flex-basis: 33.33%;
+}
+
+footer .portion {
+  flex-basis: 50%;
 }
 
 main {
@@ -119,9 +127,10 @@ a {
   z-index: 2;
 
   a {
-    border: 4px solid $primary-color;
-    color: $primary-color;
     padding: .5rem 2rem;
+    background: $font-color;
+    color: $primary-color;
+    border: 4px solid $primary-color;
   }
 }
 
@@ -150,6 +159,7 @@ a.btn-success {
   font-weight: 700;
   padding: 0.4rem 1rem;
   color: $action-color;
+  line-height: 1;
 }
 
 .bg-img {
@@ -160,7 +170,8 @@ a.btn-success {
 }
 
 .convo-question {
-  width: 600px;
+  width: 100%;
+  max-width: 500px;
   height: 400px;
   position: relative;
   height: 100%;
@@ -175,13 +186,15 @@ a.btn-success {
 }
 
 .question-btns {
-  position: absolute;
   padding-bottom: 3rem;
-  min-width: 900px;
-  width: 65%;
+  width: 100%;
+
+  div {
+    margin-top: 15px;
+  }
 
   button {
-    padding: 10px 13px;
+    padding: 10px 13.5px;
     font-size: 48px;
     color: $action-color;
     border: 5px solid $action-color;
@@ -324,6 +337,7 @@ a.btn-success {
   align-items: center;
 }
 
+.ib { display: inline-block; }
 .fl { float: left; }
 .fr { float: right; }
 
@@ -341,4 +355,65 @@ a.btn-success {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+// Responsive design classes
+
+.tablet {
+  display: none;
+}
+
+
+// ############################
+// MEDIA QUERIES
+// ############################
+
+@media screen and (min-width: 480px) {
+
+  html {
+    font-size: 95%;
+  }
+
+}
+
+
+@media screen and (min-width: 768px) {
+
+  header .portion,
+  footer .portion {
+    flex-basis: 33.33%;
+  }
+
+  .mobile {
+    display: none;
+  }
+
+  .tablet {
+    display: initial;
+  }
+
+  .question-btns {
+    position: absolute;
+    padding-bottom: 3rem;
+    min-width: 730px;
+    width: 65%;
+  }
+
+}
+
+
+@media screen and (min-width: 960px) {
+
+  html {
+    font-size: 100%;
+  }
+
+  .convo-question {
+    max-width: 600px;
+  }
+
+  .question-btns {
+    min-width: 900px;
+  }
+
 }
