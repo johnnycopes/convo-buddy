@@ -153,8 +153,8 @@ a.btn-success {
   height: 40px;
   display: inline-block;
   position: relative;
-  background: #CF5C36;
-  color: #FFF; }
+  border: 2px solid #f2d3a1;
+  color: #2b2624; }
 .categories h4 {
   position: absolute;
   transform: translate(-50%, -50%);
@@ -169,6 +169,7 @@ a.btn-success {
   font-size: 1.5rem; }
 
 .questions-page {
+  margin-top: 2rem;
   position: absolute;
   width: 100%; }
   .questions-page .split-btn {
@@ -179,7 +180,8 @@ a.btn-success {
 .drawers .category {
   margin: 1rem 0;
   padding: 1rem 40px;
-  background: #bd522e; }
+  background: #bd522e;
+  cursor: pointer; }
 .drawers h4 {
   padding: 0.3rem 0px; }
 .drawers .questions {
@@ -240,5 +242,10 @@ a.btn-success {
 
 .modal-open {
   overflow: hidden; }
+
+.opp-ends {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
 
 /*# sourceMappingURL=styles.css.map */

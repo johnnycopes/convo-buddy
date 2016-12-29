@@ -75,16 +75,23 @@ app.controller('CategoriesController', function(api, $cookies, $rootScope, $scop
   $scope.toggleSelected = function(index) {
     if (!$rootScope.categories[index].switch) {
       $rootScope.categories[index].switch = true;
+      $scope.isSelected = true;
     }
     else {
       $rootScope.categories[index].switch = false;
+      $scope.isSelected = false;
     }
+  };
+
+  $rootScope.closeCatModal = function() {
+    $rootScope.categories = angular.copy($rootScope.selectedCategories);
   };
 
   $scope.toggleCategories = function() {
     $scope.isSelected = !$scope.isSelected;
     $rootScope.categories.forEach((category) => {
-      if ($scope.isSelected === true) {
+      console.log(category.switch);
+      if (!$scope.isSelected) {
         category.switch = false;
       }
       else {
@@ -135,13 +142,6 @@ app.controller('MainController', function(api, $cookies, $rootScope, $scope, $st
     }
     $scope.currentQuestion = [$scope.questions[$scope.index]];
     storage.index = $scope.index;
-  };
-
-
-  $rootScope.closeCatModal = function() {
-    $rootScope.categories = angular.copy($rootScope.selectedCategories);
-    console.log('rootScope.selectedCategories:', $rootScope.selectedCategories);
-    console.log('rootScope.categories:', $rootScope.categories);
   };
 
 
@@ -230,11 +230,11 @@ app.controller('QuestionsController', function(api, $cookies, $rootScope, $scope
   $scope.toggleDrawers = function() {
     $scope.isClosed = !$scope.isClosed;
     for (key in $scope.content) {
-      if ($scope.isClosed) {
-        $scope.content[key].toggle = false;
+      if (!$scope.isClosed) {
+        $scope.content[key].toggle = true;
       }
       else {
-        $scope.content[key].toggle = true;
+        $scope.content[key].toggle = false;
       }
     }
   };

@@ -210,8 +210,8 @@ a.btn-success {
     height: 40px;
     display: inline-block;
     position: relative;
-    background: $primary-color;
-    color: $font-color;
+    border: 2px solid $action-color;
+    color: $dark-font-color;
   }
 
   h4 {
@@ -237,6 +237,7 @@ a.btn-success {
 // --- QUESTIONS PAGE ---
 
 .questions-page {
+  margin-top: 2rem;
   position: absolute;
   width: 100%;
 
@@ -253,6 +254,7 @@ a.btn-success {
     margin: 1rem 0;
     padding: 1rem 40px;
     background: $secondary-color;
+    cursor: pointer;
   }
 
   h4 {
@@ -333,4 +335,10 @@ a.btn-success {
 
 .modal-open {
   overflow: hidden;
+}
+
+.opp-ends {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
