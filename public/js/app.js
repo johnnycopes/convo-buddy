@@ -56,6 +56,8 @@ app.factory('storage', function() {
 // ========================
 
 app.controller('CategoriesController', function(api, $cookies, $rootScope, $scope, $state) {
+  $scope.isSelected = true;
+
   api.getCategories()
     .then((results) => {
       $rootScope.categories = results.data.categories;
@@ -79,13 +81,14 @@ app.controller('CategoriesController', function(api, $cookies, $rootScope, $scop
     }
   };
 
-  $scope.toggleAll = function(state) {
+  $scope.toggleCategories = function() {
+    $scope.isSelected = !$scope.isSelected;
     $rootScope.categories.forEach((category) => {
-      if (state === 'on') {
-        category.switch = true;
-      }
-      else if (state === 'off') {
+      if ($scope.isSelected === true) {
         category.switch = false;
+      }
+      else {
+        category.switch = true;
       }
     });
   };
@@ -190,6 +193,7 @@ app.controller('MainController', function(api, $cookies, $rootScope, $scope, $st
 app.controller('QuestionsController', function(api, $cookies, $rootScope, $scope, $state) {
   $rootScope.pageClass = 'question';
   $scope.content = {};
+  $scope.isClosed = true;
 
   // combine these two using bluebird
   api.getCategories()
@@ -224,8 +228,14 @@ app.controller('QuestionsController', function(api, $cookies, $rootScope, $scope
   };
 
   $scope.toggleDrawers = function() {
+    $scope.isClosed = !$scope.isClosed;
     for (key in $scope.content) {
-      $scope.content[key].toggle = !$scope.content[key].toggle; 
+      if ($scope.isClosed) {
+        $scope.content[key].toggle = false;
+      }
+      else {
+        $scope.content[key].toggle = true;
+      }
     }
   };
 });

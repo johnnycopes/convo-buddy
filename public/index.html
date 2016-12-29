@@ -54,9 +54,8 @@
 
         <div ng-controller="CategoriesController" class="modal cat-modal vert-center hor-center" ng-show="catModal">
             <div class="wrapper">
-                <div class="cf">
-                    <button class="fl split-btn" ng-click="toggleAll('on')">select all</button>
-                    <button class="fr split-btn" ng-click="toggleAll('off')">clear all</button>
+                <div class="tac">
+                    <a class="btn-toggle" ng-click="toggleCategories()">select / clear all</a>
                 </div>
                 <ul class="categories">
                     <li ng-class="{'selected': category.switch}" ng-repeat="category in categories track by $index" ng-click="toggleSelected($index)" class="cf">

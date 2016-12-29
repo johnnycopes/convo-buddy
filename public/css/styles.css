@@ -102,6 +102,10 @@ a.btn-success {
   background: #CF5C36;
   color: #FFF; }
 
+.btn-toggle {
+  padding: 0.4rem 1rem;
+  border: 2px solid white; }
+
 .logo h2 {
   font-weight: 700;
   padding: 0.4rem 1rem;
@@ -140,10 +144,9 @@ a.btn-success {
     cursor: pointer;
     outline: none; }
 
-.cat-modal button {
-  background: #FFF;
+.cat-modal .btn-toggle {
   color: #CF5C36;
-  border: 5px solid #CF5C36; }
+  border-color: #CF5C36; }
 
 .categories li {
   width: 100%;

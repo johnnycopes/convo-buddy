@@ -138,6 +138,11 @@ a.btn-success {
   color: $font-color;
 }
 
+.btn-toggle {
+  padding: 0.4rem 1rem;
+  border: 2px solid white;
+}
+
 
 // --- MAIN PAGE ---
 
@@ -190,10 +195,13 @@ a.btn-success {
 
 // --- CATEGORIES MODAL ---
 
-.cat-modal button {
-  background: $font-color;
-  color: $primary-color;
-  border: 5px solid $primary-color;
+.cat-modal {
+
+  .btn-toggle {
+    color: $primary-color;
+    border-color: $primary-color;
+  }
+
 }
 
 .categories {

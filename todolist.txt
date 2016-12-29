@@ -2,7 +2,6 @@ TO-DO LIST
 
 1. put SVG bg img inline so it can be more easily modified
 2. make left/right arrows change the questions
-3. make select/deselect for categories modal
 4. make submit question modal
 5. make login modal
 7. hovering on links makes them turn from white to yellow
