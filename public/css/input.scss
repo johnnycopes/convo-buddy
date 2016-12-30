@@ -26,7 +26,7 @@ $font-stack: 'Rubik', sans-serif;
 }
 
 html {
-  font-size: 90%;
+  font-size: 85%;
 }
 
 html, body, .page {
@@ -54,6 +54,7 @@ header, main, footer {
 }
 
 header, footer {
+  background: $secondary-color;
   height: 10%;
 }
 
@@ -88,6 +89,7 @@ a {
   cursor: pointer;
   font-weight: 300;
   display: inline-block;
+  line-height: 1.7;
 }
 
 
@@ -100,7 +102,7 @@ a {
 }
 
 .container {
-  width: 70%;
+  width: 90%;
   margin: 0 auto;
   position: relative;
 }
@@ -124,10 +126,14 @@ a {
 }
 
 .modal-links {
+  position: absolute;
   z-index: 2;
+  width: 100%;
+  top: 0;
+  left: 0;
 
   a {
-    padding: .5rem 2rem;
+    padding: 0.2rem 2rem;
     background: $font-color;
     color: $primary-color;
     border: 4px solid $primary-color;
@@ -148,10 +154,15 @@ a.btn-success {
 }
 
 .btn-toggle {
-  padding: 0.4rem 1rem;
+  padding: 0.2rem 1rem;
   border: 2px solid white;
 }
 
+.instructions {
+  h4 {
+    padding-bottom: 0.5rem;
+  }
+}
 
 // --- MAIN PAGE ---
 
@@ -160,13 +171,6 @@ a.btn-success {
   padding: 0.4rem 1rem;
   color: $action-color;
   line-height: 1;
-}
-
-.bg-img {
-   background-image: url('../img/logo.svg');
-   background-size: 100vh;
-   background-repeat: no-repeat;
-   background-position: center top;
 }
 
 .convo-question {
@@ -186,7 +190,7 @@ a.btn-success {
 }
 
 .question-btns {
-  padding-bottom: 3rem;
+  padding-bottom: 1rem;
   width: 100%;
 
   div {
@@ -194,8 +198,8 @@ a.btn-success {
   }
 
   button {
-    padding: 10px 13.5px;
-    font-size: 48px;
+    padding: 10px 12px;
+    font-size: 32px;
     color: $action-color;
     border: 5px solid $action-color;
     background: $primary-color;
@@ -351,12 +355,6 @@ a.btn-success {
   overflow: hidden;
 }
 
-.opp-ends {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
 // Responsive design classes
 
 .tablet {
@@ -372,6 +370,31 @@ a.btn-success {
 
   html {
     font-size: 95%;
+  }
+
+  header, footer {
+    background: $primary-color;
+  }
+
+  .bg-img {
+     background-image: url('../img/logo.svg');
+     background-size: 100vh;
+     background-repeat: no-repeat;
+     background-position: center top;
+  }
+
+  .container {
+    width: 80%;
+  }
+
+  .btn-toggle {
+    padding: 0.4rem 1rem;
+  }
+
+  .modal-links {
+    a {
+      padding: 0.4rem 2rem;
+    }
   }
 
 }
@@ -392,11 +415,26 @@ a.btn-success {
     display: initial;
   }
 
+  .container {
+    width: 70%;
+  }
+
   .question-btns {
     position: absolute;
     padding-bottom: 3rem;
     min-width: 730px;
     width: 65%;
+
+    button {
+      padding: 10px 12px;
+      font-size: 32px;
+      color: $action-color;
+      border: 5px solid $action-color;
+      background: $primary-color;
+      border-radius: 50px;
+      cursor: pointer;
+      outline: none;
+    }
   }
 
 }
@@ -414,6 +452,12 @@ a.btn-success {
 
   .question-btns {
     min-width: 900px;
+  }
+
+  .instructions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
 }
