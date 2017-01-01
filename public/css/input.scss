@@ -95,10 +95,9 @@ a {
 
 // === GENERAL STYLES ===
 
-.page {
+body {
   position: relative;
   background: $primary-color;
-  overflow: auto;
 }
 
 .container {
@@ -129,8 +128,8 @@ a {
   position: absolute;
   z-index: 2;
   width: 100%;
-  top: 0;
-  left: 0;
+  top: 10px;
+  right: 10px;
 
   a {
     padding: 0.2rem 2rem;
@@ -355,9 +354,8 @@ a.btn-success {
   overflow: hidden;
 }
 
-// Responsive design classes
-
-.tablet {
+// Responsive classes
+.counter {
   display: none;
 }
 
@@ -411,8 +409,8 @@ a.btn-success {
     display: none;
   }
 
-  .tablet {
-    display: initial;
+  .counter {
+    display: flex;
   }
 
   .container {
@@ -424,10 +422,13 @@ a.btn-success {
     padding-bottom: 3rem;
     min-width: 730px;
     width: 65%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
     button {
-      padding: 10px 12px;
-      font-size: 32px;
+      padding: 10px 13.5px;
+      font-size: 48px;
       color: $action-color;
       border: 5px solid $action-color;
       background: $primary-color;
@@ -444,6 +445,11 @@ a.btn-success {
 
   html {
     font-size: 100%;
+  }
+
+  header, main, footer {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 
   .convo-question {

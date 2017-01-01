@@ -1,25 +1,23 @@
-'use strict';
-
 // ========================
 // INITIAL SETUP
 // ========================
 
 // Requirements
-var express = require('express');
-var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
-var schema = require('./schema');
-var bluebird = require('bluebird');
-var app = express();
+const express = require('express');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const schema = require('./schema');
+const bluebird = require('bluebird');
+const app = express();
 // const bcrypt = require('bcrypt');
 // const uuid = require('uuid');
 
 // DB aliases (from schema.js)
-var ObjectId = mongoose.mongo.ObjectId;
-var Question = schema.Question;
-var Category = schema.Category;
-var User = schema.User;
-var Token = schema.Token;
+const ObjectId = mongoose.mongo.ObjectId;
+const Question = schema.Question;
+const Category = schema.Category;
+const User = schema.User;
+const Token = schema.Token;
 
 mongoose.Promise = bluebird;
 mongoose.connect('mongodb://localhost/convo_buddy');
@@ -31,13 +29,14 @@ app.use(express.static('public'));
 app.use(express.static('node_modules'));
 app.use(bodyParser.json());
 
+
 // ========================
 // ROUTES
 // ========================
 
-app.get('/api/getQuestions', function (req, res) {
-  var query = {};
-  var data = req.query;
+app.get('/api/getQuestions', (req, res) => {
+  let query = {};
+  let data = req.query;
   if (data.categories) {
     data.categories = JSON.parse(data.categories);
     console.log('hit the "if" block (specific search)');
@@ -47,23 +46,28 @@ app.get('/api/getQuestions', function (req, res) {
       }
     };
   }
-  Question.find(query).then(function (questions) {
-    console.log(questions);
-    res.json({ questions: questions });
-  }).catch(function (err) {
-    console.log('failed');
-    res.status('401').json({ error: err.message });
-  });
+  Question.find(query)
+    .then((questions) => {
+      console.log(questions);
+      res.json({questions});
+    })
+    .catch((err) => {
+      console.log('failed');
+      res.status('401').json({error: err.message})
+    });
 });
 
-app.get('/api/getCategories', function (req, res) {
-  Category.find({}).then(function (categories) {
-    console.log('succeeded');
-    res.json({ categories: categories });
-  }).catch(function (err) {
-    console.log('failed');
-    res.status('401').json({ error: err.message });
-  });
+
+app.get('/api/getCategories', (req, res) => {
+  Category.find({})
+    .then((categories) => {
+      console.log('succeeded');
+      res.json({categories});
+    })
+    .catch((err) => {
+      console.log('failed');
+      res.status('401').json({error: err.message})
+    });
 });
 
 // Category.create({
@@ -98,6 +102,7 @@ app.get('/api/getCategories', function (req, res) {
 //   });
 
 
-app.listen(3001, function () {
+
+app.listen(3001, function() {
   console.log('listening on *:3001');
 });

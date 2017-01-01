@@ -1,6 +1,11 @@
 {
   "name": "convo_buddy",
   "version": "1.0.0",
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
   "description": "A conversation-generating tool for ESL teachers to use with their students",
   "main": "server.js",
   "dependencies": {
@@ -15,10 +20,15 @@
     "mongoose": "^4.7.3",
     "normalize.css": "^5.0.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-preset-env": "^1.1.4",
+    "babel-preset-es2015": "^6.18.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "babel --presets es2015 src -d lib"
   },
   "author": "johnnycopes",
   "license": "ISC"

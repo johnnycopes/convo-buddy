@@ -67,10 +67,9 @@ a {
   display: inline-block;
   line-height: 1.7; }
 
-.page {
+body {
   position: relative;
-  background: #CF5C36;
-  overflow: auto; }
+  background: #CF5C36; }
 
 .container {
   width: 90%;
@@ -96,8 +95,8 @@ a {
   position: absolute;
   z-index: 2;
   width: 100%;
-  top: 0;
-  left: 0; }
+  top: 10px;
+  right: 10px; }
   .modal-links a {
     padding: 0.2rem 2rem;
     background: #FFF;
@@ -258,7 +257,7 @@ a.btn-success {
 .modal-open {
   overflow: hidden; }
 
-.tablet {
+.counter {
   display: none; }
 
 @media screen and (min-width: 480px) {
@@ -290,8 +289,8 @@ a.btn-success {
   .mobile {
     display: none; }
 
-  .tablet {
-    display: initial; }
+  .counter {
+    display: flex; }
 
   .container {
     width: 70%; }
@@ -300,10 +299,13 @@ a.btn-success {
     position: absolute;
     padding-bottom: 3rem;
     min-width: 730px;
-    width: 65%; }
+    width: 65%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
     .question-btns button {
-      padding: 10px 12px;
-      font-size: 32px;
+      padding: 10px 13.5px;
+      font-size: 48px;
       color: #f2d3a1;
       border: 5px solid #f2d3a1;
       background: #CF5C36;
@@ -313,6 +315,10 @@ a.btn-success {
 @media screen and (min-width: 960px) {
   html {
     font-size: 100%; }
+
+  header, main, footer {
+    padding-left: 2rem;
+    padding-right: 2rem; }
 
   .convo-question {
     max-width: 600px; }
