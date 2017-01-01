@@ -2,6 +2,11 @@ TO-DO LIST
 
 1. put SVG bg img inline so it can be more easily modified
 2. make left/right arrows change the questions
-4. make submit question modal
-5. make login modal
-7. hovering on links makes them turn from white to yellow
+3. make submit question modal
+4. make login modal
+5. hovering on links makes them turn from white to yellow
+6. try to make arrow bar area swipeable to change questions on mobile
+7. fixed footer to bring page back to top on questions page
+8. double-click to close questions tab on mobile
+9. make shuffle a checkbox when searching
+10. keep shuffle word at bottom to tell user if current search is shuffled/not shuffled

@@ -1,5 +1,5 @@
-<main class="vert-center hor-center">
-    <div class="convo-question" ng-swipe-right="changeQuestion('prev')" ng-swipe-left="changeQuestion('next')">
+<main class="vert-center hor-center" ng-swipe-left="changeQuestion('next')" ng-swipe-right="changeQuestion('prev')">
+    <div class="convo-question">
         <h1 ng-repeat="question in currentQuestion" class="fast-fade tac">{{question.text}}</h1>
     </div>
     <div class="question-btns tac cf">

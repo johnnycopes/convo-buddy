@@ -210,8 +210,9 @@ app.controller('QuestionsController', function (api, $cookies, $rootScope, $scop
   };
 
   $scope.toggleDrawers = function () {
+    console.log($scope.content);
     $scope.isClosed = !$scope.isClosed;
-    for (key in $scope.content) {
+    for (var key in $scope.content) {
       if (!$scope.isClosed) {
         $scope.content[key].toggle = true;
       } else {
