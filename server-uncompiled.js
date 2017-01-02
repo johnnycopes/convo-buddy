@@ -46,7 +46,7 @@ app.get('/api/getQuestions', (req, res) => {
       }
     };
   }
-  Question.find(query)
+  Question.find(query).sort({ 'categories.name': 1 })
     .then((questions) => {
       console.log(questions);
       res.json({questions});
@@ -59,7 +59,7 @@ app.get('/api/getQuestions', (req, res) => {
 
 
 app.get('/api/getCategories', (req, res) => {
-  Category.find({})
+  Category.find({}).sort({ 'name': 1 })
     .then((categories) => {
       console.log('succeeded');
       res.json({categories});
