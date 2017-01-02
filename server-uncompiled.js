@@ -71,20 +71,16 @@ app.get('/api/getCategories', (req, res) => {
 });
 
 // Category.create({
-//   name: 'would you rather',
+//   name: 'opinions',
 //   userId: null, // if the category is modified, attach this userId to this field
 //   parentId: null // if the category is modified, attach this category's objectId to this field
 // });
 
 // Question.create({
-//   text: 'Would you rather have a family of ten children or never be able to have children at all?',
+//   text: 'If you had $3,000 to improve your home, what would you spend it on?',
 //   categories: [{
-//     name: 'would you rather',
-//     _id: ObjectId("585b28ef00a902ef1120dfbf")
-// },
-// {
-//   name: 'conditional tense',
-//   _id: ObjectId("585838ef82789b9e48ea6e15")
+//     name: 'opinions',
+//     _id: ObjectId("5869a0e6516fd7476a6927d4")
 // }],
 //   numLikes: 0,
 //   userId: null, // if the question is modified, attach this userId to this field

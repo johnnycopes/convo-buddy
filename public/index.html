@@ -18,9 +18,9 @@
                 <div>
                     <a class="wit-link" ng-click="witModal = !witModal" ng-hide="witModal">what is this?</a>
                 </div>
-                <div class="modal-links left-btn">
+                <!-- <div class="modal-links left-btn">
                     <a ng-click="witModal = !witModal" ng-show="witModal">close</a>
-                </div>
+                </div> -->
             </div>
             <div class="vert-center portion logo tac">
                 <div>
@@ -30,14 +30,14 @@
                 </div>
             </div>
             <div class="vert-center questions-categories portion tar">
-                <div ng-hide="catModal">
+                <div>
                     <a ui-sref="questions">questions</a><br>
                     <a class="categories-link" ng-click="catModal = !catModal">categories</a>
                 </div>
-                <div class="modal-links right-btn" ng-show="catModal">
+                <!-- <div class="modal-links right-btn" ng-show="catModal">
                     <a class="btn-success" ng-click="catModal = !catModal; search()" ng-show="catModal">search</a>
                     <a ng-click="catModal = !catModal; closeCatModal()" ng-show="catModal">close</a>
-                </div>
+                </div> -->
             </div>
         </header>
 
@@ -45,6 +45,9 @@
         <!-- <ui-view></ui-view> -->
 
         <div class="modal wit-modal vert-center hor-center" ng-show="witModal">
+            <div class="modal-links left-btn">
+                <a ng-click="witModal = !witModal" ng-show="witModal">close</a>
+            </div>
             <div class="wrapper">
                 <h4>Convo Buddy is a tool that helps ESL teachers get the conversation started.</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam facilisis nisi quis placerat feugiat. In massa tortor, laoreet vitae sodales ut, lobortis ac ante. Donec aliquam, ipsum eu facilisis tincidunt, lorem libero rhoncus mauris, eget tempor tellus mi non tortor. Etiam dignissim dictum libero quis egestas.</p>
@@ -52,7 +55,11 @@
             </div>
         </div>
 
-        <div ng-controller="CategoriesController" class="modal cat-modal vert-center hor-center" ng-show="catModal">
+        <div ng-controller="CategoriesController" class="modal cat-modal hor-center" ng-show="catModal">
+            <div class="modal-links right-btn" ng-show="catModal">
+                <a class="btn-success" ng-click="catModal = !catModal; search()" ng-show="catModal">search</a>
+                <a ng-click="catModal = !catModal; closeCatModal()" ng-show="catModal">close</a>
+            </div>
             <div class="wrapper">
                 <div class="instructions tac">
                     <h4>Select at least one category, then click search</h4>
@@ -74,7 +81,7 @@
     <script src="angular-animate/angular-animate.min.js" charset="utf-8"></script>
     <script src="angular-cookies/angular-cookies.min.js" charset="utf-8"></script>
     <script src="angular-touch/angular-touch.min.js" charset="utf-8"></script>
-    <script src="js/app.js" charset="utf-8"></script>
+    <script src="js/app-uncompiled.js" charset="utf-8"></script>
 </body>
 
 </html>

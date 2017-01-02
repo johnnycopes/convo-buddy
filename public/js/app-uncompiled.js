@@ -10,6 +10,7 @@ function shuffle(array) {
   }
 }
 
+
 // ========================
 // SERVICES
 // ========================
@@ -90,7 +91,6 @@ app.controller('CategoriesController', function(api, $cookies, $rootScope, $scop
   $scope.toggleCategories = function() {
     $scope.isSelected = !$scope.isSelected;
     $rootScope.categories.forEach((category) => {
-      console.log(category.switch);
       if (!$scope.isSelected) {
         category.switch = false;
       }

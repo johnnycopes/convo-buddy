@@ -122,6 +122,7 @@ body {
   background: $modal-bg-color;
   color: $dark-font-color;
   z-index: 1;
+  overflow: auto;
 }
 
 .modal-links {
@@ -164,8 +165,10 @@ a.btn-success {
 }
 
 .instructions {
+
+
   h4 {
-    padding-bottom: 0.5rem;
+    padding-bottom: 1rem;
   }
 }
 
@@ -219,6 +222,10 @@ a.btn-success {
 
 .cat-modal {
 
+  .wrapper {
+    margin-top: 60px;
+  }
+
   .btn-toggle {
     color: $primary-color;
     border-color: $primary-color;
@@ -241,6 +248,8 @@ a.btn-success {
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
+    width: 100%;
+    text-align: center;
   }
 
   .selected {
