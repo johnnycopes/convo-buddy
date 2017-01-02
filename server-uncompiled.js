@@ -77,7 +77,7 @@ app.get('/api/getCategories', (req, res) => {
 // });
 
 // Question.create({
-//   text: 'If you had $3,000 to improve your home, what would you spend it on?',
+//   text: 'Would you like to be a fashion model?',
 //   categories: [{
 //     name: 'opinions',
 //     _id: ObjectId("5869a0e6516fd7476a6927d4")

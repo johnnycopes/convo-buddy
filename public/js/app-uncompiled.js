@@ -144,6 +144,11 @@ app.controller('MainController', function(api, $cookies, $rootScope, $scope, $st
     storage.index = $scope.index;
   };
 
+  $rootScope.sayHey = function() {
+    console.log('say hey');
+    console.log($rootScope.catModal);
+  };
+
 
   $rootScope.search = function() {
     $rootScope.selectedCategories = angular.copy($rootScope.categories);
