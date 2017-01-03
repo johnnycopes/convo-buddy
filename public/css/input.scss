@@ -109,7 +109,7 @@ body {
 // Modal styles
 .wrapper {
   margin: 0 auto;
-  max-width: 600px;
+  max-width: 700px;
   width: 90%;
 }
 
@@ -165,8 +165,6 @@ a.btn-success {
 }
 
 .instructions {
-
-
   h4 {
     padding-bottom: 1rem;
   }
@@ -218,14 +216,20 @@ a.btn-success {
 }
 
 
-// --- CATEGORIES MODAL ---
+// --- MODALS ---
 
-.cat-modal {
-
-  .wrapper {
-    margin-top: 100px;
+.modal {
+  .emph-link {
+    color: $primary-color;
   }
 
+  .wrapper {
+    margin-top: 80px;
+  }
+}
+
+
+.cat-modal {
   .btn-toggle {
     color: $primary-color;
     border-color: $primary-color;
@@ -297,6 +301,14 @@ a.btn-success {
     padding-bottom: 0.3rem;
   }
 
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  text-align: right;
+  background: $primary-color;
 }
 
 
@@ -485,16 +497,9 @@ a.btn-success {
     }
   }
 
-  .modal-links {
-    top: 20px;
-  }
-
-  .left-btn {
-    left: 20px;
-  }
-
-  .right-btn {
-    right: 20px;
-  }
+  .modal-links { top: 20px; }
+  .left-btn { left: 20px; }
+  .right-btn { right: 20px; }
+  .back-to-top { right: 2rem; }
 
 }

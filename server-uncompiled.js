@@ -71,16 +71,16 @@ app.get('/api/getCategories', (req, res) => {
 });
 
 // Category.create({
-//   name: 'opinions',
+//   name: 'present simple',
 //   userId: null, // if the category is modified, attach this userId to this field
 //   parentId: null // if the category is modified, attach this category's objectId to this field
 // });
 
 // Question.create({
-//   text: 'Would you like to be a fashion model?',
+//   text: 'What are some of your predictions for this year?',
 //   categories: [{
-//     name: 'opinions',
-//     _id: ObjectId("5869a0e6516fd7476a6927d4")
+//     name: 'personal experience',
+//     _id: ObjectId("58699ece3ec2b546bc1feb89")
 // }],
 //   numLikes: 0,
 //   userId: null, // if the question is modified, attach this userId to this field

@@ -78,7 +78,7 @@ body {
 
 .wrapper {
   margin: 0 auto;
-  max-width: 600px;
+  max-width: 700px;
   width: 90%; }
 
 .modal {
@@ -160,8 +160,11 @@ a.btn-success {
     cursor: pointer;
     outline: none; }
 
-.cat-modal .wrapper {
-  margin-top: 100px; }
+.modal .emph-link {
+  color: #CF5C36; }
+.modal .wrapper {
+  margin-top: 80px; }
+
 .cat-modal .btn-toggle {
   color: #CF5C36;
   border-color: #CF5C36; }
@@ -207,6 +210,13 @@ a.btn-success {
 .drawers .questions {
   padding-top: 0.3rem;
   padding-bottom: 0.3rem; }
+
+.back-to-top {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  text-align: right;
+  background: #CF5C36; }
 
 .page-fade {
   transition: 250ms all ease-in-out; }
@@ -349,6 +359,9 @@ a.btn-success {
     left: 20px; }
 
   .right-btn {
-    right: 20px; } }
+    right: 20px; }
+
+  .back-to-top {
+    right: 2rem; } }
 
 /*# sourceMappingURL=styles.css.map */

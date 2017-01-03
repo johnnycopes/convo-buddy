@@ -18,9 +18,6 @@
                 <div>
                     <a class="wit-link" ng-click="witModal = !witModal" ng-hide="witModal">what is this?</a>
                 </div>
-                <!-- <div class="modal-links left-btn">
-                    <a ng-click="witModal = !witModal" ng-show="witModal">close</a>
-                </div> -->
             </div>
             <div class="vert-center portion logo tac">
                 <div>
@@ -34,23 +31,21 @@
                     <a ui-sref="questions">questions</a><br>
                     <a class="categories-link" ng-click="$rootScope.catModal = true; sayHey()">categories</a>
                 </div>
-                <!-- <div class="modal-links right-btn" ng-show="catModal">
-                    <a class="btn-success" ng-click="catModal = !catModal; search()" ng-show="catModal">search</a>
-                    <a ng-click="catModal = !catModal; closeCatModal()" ng-show="catModal">close</a>
-                </div> -->
             </div>
         </header>
 
         <div class="page-fade" ui-view></div>
 
-        <div class="modal wit-modal vert-center hor-center" ng-show="witModal">
+        <div class="modal wit-modal hor-center" ng-show="witModal">
             <div class="modal-links left-btn">
                 <a ng-click="witModal = !witModal">close</a>
             </div>
             <div class="wrapper">
                 <h4>Convo Buddy is a tool that helps ESL teachers get the conversation started.</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam facilisis nisi quis placerat feugiat. In massa tortor, laoreet vitae sodales ut, lobortis ac ante. Donec aliquam, ipsum eu facilisis tincidunt, lorem libero rhoncus mauris, eget tempor tellus mi non tortor. Etiam dignissim dictum libero quis egestas.</p>
-                <p>Donec ac urna ac ligula iaculis cursus. Suspendisse venenatis aliquam arcu, et pharetra urna cursus sit amet. Phasellus vel urna auctor, finibus nisi ut, ultricies magna. Praesent pretium volutpat volutpat.</p>
+                <p>This app features more than 300 hand-picked questions intended to help English language learners practice speaking. Questions can be generated either one at a time or viewed all at once.</p>
+                <p>The main page is where the individual questions appear. Advance or go back a question by either swiping or using the arrow buttons. The counter (bottom center) indicates the total number of questions in the current search, and the 'shuffle' link directly below that will randomize the order in which the questions are generated.</p>
+                <p>To modify which questions are generated, click 'categories' link (top right) and select the desired categories. To see the full list of questions and which questions pertain to which categories, click the 'questions' link (top right). Return to the main page by clicking the 'convo buddy' link (top center).</p>
+                <p>If you teach English and would like to contribute any questions, don't hesitate to send them in! Feedback and suggestions are also warmly welcomed. You can reach me via the 'submit a question' link (bottom right) or at <a class="emph-link" href="mailto:jdcoppola@gmail.com?subject=Convo%20Buddy">jdcoppola@gmail.com</a>.</p>
             </div>
         </div>
 

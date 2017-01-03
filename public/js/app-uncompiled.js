@@ -132,7 +132,6 @@ app.controller('MainController', function(api, $cookies, $rootScope, $scope, $st
       });
   }
 
-
   $scope.changeQuestion = function(direction) {
     if (direction === 'prev' && $scope.index > 0) {
       $scope.index--;
@@ -143,12 +142,6 @@ app.controller('MainController', function(api, $cookies, $rootScope, $scope, $st
     $scope.currentQuestion = [$scope.questions[$scope.index]];
     storage.index = $scope.index;
   };
-
-  $rootScope.sayHey = function() {
-    console.log('say hey');
-    console.log($rootScope.catModal);
-  };
-
 
   $rootScope.search = function() {
     $rootScope.selectedCategories = angular.copy($rootScope.categories);
@@ -195,7 +188,7 @@ app.controller('MainController', function(api, $cookies, $rootScope, $scope, $st
 });
 
 
-app.controller('QuestionsController', function(api, $cookies, $rootScope, $scope, $state) {
+app.controller('QuestionsController', function(api, $cookies, $rootScope, $scope, $state, $window) {
   $rootScope.pageClass = 'question';
   $scope.content = {};
   $scope.isClosed = true;
@@ -227,6 +220,10 @@ app.controller('QuestionsController', function(api, $cookies, $rootScope, $scope
       console.error('Error retreiving questions');
       console.log(err.message);
     });
+
+  $scope.backToTop = function() {
+    $window.scrollTo(0,0);
+  };
 
   $scope.toggleDrawer = function(questions) {
     questions.toggle = !questions.toggle;
