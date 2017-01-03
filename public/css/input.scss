@@ -247,7 +247,6 @@ a.btn-success {
 .categories {
   li {
     width: 100%;
-    height: 40px;
     display: inline-block;
     position: relative;
     border: 2px solid $action-color;
@@ -422,22 +421,6 @@ a.btn-success {
 }
 
 
-@media screen and (min-height: 750px) {
-
-  .modal {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    .wrapper {
-      margin-top: 0;
-    }
-  }
-
-}
-
-
 @media screen and (min-width: 768px) {
 
   header .portion,
@@ -481,6 +464,22 @@ a.btn-success {
 }
 
 
+@media screen and (min-width: 768px) and (min-height: 550px) {
+
+  .wit-modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .wrapper {
+      margin-top: 0;
+    }
+  }
+
+}
+
+
 @media screen and (min-width: 960px) {
 
   html {
@@ -510,9 +509,9 @@ a.btn-success {
     }
   }
 
-  .modal {
+  .cat-modal {
     .wrapper {
-      margin-top: 120px;
+      margin-top: 100px;
     }
   }
 
