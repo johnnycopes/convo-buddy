@@ -28,7 +28,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "build": "babel --presets es2015 src -d lib"
+    "build-client": "babel --presets es2015 ./public/js/app-uncompiled.js --out-file ./public/js/app.js",
+    "build-server": "babel --presets es2015 ./server-uncompiled.js --out-file ./server.js"
   },
   "author": "johnnycopes",
   "license": "ISC"

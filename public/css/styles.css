@@ -10,9 +10,10 @@ html, body, .page {
 
 body {
   font-family: "Rubik", sans-serif;
-  line-height: 1.5;
+  font-weight: 300;
+  font-size: 1rem;
   color: #FFF;
-  font-size: 1rem; }
+  line-height: 1.5; }
 
 h1, h2, h3, h4 {
   margin: 0;
@@ -127,7 +128,7 @@ a.btn-success {
   padding-bottom: 1rem; }
 
 .logo h2 {
-  font-weight: 700;
+  font-weight: 500;
   padding: 0.4rem 1rem;
   color: #f2d3a1;
   line-height: 1; }
@@ -300,6 +301,14 @@ a.btn-success {
 
   .modal-links a {
     padding: 0.4rem 2rem; } }
+@media screen and (min-height: 700px) {
+  .modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    .modal .wrapper {
+      margin-top: 0; } }
 @media screen and (min-width: 768px) {
   header .portion,
   footer .portion {

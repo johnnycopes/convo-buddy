@@ -88,7 +88,6 @@ app.controller('CategoriesController', function (api, $cookies, $rootScope, $sco
   $scope.toggleCategories = function () {
     $scope.isSelected = !$scope.isSelected;
     $rootScope.categories.forEach(function (category) {
-      console.log(category.switch);
       if (!$scope.isSelected) {
         category.switch = false;
       } else {
@@ -176,7 +175,7 @@ app.controller('MainController', function (api, $cookies, $rootScope, $scope, $s
   };
 });
 
-app.controller('QuestionsController', function (api, $cookies, $rootScope, $scope, $state) {
+app.controller('QuestionsController', function (api, $cookies, $rootScope, $scope, $state, $window) {
   $rootScope.pageClass = 'question';
   $scope.content = {};
   $scope.isClosed = true;
@@ -204,6 +203,10 @@ app.controller('QuestionsController', function (api, $cookies, $rootScope, $scop
     console.error('Error retreiving questions');
     console.log(err.message);
   });
+
+  $scope.backToTop = function () {
+    $window.scrollTo(0, 0);
+  };
 
   $scope.toggleDrawer = function (questions) {
     questions.toggle = !questions.toggle;

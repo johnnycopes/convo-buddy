@@ -36,9 +36,10 @@ html, body, .page {
 
 body {
   font-family: $font-stack;
-  line-height: 1.5;
-  color: $font-color;
+  font-weight: 300;
   font-size: 1rem;
+  color: $font-color;
+  line-height: 1.5;
 }
 
 h1, h2, h3, h4 { margin: 0; font-weight: 300; }
@@ -173,7 +174,7 @@ a.btn-success {
 // --- MAIN PAGE ---
 
 .logo h2 {
-  font-weight: 700;
+  font-weight: 500;
   padding: 0.4rem 1rem;
   color: $action-color;
   line-height: 1;
@@ -227,7 +228,6 @@ a.btn-success {
     margin-top: 80px;
   }
 }
-
 
 .cat-modal {
   .btn-toggle {
@@ -284,7 +284,6 @@ a.btn-success {
 }
 
 .drawers {
-
   .category {
     margin: 1rem 0;
     padding: 1rem 40px;
@@ -342,13 +341,6 @@ a.btn-success {
 .modal.ng-hide-remove {
     animation: 250ms slideInDown ease-in-out;
 }
-
-// .questions.ng-hide-add {
-//   animation: 250ms slideOutUp ease-in-out;
-// }
-// .questions.ng-hide-remove {
-//   animation: 250ms slideInDown ease-in-out;
-// }
 
 
 // === UTILITY CLASSES ===
@@ -419,6 +411,22 @@ a.btn-success {
   .modal-links {
     a {
       padding: 0.4rem 2rem;
+    }
+  }
+
+}
+
+
+@media screen and (min-height: 700px) {
+
+  .modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .wrapper {
+      margin-top: 0;
     }
   }
 

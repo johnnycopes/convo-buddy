@@ -47,7 +47,7 @@ app.get('/api/getQuestions', function (req, res) {
       }
     };
   }
-  Question.find(query).then(function (questions) {
+  Question.find(query).sort({ 'categories.name': 1 }).then(function (questions) {
     console.log(questions);
     res.json({ questions: questions });
   }).catch(function (err) {
@@ -57,7 +57,7 @@ app.get('/api/getQuestions', function (req, res) {
 });
 
 app.get('/api/getCategories', function (req, res) {
-  Category.find({}).then(function (categories) {
+  Category.find({}).sort({ 'name': 1 }).then(function (categories) {
     console.log('succeeded');
     res.json({ categories: categories });
   }).catch(function (err) {
@@ -67,20 +67,16 @@ app.get('/api/getCategories', function (req, res) {
 });
 
 // Category.create({
-//   name: 'would you rather',
+//   name: 'present simple',
 //   userId: null, // if the category is modified, attach this userId to this field
 //   parentId: null // if the category is modified, attach this category's objectId to this field
 // });
 
 // Question.create({
-//   text: 'Would you rather have a family of ten children or never be able to have children at all?',
+//   text: 'What are some of your predictions for this year?',
 //   categories: [{
-//     name: 'would you rather',
-//     _id: ObjectId("585b28ef00a902ef1120dfbf")
-// },
-// {
-//   name: 'conditional tense',
-//   _id: ObjectId("585838ef82789b9e48ea6e15")
+//     name: 'personal experience',
+//     _id: ObjectId("58699ece3ec2b546bc1feb89")
 // }],
 //   numLikes: 0,
 //   userId: null, // if the question is modified, attach this userId to this field

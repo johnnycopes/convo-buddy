@@ -1,8 +1,8 @@
 TO-DO LIST
 
-1. change checkmark
-3. make submit question modal
-5. hovering on links makes them turn from white to yellow
-8. double-click to close questions tab on mobile
-9. make shuffle a checkbox when searching
-10. keep shuffle word at bottom to tell user if current search is shuffled/not shuffled
+- change checkmark
+- make submit question modal
+- hovering on links makes them turn from white to yellow
+- double-click to close questions tab on mobile
+- make shuffle a checkbox when searching
+- keep shuffle word at bottom to tell user if current search is shuffled/not shuffled
