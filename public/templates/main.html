@@ -1,4 +1,4 @@
-<main class="vert-center hor-center" ng-swipe-left="changeQuestion('next')" ng-swipe-right="changeQuestion('prev')">
+<main class="vert-center hor-center" ng-swipe-left="changeQuestion('next')" ng-swipe-right="changeQuestion('prev')" ng-swipe-disable-mouse>
     <div class="convo-question">
         <h1 ng-repeat="question in currentQuestion" class="fast-fade tac">{{question.text}}</h1>
     </div>
@@ -6,27 +6,31 @@
         <button class="prev-btn fl" ng-click="changeQuestion('prev')">←</button>
         <div class="mobile ib">
             <h3>{{index + 1}} / {{questions.length}}</h3>
-            <a ng-click="shuffle()">shuffle</a>
+            <a ng-click="toggleShuffle()">
+                <span ng-hide="isShuffled">unshuffled</span>
+                <span ng-show="isShuffled">shuffled</span>
+            </a>
         </div>
         <button class="next-btn fr" ng-click="changeQuestion('next')">→</button>
     </div>
 </main>
 <footer>
-    <div class="vert-center portion user-access">
+    <div class="vert-center portion">
         <div>
-            <a href="#">log in</a><br>
-            <a href="#">sign up</a>
+            <a href="#">submit a question</a><br>
         </div>
     </div>
     <div class="vert-center portion tac counter">
         <div>
             <h3>{{index + 1}} / {{questions.length}}</h3>
-            <a ng-click="shuffle()">shuffle</a>
+            <a ng-click="toggleShuffle()">
+                <span ng-hide="isShuffled">unshuffled</span>
+                <span ng-show="isShuffled">shuffled</span>
+            </a>
         </div>
     </div>
     <div class="vert-center portion tar">
         <div>
-            <a href="#">submit a question</a><br>
             <a href="https://johnnycopes.github.io/" target="_blank">made by johnnycopes</a>
         </div>
     </div>

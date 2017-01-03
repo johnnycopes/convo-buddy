@@ -40,6 +40,8 @@ body {
   font-size: 1rem;
   color: $font-color;
   line-height: 1.5;
+  background: $secondary-color;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 h1, h2, h3, h4 { margin: 0; font-weight: 300; }
@@ -96,6 +98,10 @@ a {
 
 // === GENERAL STYLES ===
 
+::selection {
+  background: $secondary-color;
+}
+
 body {
   position: relative;
   background: $primary-color;
@@ -110,7 +116,7 @@ body {
 // Modal styles
 .wrapper {
   margin: 0 auto;
-  max-width: 700px;
+  max-width: 600px;
   width: 90%;
 }
 
@@ -186,6 +192,7 @@ a.btn-success {
   height: 400px;
   position: relative;
   height: 100%;
+  z-index: 1;
 
   h1 {
     position: absolute;
@@ -201,7 +208,7 @@ a.btn-success {
   width: 100%;
 
   div {
-    margin-top: 15px;
+    margin-top: 7px;
   }
 
   button {
@@ -369,9 +376,7 @@ a.btn-success {
   clear: both;
 }
 
-.modal-open {
-  overflow: hidden;
-}
+.hide-scrollbar { overflow: hidden; }
 
 // Responsive classes
 .counter {
@@ -389,7 +394,7 @@ a.btn-success {
     font-size: 95%;
   }
 
-  header, footer {
+  body, header, footer {
     background: $primary-color;
   }
 
@@ -417,7 +422,7 @@ a.btn-success {
 }
 
 
-@media screen and (min-height: 700px) {
+@media screen and (min-height: 750px) {
 
   .modal {
     display: flex;
@@ -502,6 +507,12 @@ a.btn-success {
 
     h4 {
       padding: 0;
+    }
+  }
+
+  .modal {
+    .wrapper {
+      margin-top: 120px;
     }
   }
 

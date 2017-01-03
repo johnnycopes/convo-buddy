@@ -2,7 +2,19 @@ TO-DO LIST
 
 - change checkmark
 - make submit question modal
-- hovering on links makes them turn from white to yellow
 - double-click to close questions tab on mobile
-- make shuffle a checkbox when searching
-- keep shuffle word at bottom to tell user if current search is shuffled/not shuffled
+
+
+APP FINALIZATION
+
+- consult Medium article to tie up all loose ends
+- check cross-browser/device functionality
+- make sure all questions are properly categorized
+- refactor SCSS/JS (ask for tips on the repeating app.js stuff)
+
+
+BIG PICTURE
+
+- update dates across all mediums to list DC as completed Jan 2017 and include final project
+- follow up with previously applied-to companies
+- make sure myelp gets fixed
