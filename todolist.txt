@@ -1,13 +1,10 @@
 TO-DO LIST
 
-- change checkmark
-- make submit question modal
 - double-click to close questions tab on mobile
 
 
 APP FINALIZATION
 
-- consult Medium article to tie up all loose ends
 - check cross-browser/device functionality
 - make sure all questions are properly categorized
 - refactor SCSS/JS (ask for tips on the repeating app.js stuff)

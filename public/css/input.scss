@@ -6,10 +6,10 @@
 // === COLORS ===
 
 $font-color: #FFF;
-$dark-font-color: #2b2624;
+$dark-font-color: #2B2624;
 $primary-color: #CF5C36;
-$secondary-color: #bd522e;
-$action-color: #f2d3a1;
+$secondary-color: #BD522E;
+$action-color: #F2D3A1;
 $modal-bg-color: rgba(255, 255, 255, 0.95);
 
 
@@ -201,18 +201,21 @@ a.btn-success {
   width: 100%;
 
   div {
-    margin-top: 7px;
+    margin-top: 9px;
   }
 
   button {
-    padding: 10px 12px;
-    font-size: 32px;
+    padding: 15px 15px 2px;
     color: $action-color;
-    border: 5px solid $action-color;
+    border: 3px solid $action-color;
     background: $primary-color;
-    border-radius: 50px;
+    border-radius: 50%;
     cursor: pointer;
     outline: none;
+  }
+
+  img {
+    width: 40px;
   }
 }
 
@@ -261,12 +264,6 @@ a.btn-success {
     color: $dark-font-color;
   }
 
-  // .checkmark {
-  //   margin-top: 2px;
-  //   margin-right: 7px;
-  //   font-size: 1.5rem;
-  // }
-
   .checkmark {
     margin-top: 11px;
     margin-right: 7px;
@@ -281,12 +278,6 @@ a.btn-success {
   margin-top: 2rem;
   position: absolute;
   width: 100%;
-
-  .split-btn {
-    background: $primary-color;
-    color: $font-color;
-    border: 5px solid $secondary-color;
-  }
 }
 
 .drawers {
@@ -463,14 +454,13 @@ a.btn-success {
     transform: translate(-50%, -50%);
 
     button {
-      padding: 10px 13.5px;
-      font-size: 48px;
-      color: $action-color;
-      border: 5px solid $action-color;
-      background: $primary-color;
-      border-radius: 50px;
+      padding: 20px 20px 1px;
       cursor: pointer;
       outline: none;
+    }
+
+    img {
+      width: 60px;
     }
   }
 

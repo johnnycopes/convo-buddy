@@ -64,8 +64,7 @@
                 <ul class="categories">
                     <li ng-class="{'selected': category.switch}" ng-repeat="category in categories track by $index" ng-click="toggleSelected($index)" class="cf">
                         <h4>{{category.name}}</h4>
-                        <!-- <span ng-show="category.switch" class="fr checkmark">✔</span> -->
-                        <span ng-show="category.switch" class="fr checkmark"><img src="img/checkmark.svg" alt=""></span>
+                        <img ng-show="category.switch" class="fr checkmark" src="img/checkmark.svg" alt="checkmark">
                     </li>
                 </ul>
             </div>

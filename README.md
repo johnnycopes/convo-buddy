@@ -1,10 +1,10 @@
 # Convo Buddy
-<img src="images/screenshots/blackjack.png" alt="Blackjack" width="250px"/>
+<img src="images/screenshots/convo_buddy.png" alt="Blackjack" width="250px"/>
 ######
 [Live Project]()   |   [Overview](https://github.com/johnnycopes/convo-buddy/#overview)   |   [What I Used](https://github.com/johnnycopes/convo-buddy#what-i-used)   |   [MVP](https://github.com/johnnycopes/convo-buddy#mvp-minimum-viable-product)   |   [Challenges](https://github.com/johnnycopes/convo-buddy#challenges--solutions)   |   [Code](https://github.com/johnnycopes/convo-buddy#code-snippets)   | [Screenshots](https://github.com/johnnycopes/convo-buddy#screenshots)   |
 
 ## Overview:
-This is a traditional Blackjack (aka 21) game. It was initially assigned as an exercise in class, but I wanted to turn mine into a full-fledged project. Features include responsive design and ability to bet, double down, and split.
+
 
 
 ##What we used:
@@ -23,6 +23,7 @@ This is a traditional Blackjack (aka 21) game. It was initially assigned as an e
 * Apache
 * Icon from The Noun Project
   * *SPEECH BUBBLES made by bmijnlieff -- info@bmijnlieff.nl*
+  * *CHECKMARK made by Sergey Shmidt -- http://shmidt.co/*
 
 
 ## MVP (Minimum Viable Product):

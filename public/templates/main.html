@@ -3,7 +3,10 @@
         <h1 ng-repeat="question in currentQuestion" class="fast-fade tac">{{question.text}}</h1>
     </div>
     <div class="question-btns tac cf">
-        <button class="prev-btn fl" ng-click="changeQuestion('prev')">←</button>
+        <!-- <button class="prev-btn fl" ng-click="changeQuestion('prev')">←</button> -->
+        <button class="prev-btn fl" ng-click="changeQuestion('prev')">
+            <img src="img/left_arrow.svg" alt="left arrow">
+        </button>
         <div class="mobile ib">
             <h3>{{index + 1}} / {{questions.length}}</h3>
             <a ng-click="toggleShuffle()">
@@ -11,7 +14,10 @@
                 <span ng-show="isShuffled">shuffled</span>
             </a>
         </div>
-        <button class="next-btn fr" ng-click="changeQuestion('next')">→</button>
+        <!-- <button class="next-btn fr" ng-click="changeQuestion('next')">→</button> -->
+        <button class="next-btn fr" ng-click="changeQuestion('next')">
+            <img src="img/right_arrow.svg" alt="right arrow">
+        </button>
     </div>
 </main>
 <footer>
