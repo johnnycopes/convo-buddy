@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const schema = require('./schema');
 const bluebird = require('bluebird');
+const nodemailer = require('nodemailer')
 const app = express();
 // const bcrypt = require('bcrypt');
 // const uuid = require('uuid');
@@ -67,6 +68,31 @@ app.get('/api/getCategories', (req, res) => {
       res.status('401').json({error: err.message})
     });
 });
+
+app.get('/api/sendMessage', (req, res) => {
+  let message = req.body.data;
+  console.log(message);
+  // create reusable transporter object using the default SMTP transport
+  // let transporter = nodemailer.createTransport('smtps://convobuddy1@gmail.com:treetopgummies@smtp.gmail.com');
+  //
+  // // setup e-mail data with unicode symbols
+  // let mailOptions = {
+  //     from: '"Convo Buddy" <convobuddy1@gmail.com>', // sender address
+  //     to: 'jdcoppola@gmail.com', // list of receivers
+  //     subject: 'Hello ✔', // Subject line
+  //     text: 'Hello world ?', // plaintext body
+  //     html: '<b>Hello world ?</b>' // html body
+  // };
+  //
+  // // send mail with defined transport object
+  // transporter.sendMail(mailOptions, function(error, info){
+  //     if(error){
+  //         return console.log(error);
+  //     }
+  //     console.log('Message sent: ' + info.response);
+  // });
+});
+
 
 // Category.create({
 //   name: 'present simple',

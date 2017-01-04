@@ -39,6 +39,15 @@ app.factory('api', function($cookies, $http, $state) {
     });
   };
 
+  service.sendMessage = function(message) {
+    let url = '/api/sendMessage';
+    return $http({
+      method: 'POST',
+      data: message,
+      url
+    });
+  }
+
   return service;
 });
 
@@ -73,17 +82,6 @@ app.controller('CategoriesController', function(api, $cookies, $rootScope, $scop
       console.log(err.message);
     });
 
-  $scope.toggleSelected = function(index) {
-    if (!$rootScope.categories[index].switch) {
-      $rootScope.categories[index].switch = true;
-      $scope.isSelected = true;
-    }
-    else {
-      $rootScope.categories[index].switch = false;
-      $scope.isSelected = false;
-    }
-  };
-
   $rootScope.closeCatModal = function() {
     $rootScope.categories = angular.copy($rootScope.selectedCategories);
   };
@@ -98,6 +96,17 @@ app.controller('CategoriesController', function(api, $cookies, $rootScope, $scop
         category.switch = true;
       }
     });
+  };
+
+  $scope.toggleSelected = function(index) {
+    if (!$rootScope.categories[index].switch) {
+      $rootScope.categories[index].switch = true;
+      $scope.isSelected = true;
+    }
+    else {
+      $rootScope.categories[index].switch = false;
+      $scope.isSelected = false;
+    }
   };
 });
 
@@ -182,6 +191,10 @@ app.controller('MainController', function(api, $cookies, $rootScope, $scope, $st
         console.error('Error retreiving questions');
         console.log(err.errors);
       });
+  };
+
+  $scope.sendMessage = function() {
+    api.sendMessage($scope.userMessage);
   };
 
   $scope.toggleShuffle = function() {
