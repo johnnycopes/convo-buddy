@@ -43,7 +43,7 @@ app.factory('api', function($cookies, $http, $state) {
     let url = '/api/sendMessage';
     return $http({
       method: 'POST',
-      data: message,
+      data: {message: message},
       url
     });
   }
@@ -116,11 +116,16 @@ app.controller('MainController', function(api, $cookies, $rootScope, $scope, $st
   $rootScope.witModal = false;
   $rootScope.catModal = false;
   $scope.saqModal = false;
+
   $scope.questions = [];
   $scope.index = storage.index || 0;
   $scope.currentQuestion = [];
-  $rootScope.isShuffled = false;
   $scope.unshuffledQuestions = [];
+  $rootScope.isShuffled = false;
+
+  $scope.messageSending = false;
+  $scope.messageSent = false;
+
   let data = null;
 
   // if there is no existing questions array in use, pull all questions from the db
@@ -185,7 +190,6 @@ app.controller('MainController', function(api, $cookies, $rootScope, $scope, $st
         $scope.currentQuestion = [$scope.questions[$scope.index]];
         storage.questions = $scope.questions;
         $state.go('main');
-        console.log('here');
       })
       .catch((err) => {
         console.error('Error retreiving questions');
@@ -194,7 +198,16 @@ app.controller('MainController', function(api, $cookies, $rootScope, $scope, $st
   };
 
   $scope.sendMessage = function() {
-    api.sendMessage($scope.userMessage);
+    api.sendMessage($scope.userMessage)
+      .then(() => {
+        $scope.messageSending = false;
+        $scope.messageSent = true;
+        $scope.userMessage = "";
+      })
+      .catch((err) => {
+        console.log('Error sending message');
+        console.log(err.errors);
+      });
   };
 
   $scope.toggleShuffle = function() {
@@ -257,7 +270,6 @@ app.controller('QuestionsController', function(api, $cookies, $rootScope, $scope
   };
 
   $scope.toggleDrawers = function() {
-    console.log($scope.content);
     $scope.isClosed = !$scope.isClosed;
     for (let key in $scope.content) {
       if (!$scope.isClosed) {

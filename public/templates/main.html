@@ -41,14 +41,16 @@
 </footer>
 <div class="modal slide-up saq-modal hor-center" ng-show="saqModal" ng-class="{'hide-scrollbar': !saqModal}">
     <div class="modal-links left-btn">
-        <a class="btn-secondary" ng-click="saqModal = false">close</a>
+        <a class="btn-secondary" ng-click="saqModal = false; messageSent = false" ng-hide="messageSending">close</a>
     </div>
     <div class="wrapper">
         <h3>Help us improve Convo Buddy!</h3>
         <p>If you know a good question you'd like to see included in this app or have any feedback, we'd love to hear it.</p>
         <form ng-submit="sendMessage()">
             <textarea autofocus rows="8" ng-model="userMessage" placeholder="Write stuff in this box"></textarea>
-            <button class="btn-big btn-success" type="submit">send</button>
+            <button ng-hide="messageSending || messageSent" class="btn-big btn-success" type="submit" ng-click="messageSending = true">send</button>
+            <p class="no-margin" ng-show="messageSending">sending message...</p>
+            <p class="no-margin" ng-show="messageSent">message sent!</p>
         </form>
     </div>
 </div>

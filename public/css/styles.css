@@ -278,6 +278,9 @@ textarea:focus {
 .hor-center {
   align-items: center; }
 
+.no-margin {
+  margin: 0; }
+
 .ib {
   display: inline-block; }
 
