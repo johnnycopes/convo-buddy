@@ -104,6 +104,8 @@ app.controller('MainController', function (api, $cookies, $rootScope, $scope, $s
   $scope.questions = [];
   $scope.index = storage.index || 0;
   $scope.currentQuestion = [];
+  $rootScope.isShuffled = false;
+  $scope.unshuffledQuestions = [];
   var data = null;
 
   // if there is no existing questions array in use, pull all questions from the db
@@ -139,6 +141,7 @@ app.controller('MainController', function (api, $cookies, $rootScope, $scope, $s
     var allCategories = [];
     var selectedCategories = [];
     var data = {};
+    $rootScope.isShuffled = false;
     $rootScope.categories.forEach(function (category) {
       if (category.switch) {
         selectedCategories.push(category.name);
@@ -167,8 +170,15 @@ app.controller('MainController', function (api, $cookies, $rootScope, $scope, $s
     });
   };
 
-  $scope.shuffle = function () {
-    shuffle($scope.questions);
+  $scope.toggleShuffle = function () {
+    if (!$rootScope.isShuffled) {
+      $scope.unshuffledQuestions = angular.copy($scope.questions);
+      shuffle($scope.questions);
+      $rootScope.isShuffled = true;
+    } else {
+      $scope.questions = $scope.unshuffledQuestions;
+      $rootScope.isShuffled = false;
+    }
     $scope.index = 0;
     $scope.currentQuestion = [$scope.questions[$scope.index]];
     storage.questions = $scope.questions;

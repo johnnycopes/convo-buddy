@@ -22,6 +22,8 @@ $font-stack: 'Rubik', sans-serif;
 // === TAGS ===
 
 * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -58,7 +60,6 @@ header, main, footer {
 
 header, footer {
   background: $secondary-color;
-  height: 10%;
 }
 
 header .portion {
@@ -92,7 +93,7 @@ a {
   cursor: pointer;
   font-weight: 300;
   display: inline-block;
-  line-height: 1.7;
+  line-height: 2;
 }
 
 
@@ -189,10 +190,8 @@ a.btn-success {
 .convo-question {
   width: 100%;
   max-width: 500px;
-  height: 400px;
   position: relative;
   height: 100%;
-  z-index: 1;
 
   h1 {
     position: absolute;
@@ -204,7 +203,6 @@ a.btn-success {
 }
 
 .question-btns {
-  padding-bottom: 1rem;
   width: 100%;
 
   div {
@@ -388,7 +386,16 @@ a.btn-success {
 // MEDIA QUERIES
 // ############################
 
-@media screen and (min-width: 480px) {
+@media screen and (orientation: landscape) {
+
+  .convo-question {
+    height: 50%;
+  }
+
+}
+
+
+@media screen and (min-width: 480px) and (min-height: 480px) {
 
   html {
     font-size: 95%;
@@ -423,6 +430,10 @@ a.btn-success {
 
 
 @media screen and (min-width: 768px) {
+
+  header, footer {
+    height: 10%;
+  }
 
   header .portion,
   footer .portion {

@@ -1,4 +1,6 @@
 * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
 html {
@@ -39,8 +41,7 @@ header, main, footer {
   padding-right: 1rem; }
 
 header, footer {
-  background: #bd522e;
-  height: 10%; }
+  background: #bd522e; }
 
 header .portion {
   flex-basis: 33.33%; }
@@ -68,7 +69,7 @@ a {
   cursor: pointer;
   font-weight: 300;
   display: inline-block;
-  line-height: 1.7; }
+  line-height: 2; }
 
 ::selection {
   background: #bd522e; }
@@ -141,10 +142,8 @@ a.btn-success {
 .convo-question {
   width: 100%;
   max-width: 500px;
-  height: 400px;
   position: relative;
-  height: 100%;
-  z-index: 1; }
+  height: 100%; }
   .convo-question h1 {
     position: absolute;
     transform: translate(-50%, -50%);
@@ -153,7 +152,6 @@ a.btn-success {
     width: 100%; }
 
 .question-btns {
-  padding-bottom: 1rem;
   width: 100%; }
   .question-btns div {
     margin-top: 7px; }
@@ -286,7 +284,10 @@ a.btn-success {
 .counter {
   display: none; }
 
-@media screen and (min-width: 480px) {
+@media screen and (orientation: landscape) {
+  .convo-question {
+    height: 50%; } }
+@media screen and (min-width: 480px) and (min-height: 480px) {
   html {
     font-size: 95%; }
 
@@ -308,6 +309,9 @@ a.btn-success {
   .modal-links a {
     padding: 0.4rem 2rem; } }
 @media screen and (min-width: 768px) {
+  header, footer {
+    height: 10%; }
+
   header .portion,
   footer .portion {
     flex-basis: 33.33%; }
