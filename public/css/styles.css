@@ -153,7 +153,7 @@ textarea {
 .question-btns {
   width: 100%; }
   .question-btns div {
-    margin-top: 9px; }
+    margin-top: 6px; }
   .question-btns button {
     padding: 15px 15px 2px;
     color: #F2D3A1;
@@ -333,11 +333,11 @@ textarea {
     left: 50%;
     transform: translate(-50%, -50%); }
     .question-btns button {
-      padding: 20px 20px 1px;
+      padding: 19px 20px 4px;
       cursor: pointer;
       outline: none; }
     .question-btns img {
-      width: 60px; } }
+      width: 50px; } }
 @media screen and (min-width: 768px) and (min-height: 550px) {
   .wit-modal {
     display: flex;
