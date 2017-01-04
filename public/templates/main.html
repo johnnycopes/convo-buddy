@@ -21,7 +21,7 @@
 <footer>
     <div class="vert-center portion">
         <div>
-            <a href="#">submit a question</a><br>
+            <a ng-click="saqModal = true">submit a question</a><br>
         </div>
     </div>
     <div class="vert-center portion tac counter">
@@ -39,3 +39,15 @@
         </div>
     </div>
 </footer>
+<div class="modal saq-modal hor-center" ng-show="saqModal" ng-class="{'hide-scrollbar': !saqModal}">
+    <div class="modal-links left-btn">
+        <a class="btn-secondary" ng-click="saqModal = false">close</a>
+    </div>
+    <div class="wrapper">
+        <p>If you'd like to see more questions included in this app, submit them here!</p>
+        <form action="mailto:jdcoppola@gmail.com" method="post" enctype="text/plain">
+            <textarea name="name" rows="8" cols="80" placeholder="Write in this box"></textarea>
+            <button class="btn-big btn-success" type="submit">Send</button>
+        </form>
+    </div>
+</div>

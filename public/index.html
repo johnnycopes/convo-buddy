@@ -18,7 +18,7 @@
         <header>
             <div class="vert-center portion">
                 <div>
-                    <a class="wit-link" ng-click="$rootScope.witModal = true" ng-hide="$rootScope.witModal">what is this?</a>
+                    <a class="wit-link" ng-click="$rootScope.witModal = true">what is this?</a>
                 </div>
             </div>
             <div class="vert-center portion logo tac">
@@ -40,7 +40,7 @@
 
         <div class="modal wit-modal hor-center" ng-show="$rootScope.witModal" ng-class="{'hide-scrollbar': !$rootScope.witModal}">
             <div class="modal-links left-btn">
-                <a ng-click="$rootScope.witModal = false">close</a>
+                <a class="btn-secondary" ng-click="$rootScope.witModal = false">close</a>
             </div>
             <div class="wrapper">
                 <h4>Convo Buddy is a free tool that helps ESL teachers get the conversation started.</h4>
@@ -54,7 +54,7 @@
         <div ng-controller="CategoriesController" class="modal cat-modal hor-center" ng-show="$rootScope.catModal" ng-class="{'hide-scrollbar': !$rootScope.catModal}">
             <div class="modal-links right-btn">
                 <a class="btn-success" ng-click="$rootScope.catModal = false; search(); sayHey()">search</a>
-                <a ng-click="$rootScope.catModal = false; closeCatModal()">close</a>
+                <a class="btn-secondary" ng-click="$rootScope.catModal = false; closeCatModal()">close</a>
             </div>
             <div class="wrapper">
                 <div class="instructions tac">

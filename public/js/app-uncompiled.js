@@ -106,6 +106,7 @@ app.controller('MainController', function(api, $cookies, $rootScope, $scope, $st
   $rootScope.pageClass = 'main';
   $rootScope.witModal = false;
   $rootScope.catModal = false;
+  $scope.saqModal = false;
   $scope.questions = [];
   $scope.index = storage.index || 0;
   $scope.currentQuestion = [];
