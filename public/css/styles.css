@@ -216,6 +216,9 @@ a.btn-success {
   right: 1rem;
   text-align: right;
   background: #CF5C36; }
+  .back-to-top img {
+    width: 10px;
+    vertical-align: middle; }
 
 .page-fade {
   transition: 250ms all ease-in-out; }

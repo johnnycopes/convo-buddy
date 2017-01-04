@@ -305,6 +305,11 @@ a.btn-success {
   right: 1rem;
   text-align: right;
   background: $primary-color;
+
+  img {
+    width: 10px;
+    vertical-align: middle;
+  }
 }
 
 
