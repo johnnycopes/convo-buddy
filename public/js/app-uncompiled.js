@@ -174,6 +174,8 @@ app.controller('MainController', function(api, $cookies, $rootScope, $scope, $st
         });
         $scope.currentQuestion = [$scope.questions[$scope.index]];
         storage.questions = $scope.questions;
+        $state.go('main');
+        console.log('here');
       })
       .catch((err) => {
         console.error('Error retreiving questions');

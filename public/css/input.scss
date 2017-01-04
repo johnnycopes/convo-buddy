@@ -5,13 +5,12 @@
 
 // === COLORS ===
 
-$bg-color: #0F0F0F;
-$modal-bg-color: rgba(256, 256, 256, 0.95);
 $font-color: #FFF;
 $dark-font-color: #2b2624;
 $primary-color: #CF5C36;
 $secondary-color: #bd522e;
 $action-color: #f2d3a1;
+$modal-bg-color: rgba(255, 255, 255, 0.95);
 
 
 // === TYPOGRAPHY ===
@@ -262,10 +261,16 @@ a.btn-success {
     color: $dark-font-color;
   }
 
+  // .checkmark {
+  //   margin-top: 2px;
+  //   margin-right: 7px;
+  //   font-size: 1.5rem;
+  // }
+
   .checkmark {
-    margin-top: 2px;
+    margin-top: 11px;
     margin-right: 7px;
-    font-size: 1.5rem;
+    width: 15px;
   }
 }
 

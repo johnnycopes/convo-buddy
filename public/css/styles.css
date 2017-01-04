@@ -189,9 +189,9 @@ a.btn-success {
   background: #f2d3a1;
   color: #2b2624; }
 .categories .checkmark {
-  margin-top: 2px;
+  margin-top: 11px;
   margin-right: 7px;
-  font-size: 1.5rem; }
+  width: 15px; }
 
 .questions-page {
   margin-top: 2rem;

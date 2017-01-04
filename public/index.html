@@ -64,7 +64,8 @@
                 <ul class="categories">
                     <li ng-class="{'selected': category.switch}" ng-repeat="category in categories track by $index" ng-click="toggleSelected($index)" class="cf">
                         <h4>{{category.name}}</h4>
-                        <span ng-show="category.switch" class="fr checkmark">✔</span>
+                        <!-- <span ng-show="category.switch" class="fr checkmark">✔</span> -->
+                        <span ng-show="category.switch" class="fr checkmark"><img src="img/checkmark.svg" alt=""></span>
                     </li>
                 </ul>
             </div>
@@ -77,7 +78,7 @@
     <script src="angular-animate/angular-animate.min.js" charset="utf-8"></script>
     <script src="angular-cookies/angular-cookies.min.js" charset="utf-8"></script>
     <script src="angular-touch/angular-touch.min.js" charset="utf-8"></script>
-    <script src="js/app.js" charset="utf-8"></script>
+    <script src="js/app-uncompiled.js" charset="utf-8"></script>
 </body>
 
 </html>
