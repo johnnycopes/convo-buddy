@@ -1,14 +1,5 @@
 const app = angular.module('convo-buddy', ['ngAnimate', 'ngCookies', 'ngTouch', 'ui.router']);
 
-// When ready...
-window.addEventListener("load",function() {
-	// Set a timeout...
-	setTimeout(function(){
-		// Hide the address bar!
-		window.scrollTo(0, 1);
-	}, 0);
-});
-
 function shuffle(array) {
   for (var i = array.length - 1; i > 0; i--) {
     var index = Math.floor(Math.random() * i);
