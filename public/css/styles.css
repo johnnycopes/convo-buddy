@@ -17,7 +17,8 @@ body {
   color: #FFF;
   line-height: 1.5;
   background: #bd522e;
-  -webkit-tap-highlight-color: transparent; }
+  -webkit-tap-highlight-color: transparent;
+  position: relative; }
 
 h1, h2, h3, h4 {
   margin: 0;
@@ -73,10 +74,6 @@ a {
 
 ::selection {
   background: #bd522e; }
-
-body {
-  position: relative;
-  background: #CF5C36; }
 
 .container {
   width: 90%;

@@ -44,6 +44,7 @@ body {
   line-height: 1.5;
   background: $secondary-color;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
+  position: relative;
 }
 
 h1, h2, h3, h4 { margin: 0; font-weight: 300; }
@@ -101,11 +102,6 @@ a {
 
 ::selection {
   background: $secondary-color;
-}
-
-body {
-  position: relative;
-  background: $primary-color;
 }
 
 .container {
