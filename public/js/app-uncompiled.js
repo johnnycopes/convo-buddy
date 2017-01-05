@@ -111,7 +111,7 @@ app.controller('CategoriesController', function(api, $cookies, $rootScope, $scop
 });
 
 
-app.controller('MainController', function(api, $cookies, $rootScope, $scope, $state, $stateParams, storage) {
+app.controller('MainController', function(api, $cookies, $rootScope, $scope, $state, $stateParams, storage, $window) {
   // track state of modals and where to place bg-img
   $rootScope.pageClass = 'main';
   $rootScope.witModal = false;
@@ -149,6 +149,10 @@ app.controller('MainController', function(api, $cookies, $rootScope, $scope, $st
         console.log(err.errors);
       });
   }
+
+  $scope.backToTop = function() {
+    $window.scrollTo(0,0);
+  };
 
   $scope.changeQuestion = function(direction) {
     if (direction === 'prev' && $scope.index > 0) {

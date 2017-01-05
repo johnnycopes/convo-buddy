@@ -47,7 +47,7 @@
         <h3>Help us improve Convo Buddy!</h3>
         <p>If you know a good question you'd like to see included in this app or have any feedback, we'd love to hear it.</p>
         <form ng-submit="sendMessage()">
-            <textarea autofocus required rows="8" ng-model="userMessage" placeholder="Write stuff in this box"></textarea>
+            <textarea autofocus required rows="8" ng-model="userMessage" placeholder="Write stuff in this box" onfocus="window.scrollTo(0, 0);"></textarea>
             <button ng-hide="messageSending || messageSent" class="btn-form btn-success" type="submit">send</button>
             <p class="no-margin" ng-show="messageSending">sending message...</p>
             <p class="no-margin" ng-show="messageSent">message sent!</p>
