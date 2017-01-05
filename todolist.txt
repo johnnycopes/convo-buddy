@@ -1,17 +1,22 @@
 TO-DO LIST
 
 - double-click to close questions tab on mobile
+- links pseudo-class styling
+- check what type of errors to send back
 
 
 APP FINALIZATION
 
+- ASK TOBES:
+is it necessary to send back JSON data on promises? is just the response object enough?
+do I even need to convert my server.js to ES5?
+some repetition in code (scope[index] stuff) ... is that ok?
+
 - check cross-browser/device functionality
 - make sure all questions are properly categorized
-- refactor SCSS/JS (ask for tips on the repeating app.js stuff)
 
 
 BIG PICTURE
 
 - update dates across all mediums to list DC as completed Jan 2017 and include final project
 - follow up with previously applied-to companies
-- make sure myelp gets fixed

@@ -112,17 +112,20 @@ app.controller('CategoriesController', function(api, $cookies, $rootScope, $scop
 
 
 app.controller('MainController', function(api, $cookies, $rootScope, $scope, $state, $stateParams, storage) {
+  // track state of modals and where to place bg-img
   $rootScope.pageClass = 'main';
   $rootScope.witModal = false;
   $rootScope.catModal = false;
   $scope.saqModal = false;
 
+  // questions array. current question is necessary for fadein/fadeout animation to work
   $scope.questions = [];
   $scope.index = storage.index || 0;
   $scope.currentQuestion = [];
   $scope.unshuffledQuestions = [];
   $rootScope.isShuffled = false;
 
+  // track progress of message in SAQ modal
   $scope.messageSending = false;
   $scope.messageSent = false;
 
@@ -166,13 +169,14 @@ app.controller('MainController', function(api, $cookies, $rootScope, $scope, $st
     let selectedCategories = [];
     let data = {};
     $rootScope.isShuffled = false;
+
     $rootScope.categories.forEach((category) => {
       if (category.switch) {
         selectedCategories.push(category.name);
       }
       allCategories.push(category.name);
     });
-    if (!selectedCategories.length) {
+    if (!selectedCategories.length) { // select all if none are selected
       $rootScope.categories.forEach((category) => {
         category.switch = true;
       });
@@ -182,6 +186,7 @@ app.controller('MainController', function(api, $cookies, $rootScope, $scope, $st
     $scope.questions = [];
     $scope.index = 0;
     $scope.currentQuestion = [];
+
     api.getQuestions(data)
       .then((results) => {
         results.data.questions.forEach((question) => {
@@ -205,7 +210,7 @@ app.controller('MainController', function(api, $cookies, $rootScope, $scope, $st
         $scope.userMessage = "";
       })
       .catch((err) => {
-        console.log('Error sending message');
+        console.error('Error sending message');
         console.log(err.errors);
       });
   };
@@ -224,7 +229,6 @@ app.controller('MainController', function(api, $cookies, $rootScope, $scope, $st
     $scope.currentQuestion = [$scope.questions[$scope.index]];
     storage.questions = $scope.questions;
   };
-
 });
 
 
