@@ -26,7 +26,7 @@
         </div>
     </div>
     <div class="vert-center portion tac counter">
-        <div ng-cloak ng-hide="questions.length < 1">
+        <div ng-cloak ng-if="questions.length >= 1">
             <h3>{{index + 1}} / {{questions.length}}</h3>
             <a ng-click="toggleShuffle()">
                 <span ng-if="!isShuffled">unshuffled</span>
