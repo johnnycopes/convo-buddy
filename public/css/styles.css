@@ -108,6 +108,7 @@ textarea {
   margin-bottom: 20px;
   padding: 10px;
   width: 100%;
+  box-shadow: none;
   border: 1px solid #CACACA;
   color: #2B2624; }
 
@@ -197,7 +198,7 @@ textarea:focus {
   color: #CF5C36; }
 
 .btn-form {
-  padding: 0.9rem 2rem;
+  padding: 0.8rem 2rem;
   border: 4px solid #CF5C36;
   font-weight: 300; }
 
@@ -299,6 +300,9 @@ textarea:focus {
 .counter {
   display: none; }
 
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important; }
+
 @media screen and (orientation: landscape) {
   .convo-question {
     height: 50%; } }
@@ -366,7 +370,7 @@ textarea:focus {
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
-    padding-bottom: 3rem;
+    padding-bottom: 2rem;
     min-width: 730px;
     width: 65%; }
     .question-btns button {

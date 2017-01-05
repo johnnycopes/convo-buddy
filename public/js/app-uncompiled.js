@@ -122,8 +122,6 @@ app.controller('MainController', function(api, $cookies, $rootScope, $scope, $st
   $scope.questions = [];
   $scope.index = storage.index || 0;
   $scope.currentQuestion = [];
-  $scope.unshuffledQuestions = [];
-  $rootScope.isShuffled = false;
 
   // track progress of message in SAQ modal
   $scope.messageSending = false;
@@ -218,12 +216,12 @@ app.controller('MainController', function(api, $cookies, $rootScope, $scope, $st
 
   $scope.toggleShuffle = function() {
     if (!$rootScope.isShuffled) {
-      $scope.unshuffledQuestions = angular.copy($scope.questions);
+      storage.unshuffledQuestions = angular.copy($scope.questions);
       shuffle($scope.questions);
       $rootScope.isShuffled = true;
     }
     else {
-      $scope.questions = $scope.unshuffledQuestions;
+      $scope.questions = storage.unshuffledQuestions;
       $rootScope.isShuffled = false;
     }
     $scope.index = 0;

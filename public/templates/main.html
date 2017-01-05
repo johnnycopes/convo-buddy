@@ -6,7 +6,7 @@
         <button class="prev-btn fl" ng-click="changeQuestion('prev')">
             <img src="img/left_arrow.svg" alt="left arrow">
         </button>
-        <div class="mobile ib">
+        <div ng-cloak class="mobile ib">
             <h3>{{index + 1}} / {{questions.length}}</h3>
             <a ng-click="toggleShuffle()">
                 <span ng-hide="isShuffled">unshuffled</span>
@@ -25,14 +25,13 @@
         </div>
     </div>
     <div class="vert-center portion tac counter">
-        <div ng-show="questions.length >= 1">
+        <div ng-cloak ng-hide="questions.length < 1">
             <h3>{{index + 1}} / {{questions.length}}</h3>
             <a ng-click="toggleShuffle()">
-                <span ng-hide="isShuffled">unshuffled</span>
-                <span ng-show="isShuffled">shuffled</span>
+                <span ng-if="!isShuffled">unshuffled</span>
+                <span ng-if="isShuffled">shuffled</span>
             </a>
         </div>
-        <span ng-hide="questions.length >= 1">loading...</span>
     </div>
     <div class="vert-center portion tar">
         <div>

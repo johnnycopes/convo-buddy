@@ -2,15 +2,6 @@
 
 var app = angular.module('convo-buddy', ['ngAnimate', 'ngCookies', 'ngTouch', 'ui.router']);
 
-// When ready...
-window.addEventListener("load", function () {
-  // Set a timeout...
-  setTimeout(function () {
-    // Hide the address bar!
-    window.scrollTo(0, 1);
-  }, 0);
-});
-
 function shuffle(array) {
   for (var i = array.length - 1; i > 0; i--) {
     var index = Math.floor(Math.random() * i);
@@ -49,6 +40,15 @@ app.factory('api', function ($cookies, $http, $state) {
     });
   };
 
+  service.sendMessage = function (message) {
+    var url = '/api/sendMessage';
+    return $http({
+      method: 'POST',
+      data: { message: message },
+      url: url
+    });
+  };
+
   return service;
 });
 
@@ -80,16 +80,6 @@ app.controller('CategoriesController', function (api, $cookies, $rootScope, $sco
     console.log(err.message);
   });
 
-  $scope.toggleSelected = function (index) {
-    if (!$rootScope.categories[index].switch) {
-      $rootScope.categories[index].switch = true;
-      $scope.isSelected = true;
-    } else {
-      $rootScope.categories[index].switch = false;
-      $scope.isSelected = false;
-    }
-  };
-
   $rootScope.closeCatModal = function () {
     $rootScope.categories = angular.copy($rootScope.selectedCategories);
   };
@@ -104,17 +94,34 @@ app.controller('CategoriesController', function (api, $cookies, $rootScope, $sco
       }
     });
   };
+
+  $scope.toggleSelected = function (index) {
+    if (!$rootScope.categories[index].switch) {
+      $rootScope.categories[index].switch = true;
+      $scope.isSelected = true;
+    } else {
+      $rootScope.categories[index].switch = false;
+      $scope.isSelected = false;
+    }
+  };
 });
 
 app.controller('MainController', function (api, $cookies, $rootScope, $scope, $state, $stateParams, storage) {
+  // track state of modals and where to place bg-img
   $rootScope.pageClass = 'main';
   $rootScope.witModal = false;
   $rootScope.catModal = false;
+  $scope.saqModal = false;
+
+  // questions array. current question is necessary for fadein/fadeout animation to work
   $scope.questions = [];
   $scope.index = storage.index || 0;
   $scope.currentQuestion = [];
-  $rootScope.isShuffled = false;
-  $scope.unshuffledQuestions = [];
+
+  // track progress of message in SAQ modal
+  $scope.messageSending = false;
+  $scope.messageSent = false;
+
   var data = null;
 
   // if there is no existing questions array in use, pull all questions from the db
@@ -151,6 +158,7 @@ app.controller('MainController', function (api, $cookies, $rootScope, $scope, $s
     var selectedCategories = [];
     var data = {};
     $rootScope.isShuffled = false;
+
     $rootScope.categories.forEach(function (category) {
       if (category.switch) {
         selectedCategories.push(category.name);
@@ -158,6 +166,7 @@ app.controller('MainController', function (api, $cookies, $rootScope, $scope, $s
       allCategories.push(category.name);
     });
     if (!selectedCategories.length) {
+      // select all if none are selected
       $rootScope.categories.forEach(function (category) {
         category.switch = true;
       });
@@ -167,25 +176,39 @@ app.controller('MainController', function (api, $cookies, $rootScope, $scope, $s
     $scope.questions = [];
     $scope.index = 0;
     $scope.currentQuestion = [];
+
     api.getQuestions(data).then(function (results) {
       results.data.questions.forEach(function (question) {
         $scope.questions.push(question);
       });
       $scope.currentQuestion = [$scope.questions[$scope.index]];
       storage.questions = $scope.questions;
+      $state.go('main');
     }).catch(function (err) {
       console.error('Error retreiving questions');
       console.log(err.errors);
     });
   };
 
+  $scope.sendMessage = function () {
+    $scope.messageSending = true;
+    api.sendMessage($scope.userMessage).then(function () {
+      $scope.messageSending = false;
+      $scope.messageSent = true;
+      $scope.userMessage = "";
+    }).catch(function (err) {
+      console.error('Error sending message');
+      console.log(err.errors);
+    });
+  };
+
   $scope.toggleShuffle = function () {
     if (!$rootScope.isShuffled) {
-      $scope.unshuffledQuestions = angular.copy($scope.questions);
+      storage.unshuffledQuestions = angular.copy($scope.questions);
       shuffle($scope.questions);
       $rootScope.isShuffled = true;
     } else {
-      $scope.questions = $scope.unshuffledQuestions;
+      $scope.questions = storage.unshuffledQuestions;
       $rootScope.isShuffled = false;
     }
     $scope.index = 0;
@@ -232,7 +255,6 @@ app.controller('QuestionsController', function (api, $cookies, $rootScope, $scop
   };
 
   $scope.toggleDrawers = function () {
-    console.log($scope.content);
     $scope.isClosed = !$scope.isClosed;
     for (var key in $scope.content) {
       if (!$scope.isClosed) {

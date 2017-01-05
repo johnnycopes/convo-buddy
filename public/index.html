@@ -14,7 +14,7 @@
 </head>
 
 <body ng-class="{'hide-scrollbar': $rootScope.catModal || $rootScope.witModal}">
-    <div class="page" ng-class="{'bg-img': pageClass === 'main'}">
+    <div class="page" ng-cloak ng-class="{'bg-img': pageClass === 'main'}">
         <header>
             <div class="vert-center portion">
                 <div>
@@ -51,7 +51,7 @@
             </div>
         </div>
 
-        <div ng-controller="CategoriesController" class="modal slide-down cat-modal hor-center" ng-show="$rootScope.catModal" ng-class="{'hide-scrollbar': !$rootScope.catModal}">
+        <div ng-cloak ng-controller="CategoriesController" class="modal slide-down cat-modal hor-center" ng-show="$rootScope.catModal" ng-class="{'hide-scrollbar': !$rootScope.catModal}">
             <div class="modal-links right-btn">
                 <a class="btn-success" ng-click="$rootScope.catModal = false; search(); sayHey()">search</a>
                 <a class="btn-secondary" ng-click="$rootScope.catModal = false; closeCatModal()">close</a>
@@ -77,7 +77,7 @@
     <script src="angular-animate/angular-animate.min.js" charset="utf-8"></script>
     <script src="angular-cookies/angular-cookies.min.js" charset="utf-8"></script>
     <script src="angular-touch/angular-touch.min.js" charset="utf-8"></script>
-    <script src="js/app-uncompiled.js" charset="utf-8"></script>
+    <script src="js/app.js" charset="utf-8"></script>
 </body>
 
 </html>
