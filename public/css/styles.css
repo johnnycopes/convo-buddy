@@ -131,7 +131,7 @@ textarea:focus {
   width: 100%;
   max-width: 500px;
   position: relative;
-  height: 100%; }
+  height: 80%; }
   .convo-question h1, .convo-question h2 {
     position: absolute;
     transform: translate(-50%, -50%);
@@ -307,7 +307,10 @@ textarea:focus {
 
 @media screen and (orientation: landscape) {
   .convo-question {
-    height: 50%; } }
+    height: 40%; } }
+@media screen and (min-width: 380px) {
+  .convo-question {
+    height: 100%; } }
 @media screen and (min-width: 480px) and (min-height: 480px) {
   html {
     font-size: 95%; }
