@@ -417,7 +417,7 @@ textarea:focus {
 
 }
 
-@media screen and (min-width: 380px) {
+@media screen and (orientation: portrait) and (min-width: 380px) {
 
   .convo-question {
     height: 100%;
