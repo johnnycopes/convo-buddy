@@ -28,6 +28,12 @@
 .slide-up.ng-hide-remove {
   animation: 250ms slideInUp ease-in-out; }
 
+::selection {
+  background: #BD522E; }
+
+:focus {
+  outline: none; }
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -108,9 +114,6 @@ textarea {
 textarea:focus {
   outline: none;
   box-shadow: 0 0 5px #CACACA; }
-
-::selection {
-  background: #BD522E; }
 
 .container {
   width: 90%;

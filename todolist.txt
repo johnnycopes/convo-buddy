@@ -1,16 +1,4 @@
-TO-DO LIST
-
-- double-click to close questions tab on mobile
-- links pseudo-class styling
-- check what type of errors to send back
-
-
 APP FINALIZATION
-
-- ASK TOBES:
-is it necessary to send back JSON data on promises? is just the response object enough?
-do I even need to convert my server.js to ES5?
-some repetition in code (scope[index] stuff) ... is that ok?
 
 - check cross-browser/device functionality
 - make sure all questions are properly categorized

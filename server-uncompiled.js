@@ -52,7 +52,7 @@ app.get('/api/getQuestions', (req, res) => {
     })
     .catch((err) => {
       console.log('failed');
-      res.status('401').json({error: err.message})
+      res.status('400').json({error: err.message})
     });
 });
 
@@ -64,7 +64,7 @@ app.get('/api/getCategories', (req, res) => {
     })
     .catch((err) => {
       console.log('failed');
-      res.status('401').json({error: err.message})
+      res.status('400').json({error: err.message})
     });
 });
 
@@ -90,7 +90,7 @@ app.post('/api/sendMessage', (req, res) => {
       res.send('Message sent: ' + info.response);
     })
     .catch((err) => {
-      res.status('403').json({error: err.message})
+      res.status('500').json({error: err.message});
     });
 });
 

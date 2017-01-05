@@ -72,6 +72,17 @@ $modal-bg-color: rgba(255, 255, 255, 0.95);
 $font-stack: 'Rubik', sans-serif;
 
 
+// ====== PSEUDO-CLASSES ======
+
+::selection {
+  background: $secondary-color;
+}
+
+:focus {
+  outline: none;
+}
+
+
 // ====== TAGS ======
 
 * {
@@ -161,10 +172,6 @@ textarea:focus {
 
 
 // ====== GENERAL STYLES ======
-
-::selection {
-  background: $secondary-color;
-}
 
 .container {
   width: 90%;
@@ -277,6 +284,7 @@ textarea:focus {
   padding: 0.2rem 1rem;
   border: 2px solid white;
 }
+
 
 // Categories modal
 .cat-modal {

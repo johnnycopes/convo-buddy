@@ -25,13 +25,14 @@
         </div>
     </div>
     <div class="vert-center portion tac counter">
-        <div>
+        <div ng-show="questions.length >= 1">
             <h3>{{index + 1}} / {{questions.length}}</h3>
             <a ng-click="toggleShuffle()">
                 <span ng-hide="isShuffled">unshuffled</span>
                 <span ng-show="isShuffled">shuffled</span>
             </a>
         </div>
+        <span ng-hide="questions.length >= 1">loading...</span>
     </div>
     <div class="vert-center portion tar">
         <div>
@@ -47,8 +48,8 @@
         <h3>Help us improve Convo Buddy!</h3>
         <p>If you know a good question you'd like to see included in this app or have any feedback, we'd love to hear it.</p>
         <form ng-submit="sendMessage()">
-            <textarea autofocus rows="8" ng-model="userMessage" placeholder="Write stuff in this box"></textarea>
-            <button ng-hide="messageSending || messageSent" class="btn-form btn-success" type="submit" ng-click="messageSending = true">send</button>
+            <textarea autofocus required rows="8" ng-model="userMessage" placeholder="Write stuff in this box"></textarea>
+            <button ng-hide="messageSending || messageSent" class="btn-form btn-success" type="submit">send</button>
             <p class="no-margin" ng-show="messageSending">sending message...</p>
             <p class="no-margin" ng-show="messageSent">message sent!</p>
         </form>

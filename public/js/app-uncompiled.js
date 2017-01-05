@@ -203,6 +203,7 @@ app.controller('MainController', function(api, $cookies, $rootScope, $scope, $st
   };
 
   $scope.sendMessage = function() {
+    $scope.messageSending = true;
     api.sendMessage($scope.userMessage)
       .then(() => {
         $scope.messageSending = false;
