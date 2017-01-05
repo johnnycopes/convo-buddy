@@ -132,13 +132,15 @@ textarea:focus {
   max-width: 500px;
   position: relative;
   height: 100%; }
-  .convo-question h1 {
+  .convo-question h1, .convo-question h2 {
     position: absolute;
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
     top: 45%;
     width: 100%; }
+  .convo-question h1 {
+    display: none; }
 
 .question-btns {
   width: 100%; }
@@ -329,7 +331,12 @@ textarea:focus {
     padding: 0.4rem 1rem; }
 
   .modal-links a {
-    padding: 0.4rem 2rem; } }
+    padding: 0.4rem 2rem; }
+
+  .convo-question h2 {
+    display: none; }
+  .convo-question h1 {
+    display: block; } }
 @media screen and (min-width: 480px) and (min-height: 650px) {
   .wit-modal,
   .saq-modal {
@@ -356,7 +363,7 @@ textarea:focus {
   footer .portion {
     flex-basis: 33.33%; }
 
-  .mobile {
+  .small {
     display: none; }
 
   .counter {

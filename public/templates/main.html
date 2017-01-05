@@ -1,12 +1,13 @@
 <main class="vert-center hor-center" ng-swipe-left="changeQuestion('next')" ng-swipe-right="changeQuestion('prev')" ng-swipe-disable-mouse>
     <div class="convo-question">
         <h1 ng-repeat="question in currentQuestion" class="fast-fade tac">{{question.text}}</h1>
+        <h2 ng-repeat="question in currentQuestion" class="fast-fade tac">{{question.text}}</h2>
     </div>
     <div class="question-btns tac cf">
         <button class="prev-btn fl" ng-click="changeQuestion('prev')">
             <img src="img/left_arrow.svg" alt="left arrow">
         </button>
-        <div ng-cloak class="mobile ib">
+        <div ng-cloak class="small ib">
             <h3>{{index + 1}} / {{questions.length}}</h3>
             <a ng-click="toggleShuffle()">
                 <span ng-hide="isShuffled">unshuffled</span>
