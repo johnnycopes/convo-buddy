@@ -305,12 +305,12 @@ textarea:focus {
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important; }
 
-@media screen and (orientation: landscape) {
-  .convo-question {
-    height: 40%; } }
 @media screen and (orientation: portrait) and (min-width: 380px) {
   .convo-question {
     height: 100%; } }
+@media screen and (orientation: landscape) {
+  .convo-question {
+    height: 40%; } }
 @media screen and (min-width: 480px) and (min-height: 480px) {
   html {
     font-size: 95%; }
