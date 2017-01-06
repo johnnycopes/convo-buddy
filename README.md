@@ -26,13 +26,13 @@ Convo Buddy is a free tool that helps ESL teachers get the conversation started.
 
 
 ## MVP (Minimum Viable Product):
-My priority was to create a tool that ESL teachers would genuinely find helpful and, hopefully, want to use. Therefore, my priority in this project was a clean and straightforward tool that would work well across devices and browsers.
+My priority was to create a tool that ESL teachers would genuinely find useful. Thus, my priority in this project was a straightforward, polished product that would work well across all modern devices and browsers.
 
 **Initial MVP**
-* Individual display of questions from database and ability to go back, advance, and shuffle the current collection
-* View for all questions included in the app, organized by category
-* Ability for users to send in their own questions if they want to contribute
 * Robust application that looks and functions consistently across all devices and browsers (tested for real-world use)
+* Individual display of questions and ability to go back, advance, and shuffle the current collection
+* View for all of the available questions, organized by category
+* Ability for users to send in their own questions if they want to contribute
 
 **Stretch Goals**
 * Ability for users to create an account, log in, and modify questions and categories however they pleased. Changes would be visible while they were logged in and revert to the standard after logging out
@@ -83,3 +83,25 @@ Below are some of the most notable challenges I came across while making this pr
 ![Phone](public/img/screenshots/mobile.png)
 
 ********
+
+#Contribute to Convo Buddy
+
+##Desired Contributions:
+First and foremost are additional questions that would be useful in the classroom! GitHub developers, I know that some of you have come to this wonderful field from other careers; if there are any former (or current) ESL teachers who know some questions that will spark a lively debate, I encourage you to submit them! Otherwise, it would be fantastic to get started on the aforementioned stretch goals:
+
+* User upload of product images
+* Advanced text-editor for new reviews
+* Community evaluation of a review through a voting system
+* Assigning a reputation to a reviewer based on the scores of their posted reviews
+* Nerd-tastic improvements to our UI
+
+##Contributing
+1. Fork it
+2. Create a new feature branch (named after your intended feature): `git checkout -b new-feature-name`
+3. Commit your changes: `git commit -am 'Added the feature!'`
+4. Push to your feature branch: `git push origin new-feature-name`
+5. Submit a pull request!
+
+##Project History
+01/05/2017 - Project Completion and Deployment  
+12/19/2016 - Project Start
