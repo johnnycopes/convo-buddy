@@ -154,7 +154,6 @@ a {
   text-decoration: none;
   cursor: pointer;
   color: $font-color;
-  line-height: 2;
 }
 
 textarea {
@@ -180,6 +179,10 @@ textarea:focus {
   position: relative;
 }
 
+.questions-categories a {
+  line-height: 2;
+}
+
 
 // --- MAIN PAGE ---
 
@@ -187,7 +190,6 @@ textarea:focus {
   font-weight: 500;
   padding: 0.4rem 1rem;
   color: $action-color;
-  line-height: 1;
 }
 
 .convo-question {
@@ -260,7 +262,6 @@ textarea:focus {
 }
 
 .emph-link {
-  line-height: 1.5;
   color: $primary-color;
 }
 

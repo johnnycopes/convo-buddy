@@ -48,30 +48,107 @@ Below are some of the most notable challenges I came across while making this pr
     In the schema, both the categories and the questions include 'userId' and 'parentId' fields. The idea is that if a user were logged in and wanted to modify one, a copy would be created and linked to both the user and the original version. From that point forward, the user would see their modified version of that category or question instead of the original, and it could later be modified again or deleted. Essentially, the user would have a personalized overlay of questions and categories that would sit on top of the default selection.
 
 2.  **Challenge:**
+    Maintaining the state the searched questions and the currently selected question between state changes.
 
     **Solution:**
+    I ended up using an Angular service to store the questions array and the current index of the array. This opened up space in my controller and adheres to Angular best practices by avoiding relying on its global scope ($rootScope) to hold on to data.
 
 3.  **Challenge:**
+    Having the categories menu display the categories that are included in the current search as selected, regardless of state change or if the user makes modifications and closes the menu without searching.
 
     **Solution:**
+    The architecture of the questions and categories in my app involves a lot of nested objects. At first, I tried to simply make a new variable that referenced the categories, but then I realized that objects in JavaScript reference by value (meaning that my created variable was pointing at the same set of objects that were being modified, thus modifying the new variable). My solution was to utilize Angular's 'deep copy' method to take a snapshot of the object when the categories menu was opened and then use that if I needed to restore the original state later on.
 
 4. **Challenge:**
+    Implementing the fade animation on the individual question when going forwards or backwards.
 
     **Solution:**
-
+    This was tricky because the way the app is set up, the searched questions are all put into a big array and then rendered on the screen one at a time. Unfortunately, cycling through the contents of an array that way isn't animatable (at least in Angular), so what I had to find a way to render the questions that was. My solution was to create a separate array exclusively for the currently displayed question and animate its entrance and exit instead.
 
 ## Code Snippets
 
-(description):
+Mongoose schema for categories and questions:
 ```JavaScript
+const categorySchema = new mongoose.Schema({
+  name: String,
+  userId: String, // if the category is modified, attach this userId to this field
+  parentId: String // if the category is modified, attach this category's objectId to this field
+});
+const questionSchema = new mongoose.Schema({
+  text: String,
+  categories: [{
+    name: String,
+    _id: mongoose.Schema.Types.ObjectId
+  }],
+  userId: String, // if the question is modified, attach this userId to this field
+  parentId: String, // if the question is modified, attach this question's objectId to this field
+  isLiked: Boolean // only possible to change value if userId isn't 'null'
+});
 ```
 
-(description):
+Search by category functionality:
 ```JavaScript
+$rootScope.search = function () {
+  $rootScope.selectedCategories = angular.copy($rootScope.categories);
+  var allCategories = [];
+  var selectedCategories = [];
+  var data = {};
+  $rootScope.isShuffled = false;
+
+  $rootScope.categories.forEach(function (category) {
+    if (category.switch) {
+      selectedCategories.push(category.name);
+    }
+    allCategories.push(category.name);
+  });
+  if (!selectedCategories.length) {
+    // select all if none are selected
+    $rootScope.categories.forEach(function (category) {
+      category.switch = true;
+    });
+    selectedCategories = allCategories;
+  }
+  data.categories = selectedCategories;
+  $scope.questions = [];
+  $scope.index = 0;
+  $scope.currentQuestion = [];
+
+  api.getQuestions(data).then(function (results) {
+    results.data.questions.forEach(function (question) {
+      $scope.questions.push(question);
+    });
+    $scope.currentQuestion = [$scope.questions[$scope.index]];
+    storage.questions = $scope.questions;
+    $state.go('main');
+  }).catch(function (err) {
+    console.error('Error retreiving questions');
+    console.log(err.errors);
+  });
+};
 ```
 
-(description):
+Grab the requested questions from the database:
 ``` JavaScript
+app.get('/api/getQuestions', (req, res) => {
+  let query = {};
+  let data = req.query;
+  if (data.categories) {
+    data.categories = JSON.parse(data.categories);
+    query = {
+      'categories.name': {
+        $in: data.categories
+      }
+    };
+  }
+  Question.find(query).sort({ 'categories.name': 1 })
+    .then((questions) => {
+      res.json({questions});
+    })
+    .catch((err) => {
+      console.log('failed');
+      res.status('400').json({error: err.message})
+    });
+});
 ```
 
 ## Screenshots
@@ -87,13 +164,7 @@ Below are some of the most notable challenges I came across while making this pr
 #Contribute to Convo Buddy
 
 ##Desired Contributions:
-First and foremost are additional questions that would be useful in the classroom! GitHub developers, I know that some of you have come to this wonderful field from other careers; if there are any former (or current) ESL teachers who know some questions that will spark a lively debate, I encourage you to submit them! Otherwise, it would be fantastic to get started on the aforementioned stretch goals:
-
-* User upload of product images
-* Advanced text-editor for new reviews
-* Community evaluation of a review through a voting system
-* Assigning a reputation to a reviewer based on the scores of their posted reviews
-* Nerd-tastic improvements to our UI
+First and foremost, send in additional questions that would be useful in the classroom! GitHub developers, I know that some of you have come to this wonderful field from other careers; if there are any former (or current) ESL teachers who know some questions that will spark a lively debate, I encourage you to submit them. Otherwise, implementing the user accounts and even sleeker UI are next on the list.
 
 ##Contributing
 1. Fork it
