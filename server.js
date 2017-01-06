@@ -10,8 +10,6 @@ const schema = require('./schema');
 const bluebird = require('bluebird');
 const nodemailer = require('nodemailer')
 const app = express();
-// const bcrypt = require('bcrypt');
-// const uuid = require('uuid');
 
 // DB aliases (from schema.js)
 const ObjectId = mongoose.mongo.ObjectId;

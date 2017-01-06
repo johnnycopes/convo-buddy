@@ -226,7 +226,6 @@ app.controller('QuestionsController', function (api, $cookies, $rootScope, $scop
   $scope.content = {};
   $scope.isClosed = true;
 
-  // combine these two using bluebird
   api.getCategories().then(function (results) {
     results.data.categories.forEach(function (category) {
       var categoryName = category.name;

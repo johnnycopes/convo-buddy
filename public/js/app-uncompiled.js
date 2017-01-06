@@ -240,7 +240,6 @@ app.controller('QuestionsController', function(api, $cookies, $rootScope, $scope
   $scope.content = {};
   $scope.isClosed = true;
 
-  // combine these two using bluebird
   api.getCategories()
     .then((results) => {
       results.data.categories.forEach((category) => {
