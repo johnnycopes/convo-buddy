@@ -126,7 +126,8 @@ textarea:focus {
 .logo h2 {
   font-weight: 500;
   padding: 0.4rem 1rem;
-  color: #F2D3A1; }
+  color: #F2D3A1;
+  line-height: 1; }
 
 .convo-question {
   width: 100%;
