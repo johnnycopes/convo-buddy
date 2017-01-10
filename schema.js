@@ -41,8 +41,6 @@ exports.Token = mongoose.model('Token', tokenSchema);
 
 
 
-
-
 // Dummy data setup
 // =====================
 
@@ -57,6 +55,91 @@ exports.Token = mongoose.model('Token', tokenSchema);
 //   categories: [{
 //     name: 'controversial',
 //     _id: ObjectId("585b259ae4177fee1ace63db")
+// }],
+//   numLikes: 0,
+//   userId: null, // if the question is modified, attach this userId to this field
+//   parentId: null, // if the question is modified, attach this question's objectId to this field
+//   isLiked: false
+// })
+//   .then((results) => {
+//     console.log('success');
+//     console.log(results);
+//   })
+//   .catch((err) => {
+//     console.log('error');
+//     console.log(err.message);
+//     console.log(err.errors);
+//   });
+
+// Question.create({
+//   text: 'What would constitute a "perfect" day for you?',
+//   categories: [{
+//     name: 'opinions',
+//     _id: ObjectId("5869a0e6516fd7476a6927d4")
+// }],
+//   numLikes: 0,
+//   userId: null, // if the question is modified, attach this userId to this field
+//   parentId: null, // if the question is modified, attach this question's objectId to this field
+//   isLiked: false
+// })
+//   .then((results) => {
+//     console.log('success');
+//     console.log(results);
+//   })
+//   .catch((err) => {
+//     console.log('error');
+//     console.log(err.message);
+//     console.log(err.errors);
+//   });
+
+
+// Question.create({
+//   text: 'What is your proudest moment?',
+//   categories: [{
+//     name: 'personal experience',
+//     _id: ObjectId("58699ece3ec2b546bc1feb89")
+// }],
+//   numLikes: 0,
+//   userId: null, // if the question is modified, attach this userId to this field
+//   parentId: null, // if the question is modified, attach this question's objectId to this field
+//   isLiked: false
+// })
+//   .then((results) => {
+//     console.log('success');
+//     console.log(results);
+//   })
+//   .catch((err) => {
+//     console.log('error');
+//     console.log(err.message);
+//     console.log(err.errors);
+//   });
+
+// Question.create({
+//   text: 'Have you ever met anyone famous?',
+//   categories: [{
+//     name: 'have you ever',
+//     _id: ObjectId("586ad0a2fd9bec0cb393f0d2")
+// }],
+//   numLikes: 0,
+//   userId: null, // if the question is modified, attach this userId to this field
+//   parentId: null, // if the question is modified, attach this question's objectId to this field
+//   isLiked: false
+// })
+//   .then((results) => {
+//     console.log('success');
+//     console.log(results);
+//   })
+//   .catch((err) => {
+//     console.log('error');
+//     console.log(err.message);
+//     console.log(err.errors);
+//   });
+
+// Question.create({
+//   text: '',
+//   categories: [{
+//     name: 'future tense',
+//     _id: ObjectId("585837d0e247fe9e25b8180a")
 // }],
 //   numLikes: 0,
 //   userId: null, // if the question is modified, attach this userId to this field
@@ -89,27 +172,20 @@ exports.Token = mongoose.model('Token', tokenSchema);
 //     console.log(err.message);
 //   });
 
+
 // 2) get all questions from a specific category
 
-// let category = 'past tense';
-// Question.find({
-//     $and: [
-//         { 'categories.name': 'future tense' },
-//         { 'categories.name': 'hypothetical' }
-//     ]
-// })
-//   .then((results) => {
-//     console.log('found questions from one category');
-//     console.log(results);
+// Question.find( { categories:  {$elemMatch: { name: 'past simple'} } }  )
+//   .then((questions) => {
+//     console.log(questions);
 //   })
 //   .catch((err) => {
-//     console.log('failed');
-//     console.log(err.message);
+//     console.log(err);
 //   });
+
 
 // 3) get all questions from multiple categories
 
-// let category = 'past tense';
 // Question.find({
 //     $and: [
 //         { 'categories.name': 'future tense' },
@@ -124,3 +200,49 @@ exports.Token = mongoose.model('Token', tokenSchema);
 //     console.log('failed');
 //     console.log(err.message);
 //   });
+
+
+// 4) Modify a field in the db with Mongoose (doesn't work, but close)
+
+// let updateQuery = { categories:  {$elemMatch: { name: 'past simple'} } };
+// let updateUpdate = { $set: { categories: { name: 'past tense'} } };
+
+// let updateUpdate = { $set: {'categories': [
+//   {
+//     name: 'past tense',
+//     _id: ObjectId("585838055164359e2b57cf66"),
+//     userId: null,
+//     parentId: null
+//   }
+// ]}
+// };
+
+// Question.update(updateQuery, updateUpdate)
+//   .then((questions) => {
+//     console.log(questions);
+//     console.log('hey');
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
+
+
+// {
+//     "_id" : ObjectId("585838055164359e2b57cf66"),
+//     "name" : "past tense"
+// }
+//
+// {
+//     "name" : "present tense",
+//     "_id" : ObjectId("586adbc9aebb190eb4f48867")
+// }
+//
+// {
+//     name: 'opinions',
+//      _id: ObjectId("5869a0e6516fd7476a6927d4")
+//  }
+//
+// {
+//      name: 'future tense',
+//      _id: ObjectId("585837d0e247fe9e25b8180a")
+//  }

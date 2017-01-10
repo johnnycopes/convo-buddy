@@ -22,7 +22,7 @@ mongoose.Promise = bluebird;
 mongoose.connect('mongodb://localhost/convo_buddy');
 
 // While true, prints out every command sent to db in MongoDB format
-mongoose.set('debug', true);
+// mongoose.set('debug', true);
 
 app.use(express.static('public'));
 app.use(express.static('node_modules'));
@@ -91,35 +91,6 @@ app.post('/api/sendMessage', (req, res) => {
       res.status('500').json({error: err.message});
     });
 });
-
-
-// Category.create({
-//   name: 'present simple',
-//   userId: null, // if the category is modified, attach this userId to this field
-//   parentId: null // if the category is modified, attach this category's objectId to this field
-// });
-
-// Question.create({
-//   text: 'What are some of your predictions for this year?',
-//   categories: [{
-//     name: 'personal experience',
-//     _id: ObjectId("58699ece3ec2b546bc1feb89")
-// }],
-//   numLikes: 0,
-//   userId: null, // if the question is modified, attach this userId to this field
-//   parentId: null, // if the question is modified, attach this question's objectId to this field
-//   isLiked: false
-// })
-//   .then((results) => {
-//     console.log('success');
-//     console.log(results);
-//   })
-//   .catch((err) => {
-//     console.log('error');
-//     console.log(err.message);
-//     console.log(err.errors);
-//   });
-
 
 
 app.listen(3001, function() {
